@@ -68,6 +68,8 @@ This is what we must avoid.  We want parallelised development and short cycles.
 
 Technical Debt consist of being stuck with dependencies on archaic old systems.
 
+.
+
 This can happen for a host of reasons, sometimes through no fault of one's own.
 
 Bugs happen, APIs change, trends fall out of fad, we cut corners for expediency.
@@ -150,6 +152,8 @@ We adhere to Agile Development, Extreme Programming (XP), Lean development, etc.
 
 The Cloud-Ops and Dev-Ops revolution is based on Infrastructure-as-Code (IaC).
 
+.
+
 The idea is to provide a predictable, prescriptive way to deploy entire systems,
 
 starting with cloud infrastructure, to service cluster, deployment environments,
@@ -159,7 +163,7 @@ all the way to binary distributions, dependency libraries, bundled applications
 and software configurations - in short everything necessary to get it all running.
 
   
-
+.
 
 ## Source
 
@@ -167,7 +171,7 @@ To the maximum possible, everything is source code.  We commit not just actual
 
 application code, but the entire gamut of tools needed to get it on production.
 
-
+.
 
 This includes configuration and scripts needed to build the clusters and clouds,
 
@@ -177,11 +181,11 @@ access control lists, tool chains, configurations to build and test applications
 
 any build and test automation settings, and any deployment and monitoring tools.
 
-
+.
 
 Everything should be accessible in an SCM / VCS.
 
-
+.
 
 Not all SCM are equal: modern hash-based ones produce nigh-perfect auto-merges.
 
@@ -189,7 +193,7 @@ As agile code relies on frequent fast iterative changes, we need to merge a lot.
 
 Thus the modern factory uses Git as SCM (though Mercurial/HG would do as well).
 
-
+.
 
 There is a steep learning curve to Git, but we can stick to vanilla patterns.
 
@@ -203,6 +207,7 @@ The days of 80-char consoles are long-gone; modern IDEs have wide displays and
 
 have tools to visually grok code, ex via syntax highlighting to method roll-ups.
 
+.
 
 We no longer have to accomodate saving vertical and horizontal space, and modern
 
@@ -210,6 +215,7 @@ code is so complex that what is needed is to maximize not the number of lines,
 
 but rather the structure of code, and quickly locate key areas of interest.
 
+.
 
 Code Agility is all about clarity, facilitating refactors, and reducing errors.
 
@@ -223,6 +229,7 @@ Code that is quickly grokked produces fewer bugs and is easier to maintain.
 
 The structure and order of the code should be a form of self-documentation.
 
+.
 
 Refactoring should be encouraged to achieve well-recognised design patterns.
 
@@ -232,6 +239,7 @@ One key strategy is to push Stub and Mock implementations as early as possible.
 
 This then becomes a locus by which developers collaborate to refine the design.
 
+.
 
 ## Standards
 
@@ -262,13 +270,13 @@ _TODO_
 
 Where possible we use IDE hooks to autoformat code and standardise code order.
 
-
+.
 
 Firstly this strips away petty cosmetic diffs, allowing coders to focus on logic.
 
 Secondly some styles reduce merge errors, notably on merged nested expressions.
 
-
+.
 
 For this reason, we favour the GNU style, failing this the Allman style (BSD).
 
@@ -388,12 +396,13 @@ Also, a text-based wiki is indexed and facilitates elastic multi-document search
 
 In DevOps, everything happens via the build factory, which automates the whole thing.
 
+.
 
 Typically an automation factory will have a combination of prescriptive configurations
 
 and automation pipelines to build, test, and deploy and provision complete systems.
 
-
+.
 
 A long time agao app builds used programmatic dark magic known only by build masters,
 
@@ -403,7 +412,7 @@ A new developer had to spend countless hours trying to learn how to build and de
 
 At every new outfit, one had to reinvent the wheel, and rewrite the same build chain.
 
-
+.
 
 Apache Maven pioneered prescriptive building, where builds followed preset patterns.
 
@@ -413,7 +422,7 @@ Succinctly, One no longer has to tell it **how** to build, rather **what** to bu
 
 A new Developer need only know the generic Maven plugin invocation and configuration.
 
-
+.
 
 This greatly reduces adoption time and increases build integration and portability.
 
@@ -425,10 +434,11 @@ together to allow automated integration testing, configuration, and even deploym
 
 ## Access-Control
 
-a secure-vault using a unix password-store is used for storing secrets.
+A secure-vault using a unix password-store is used for storing secrets.
 
 the secrets-vault is backed by SSL certs, SSH keys, and a GPG keyring.
 
+.
 
 ## Source Code
 
@@ -448,7 +458,7 @@ Continuous Integration, Continuous Deployment/Delivery and Continuous Testing
 
 is done by the factory using jobs, triggers, and an agile assisted release cycle.
 
-
+.
 
 Whenever a developer commits and pushes code to a repository, the build factory 
 
@@ -458,13 +468,13 @@ In doing so it runs automated tests to validate the build, and if successful
 
 then tags and pushes the latest version for testing.
 
-
+.
 
 There may deep Integration-Tests to test the app against dependent applications.
 
 If a deployment pipeline is used, the app si then automatically deployed live.
 
-
+.
 
 Finally a suite of automated tests can be started against the deployed version,
 
@@ -477,13 +487,13 @@ The build factory simplified automation through a prescriptive standardised inte
 
 but as it integrated more and more diverse languages and stacks it was found wanting.
 
-
+.
 
 Some stacks are exotic, all environments are boutique, and many have legacy systems.
 
 Often there is no integration plugin for a specific framework or custom tool-chain.
 
-
+.
 
 Pipelines, in a way are a return to the past, they bring back programmatic scripting.
 
@@ -491,7 +501,7 @@ They complement prescription, filling the gaps where standard plugin confguratio
 
 alone cannot fully automate the process. 
 
-
+.
 
 In an ideal world, everything is generic, prescriptive, standardised, via plugins.
 
@@ -508,6 +518,7 @@ There are different theories on what constitutes a Deployment Environment.
 
 We have chosen a pattern that works for fast agile CI/CD/CT deployments.
 
+.
 
 In our system, an Environment represents a product life-cyle **maturity**.
 
@@ -515,7 +526,7 @@ That is, it represents a well-known stage for a particular feature-set.
 
 This is where the Agile Factory differs from more traditional modes.
 
-
+.
 
 Whereas some people use Environments for sharded business domains, we do not.
 
@@ -571,6 +582,7 @@ Crucially always sorting these helps to avoid confusion and reduces risk.
 
 BLD or Build is a mock environment used for local developer machines.
 
+.
 
 The DEV environment is for continuous Development build snapshots.
 
@@ -580,7 +592,7 @@ DEV is unstable, it is in flux and can break, features may be stubbed.
 
 DEV makes no promise on module feature-set completion or consistency.
 
-
+.
 
 By contrast, INT or Integration holds functional feature milestones.
 
@@ -588,27 +600,33 @@ Those bits that are not stubbed should be integrated and functional.
 
 This is where we run integration fitting-tests and deeper scenarios.
 
-
+.
 
 MNT or maintenance is what we call our UAT or our Staging environment.
 
+.
 
 It deploys staging candidate versions for pre-prod acceptance tests.
 
 Maintenance should be nigh iso-prod, save that it will not autoscale.
 
+.
 
 It can also be used as a standby or Disaster and Recovery environment, 
 
 for migration testing, for functional A|B testing or canary testing.
 
+.
 
 PRD or Production is our final live production release environment.
 
 Production in normal situations mirrors MNT, but with autoscaling.
 
+.
 
 TMP is an optional ad-hoc Temporary or Ephemeral volatile environment,
+
+.
 
 which can be used for to handlle burst load, to isolate specific shards
 
@@ -731,12 +749,13 @@ Over the years many config management gurus have proposed standardisations.
 
 Our experience has been to champion a simplified process based on lifecycle.
 
+.
 
 Modern versionining uses version triplets and an optional text qualifier.
 
 Qualifiers are often a source of great confusion as there is no standard.
 
-
+.
 
 A cursory look at OSGI versioning quickly shows how chaotic it can be.
 
@@ -748,6 +767,7 @@ Some use them for artifact type, others for OS, machine, and platform.
 OSGI has added to the confusion by endorsing a medley of maturity types.
 
 These are long or short and follow no clear maturity lifecycle sort order.
+
 
 Sample OSGI versions:
 
@@ -768,25 +788,33 @@ Sample OSGI versions:
 
 Let us rationalise this a bit.
 
+Succinctly, these should sort naturally with latest unnstable versions last.
+
+.
+
 The artifact file name and type should describe the type of the artifact.
 
 Platform-specific variants go with the name as a prefix to the qualifier.
 
+.
 
 We want to standardise these maturities in order to automate CI/CD/CT.
 
 The qualifier must always end with the maturity and the version triplet.
 
+.
 
 The reasoning is this: we want to select the version numbers on a fuzzy basis.
 
 That is, we want a V2 to be a shorthand for say, v2.0, v2.0.0, and v2-latest.
 
+.
 
 When we do a quick version rollout, we won't be changing the os platform.
 
 What we will want to do is quickly switchfrom the old to the new version.
 
+.
 
 We want to put the maturity and version number in a predictable known place.
 
@@ -977,26 +1005,34 @@ In java this is provided via Maven, Mockito, Junit, RestAssured / HamCRest.
 
  _in .Net: perhaps a combination of MsBuild, Moq, NUnit, ResAssureDotNet ?_
 
+.
 
 Crucially, in CI/CD/CT, we want automated Continuous Testing and validation.
 
 Different test gamuts are triggered automatically in different environments.
 
-
+.
 
 Local and developer tests use mocks and pretend they are connected to services.
 
 Development unit tests should be short, non-blocking, triggered every check-in.
 
+.
+
 Integration tests connect to real dockerised services and cover entire features.
 
 These are triggered less frequently, at feature integration, ie daily or weekly.
+
+.
 
 Scenario Tests test complete workflows and trace use-cases in the vertical stack.
 
 Performance Tests and Regression Tests run in Maintenance or Staging Laboratory.
 
+.
+
 Finally Production Smoke Tests are instant, non-invasive monitoring healthchecks.
+
 
 ```text
    
@@ -1049,6 +1085,7 @@ As much as possible, apps should support a vertical Diagnostic Trace Context.
 
 In CI/CD/CT, we want log category names to group tests by default environment.
 
+.
 
 SLF4J and SLF4Net are not only Logging Frameworks but also unified Logging Facades,
 
@@ -1058,6 +1095,7 @@ Linking with these wrappers or bridges means we can unify and intercept all logs
 
 That is, even logs and traces written by 3rd party APIs can now be intercepted.
 
+.
 
 We strongly recommend SLF4J (and logback) and SLF4Net
 
@@ -1149,29 +1187,31 @@ _TODO_ investigate provisionning dev boxes using Vagrant (or Chef, Puppet, etc).
 
 In the past Building software and configuration management was a black-art.
 
+.
+
 Build systems required a level of mastery usually relying on a build-master
 
 who knew the intricacaies of the dependencies and wrote the build scripts,
 
 that is all the arcane incantations required to produce consistent builds. 
 
-
+.
 
 This is what we aim to avoid. We want to rule out any artisanal custom builds.
 
 Rather we want to use a prescriptive build, where we tell it *what* to build,
 
-not *how* to build, and the build system rely on a dependency management engine
+not *how* to build, the build system relies on a dependency management engine
 
 to resolve dependencies and compile and link the code.
 
-
+.
 
 In the java world, this prescriptive build framework is built around Maven.
 
+.
 
-
-We want a similar framework for .NET.
+We want a similar framework for .NET (we need to augment MsBuild and NuGet).
 
 
 ## Dependency Manager
