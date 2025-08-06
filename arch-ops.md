@@ -1493,7 +1493,7 @@ Orchestration Cluster
 
     - azure cloud 
     - aws cloud
-    - cso 
+    - NET (on-premise) 
 
 Environment Spaces
 
@@ -1545,8 +1545,9 @@ We have sqlserver databases, with code (raw .sql) and schema data (.xml).
 
 # source code
 
-    a separate git for CSO technical development 
-    (separate from CSO functional statistics git)
+    a separate git for NET technical development 
+    
+    (separate from NET functional applications git)
 
         AD (pull org units / users)
 
