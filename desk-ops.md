@@ -84,11 +84,11 @@ in order to attempt to configure the entire tool stack at once.
 ```
 
 
-##  6.  Dot.NET core
+##  6.  Dot.NET SDK
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
-* install the .NET SDK to develop .NET apps
+* install the .NET core SDK
 
 ```shell  
   winget install Microsoft.DotNet.SDK.9
@@ -97,7 +97,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
   
 ##  7.  ASP.NET core
 
-* install the ASP.NET core runtime to run ASP.NET webapps
+* install the ASP.NET core runtime
 
 ```shell  
   winget install Microsoft.DotNet.AspNetCore.9
@@ -130,11 +130,94 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  10.  Apache Maven
 
-* (non-developers): install install the JRE
+* install Maven
 
 ```shell
   # see https://community.chocolatey.org/packages/maven
 
   choco install maven
 ```
+
+
+##  11.  Eclipse IDE
+
+* install Eclipse IDE
+
+```shell
+  # see https://community.chocolatey.org/packages/eclipse-java-oxygen
+  
+  choco install eclipse-java-oxygen
+```
+
+
+##  12.  Docker Desktop
+
+* install Docker Desktop
+
+```shell
+  # see https://community.chocolatey.org/packages/docker-desktop
+  
+  choco install docker-desktop
+```
+
+
+##  13.  Kubernetes Cluster (Minikube)
+
+* install Minikube Cluster
+
+```shell
+  # see https://community.chocolatey.org/packages/Minikube
+  
+  choco install minikube
+```
+
+
+##  14.  Kubernetes Helm (Navigator)
+
+* install Kubernetes Helm (Navigator)
+
+```shell
+  # see https://community.chocolatey.org/packages/kubernetes-helm
+  
+  choco install kubernetes-helm
+```
+
+
+##  15.  Kubernetes Operations (Kops)
+
+* install Kubernetes Operations (Kops)
+
+```shell
+  # see https://community.chocolatey.org/packages/kubernetes-kops
+  
+  choco install kubernetes-kops
+```
+
+
+##  16.  Terraform Cloud-Former
+
+* install Terraform
+
+```shell
+  # see https://community.chocolatey.org/packages/terraform
+  
+  choco install terraform --pre
+```
+
+
+##  17.  stream processors (JSON, YAML, XML)
+
+* install stream processors (JQ, YQ, XQ)
+
+```shell
+  # see https://community.chocolatey.org/packages/jq
+  # see https://community.chocolatey.org/packages/yq
+
+  choco install jq
+  choco install yq
+```
+
+
+
+
 
