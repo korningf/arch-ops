@@ -4,8 +4,10 @@
 
 
 
-
 # Dev Tools
+
+
+# Installation
 
 
 ##  0.  Admin on Desktop or Laptop
@@ -86,16 +88,10 @@ in order to attempt to configure the entire tool stack at once.
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
-* (developers): install the .NET SDK to develop .NET apps
+* install the .NET SDK to develop .NET apps
 
 ```shell  
-  winget install Microsoft.DotNet.SDK.8
-```
-
-* (all others): install the .NET runtime to run .NET apps
-  
-```shell  
-  winget install Microsoft.DotNet.SDK.8
+  winget install Microsoft.DotNet.SDK.9
 ```
 
   
@@ -104,6 +100,41 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 * install the ASP.NET core runtime to run ASP.NET webapps
 
 ```shell  
-  winget install Microsoft.DotNet.AspNetCore.8
+  winget install Microsoft.DotNet.AspNetCore.9
+```
+
+
+##  8.  VisualStudio Code
+
+_TODO_ (do we need VisualStudio, either Community or Licensed?)
+
+* install VSCode via winget 
+
+```shell
+  # see https://winget.ragerworks.com/package/Microsoft.VisualStudioCode
+
+  winget install --id=Microsoft.VisualStudioCode -e
+```
+
+
+##  9.  Java OpenJDK
+
+* install install the JDK
+
+```shell
+  # see https://community.chocolatey.org/packages/openjdk
+
+  choco install openjdk
+```
+
+
+##  10.  Apache Maven
+
+* (non-developers): install install the JRE
+
+```shell
+  # see https://community.chocolatey.org/packages/maven
+
+  choco install maven
 ```
 
