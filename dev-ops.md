@@ -920,7 +920,7 @@ That is a v-1.2.3 should always be fully compatible with a v-1.2.2.
 
 .
 
-The tull version number triplets, ie v-1.2.3 are explicit version numbers.
+The full version number triplets, ie v-1.2.3 are explicit version numbers.
 
 Fuzzy partial version numbers select for the latest implicit sub-version.
 
@@ -928,7 +928,9 @@ A version without a version triplet number refers to the latest maturity.
 
 ```text
 
-    v3-dev-latest         -> current latest development 
+    build-snapshot        -> current build snapshot
+
+    dev-latest            -> latest development 
 
     v-3-dev-latest        -> implicit v-3 dev-latest
 
