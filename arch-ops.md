@@ -9,11 +9,6 @@
 
 
 
-# Theory
-
-
-
-
 ## Arch-Ops
 
 These days the terms CloudOps (Cloud Operations), DevOps (Development Operations), 
@@ -40,29 +35,52 @@ In this document we will try to cover everything by splitting this vast domain.
 
 ```text
    arch
-      auth     accounts, access
-      storage
-      orgs     root organisations   
-      units    org units (org groups)
-      peers    
-      regions          
-      roles     
-      spaces    business domain partitions / shards
-      envs      runtime deployment environments
+      auth        account, landing zones      
+      stores      static storage
+      locales     regions, zones
+
+      orgs        root organisations   
+      units       org units (org groups)
+      roles       users, groups, roles, policies
+
+      projects    subscriptions          (cpi, govid, bom, bcm, rem, etc)
+      spaces      business partitions    (sbx, gov, dsp, pub)  
+      environs    runtime environments   (dev, int, mnt, prd)
 
    base
-      projects
+      resources   resource groups
+      services    service groups
 
-      groups (racks and placement groups)
-      stacks       
+      stacks      app stacks
+      racks       placement groups
+
       networks    vnets (vpc)
-      subnets     zones
-     
+      subnets     zones (azs)
+
+      relays      gateways
+      dmzs
 
    core
-      vnet
+      compute      serverless
+
+      compute      clustered
+
+      compute      standalone
+
+
   data
+      database     backend
+      database     clustered
+
+      middleware   queues, pubsub topics
+      pipelines    transformation pipeline
+
 ```
+
+
+# Theory
+
+
 
 ## Agile Architectures
 
@@ -778,358 +796,6 @@ Finally Production Smoke Tests are instant, non-invasive monitoring healthchecks
 
 
 
- 
-# Telemetry
-
-## Logging
-
-We use a Logging framework and a tracing framework, like SLF4J or SLF4Net.
-
-This allows us to define log categories for selective filtering and tracing.
-
-As much as possible, apps should support a vertical Diagnostic Trace Context.
-
-In CI/CD/CT, we want log category names to group tests by default environment.
-
-.
-
-SLF4J and SLF4Net are not only Logging Frameworks but also unified Logging Facades,
-
-That is they have wrappers which cover and impersonate all the mainstream loggers.
-
-Linking with these wrappers or bridges means we can unify and intercept all logs.
-
-That is, even logs and traces written by 3rd party APIs can now be intercepted.
-
-.
-
-We strongly recommend SLF4J (and logback) and SLF4Net
-
-    https://www.slf4j.org/manual.html
-
-    https://github.com/ef-labs/slf4net
-
-One could also use Log4J anbd Log4Net standalone
-
-    https://logging.apache.org/log4j/2.x/index.html
-
-    https://logging.apache.org/log4net/
-
-
-
-## Tracing
-
-Unified logging frammeworks like Log4J/SLF4J or Log4Net/SLF4Net changed everything.
-
-It is now possible to attach contextual medta-data to all distributed systems.
-
-Provided we are using instrumented apps, for example REST micro-services, etc,
-
-we can now enrich the entire flows across not just a single application call stack,
-
-but all the apps involved, eg to a client, server, cache, database and middleware.
-
-Tracing tracks a single user session on its end-to-end journey through the system.
-
-Modern Telemetry and Tracing implements the W3C Tarcing Context, including IIS.
-
-    https://www.w3.org/TR/trace-context/
-
-    https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts
-
-    https://medium.com/cloud-native-daily/distributed-tracing-a-guide-for-2023-a40a1ee218b5
-
-    https://www.jimmybogard.com/building-end-to-end-diagnostics-and-tracing-a-primer-trace-context
- 
-
-## Metrics
-
-The third part of Observability and Telemetry is Quantitiative Metrics and signals. 
-
-All of our apps should have hooks into standard OpenMetrics or OpenTelemetry APIs.
-
-These should expose the standard Profiler values, Memory, IO, and system health.
-
-
-_TODO_ 
-_Select the appropriate telemetry / Observability suites (OpenTelemetry, Grafana ?)_
-
-
-Instrumentation
-Finally we should have sandbox Debug versions of apps that expose Headers and Symbols.
-We should also expose standard admin or management interfaces, secured in production.
-
-_TODO_ 
-_Select the appropriate instrumentation suites_
-
-
-
-
-# Virtualisation
-
-Developing software requires a panoply of frameworks, SDKS, IDEs, and build tools.
-
-In engineering parlance this is knonw as a toolchain, and its choice is crucial.
-
-Builds are a messy affair, and reliable builds require a consistent build toolchain.
-
-It can be a herculean nigh-impossible task to try to build on a different toolchain.
-
-.
-
-Consequently we will benefit from having all developers stick to the same platform.
-
-One way to do this is to build development-specific virtual-machines - ie dev boxes.
-
-_TODO_ investigate provisionning dev boxes using Vagrant (or Chef, Puppet, etc).
-
-
-
-
- 
-# Building
-
-## Tool Chain
-
-In the past Building software and configuration management was a black-art.
-
-.
-
-Build systems required a level of mastery usually relying on a build-master
-
-who knew the intricacaies of the dependencies and wrote the build scripts,
-
-that is all the arcane incantations required to produce consistent builds. 
-
-.
-
-This is what we aim to avoid. We want to rule out any artisanal custom builds.
-
-Rather we want to use a prescriptive build, where we tell it *what* to build,
-
-not *how* to build, the build system relies on a dependency management engine
-
-to resolve dependencies and compile and link the code.
-
-.
-
-In the java world, this prescriptive build framework is built around Maven.
-
-.
-
-We want a similar framework for .NET (we need to augment MsBuild and NuGet).
-
-
-## Dependency Manager
-
-Now modern software is all about modularity, portability, re-use, and not re-inventing the wheel;
-
-A typical application might only consist of 10 original code, the rest being dependent libraries,
-
-Third party code, and boilerplate code integrated from APIs, SDKs, frameworks, and generated code.
-
-A large part of application development, configuration management, build and development operations 
-
-consists in the art of specifying, resolviong, and including these additional transitive dependencies.
-
-In the modern toolchains, this is the role of the build dependecy resolver and package manager.
-
-This component is typically handled by Maven for the world java, or by NuGet for DotNET builds. 
-
-
-
-## Compiling
-
-if we can, we want to use the build toolchain to build distros and even to deploy them.
-
-Building and testing in a .NET tool chain uses Msbuild, Nuget, and NUnit (is NMake dead?)
-
-Investigate what the equivalent is in modern .NET  (Consider Nuke, Cake, NMake options ).
-
-    Nuke
-
-        https://nuke.build/
-    
-        https://nuke.build/faq/ 
-
-        https://nuke.build/docs/introduction/
-
-    Cake
-
-        https://cakebuild.net/
-
-        https://www.nuget.org/packages/Cake.Tool
-
-
-    We've gone ahead with selecting Nuke for now  _(ask experienced .NET people?)_
-
-
-
-
-
-We expose everything through the command line with the use of tools and scripts.
-
-We need to be able to do the following:
-
-    - automate and configure
-    - build or compile locally
-    - commit code, pull and push
-    - test various test categories
-    - tag features and versions
-
-    - package binaries and distros
-    - provision environment resources
-    - deploy distros to environments
-    - rollback from a deployment
-    - run validations in a deployment
-
-
-
-## Artifacts
-
-As modularity and code reuse is a guiding principle we rarely publish monolithic systems.
-
-Rather we bundle code into reusable libraries, and package these together into artifacts.
-
-Containers are Collections of these artifacts running on a single machine environment.
-
-Finally Sets of containers comprising a complete system are called Distributions.
-
-
-    libraries:
-
-        mxstat-api-model.dll
-        mxstat-api-core.dll
-        mxstat-client.dll
-
-    artifacts:
-
-        mxstat-api-model-1.2.3-dev-latest.dll
-        mxstat-api-core-1.2.1-dev-latest.dll
-        mxstat-client-1.2-dev-latest.dll
-
-
-## Bundles
-
-Typically we develop services as web REST services, bunbdled into binary archives.
-
-These bundles are also artifacts, often stored in the same binary artifact repository.
-
-    java:    
-
-        mxstat-java-client.war   
-
-    .net:    
-
-        mxstat-dotnet-svc.zip 
-
-
-## Containers
-
-The first thing to do is to shed IIS and replace it with Kestrel, a linux .NET webapp.
-
-This will allow us to containerise our applications, notably on Docker or Containerd.
-
-For each tagged bundle to be deployed, a corresponding Docker image can be generated.
-
-Docker images are published in a central private container Registry (Nexus or AWS ECR).
-
-.
-
-We use docker tags to mirror our labelling strategy with version triplet and maturity.
-
-The tag is the mechanism by which continuous deployment will automate rolling updates.
-
-    windows:
-
-        mxstat-windows-svc/1.2.3-release
-        mxstat-windows-svc/1.2-release
-        mxstat-windows-svc/1-release
-        mxstat-windows-svc/release
-
-    kestrel:
-
-        mxstat-kestrel-svc-/1.2.4-latest
-        mxstat-kestrel-svc-/1.2-latest
-        mxstat-kestrel-svc-/1-latest
-        mxstat-kestrel-svc-/latest
-
-Note, in the docker world the term "latest" is cognate with the our maven "snapshot".
-
-Selecting for "latest" will select the latest untsable image from adev-latest.
-
-        DEV => mxstat-kestrel-svc-/latest  ->   mxstat-kestrel-svc-/1.2.4-latest
-
-For maintenance (MNT) or production (PRD), we typically select a specific release.
-
-        PRD => mxstat-windows-svc/1.2.3-release
-
-    
-
-## Distributions
-
-A distribution is a collection of Docker images and configurations with the same tag.
-
-   dev-latest
-    v-3-dev-latest
-
-    int-recipe
-    v-2-int-recipe
-
-    mnt-staging
-    v-2-mnt-staging
-
-    prd-release
-    v1-prd-release
-    v1.2-prd-release
-    v1.2.3-prd-release
-
-
-
-# Alternate Production
-
-Occasionally we want MNT to be an alternate production deployment environment.
-
-The MNT staging environment already built, this reduces complexity and costs.
-
-This may useful for migration, for slitting up load spikes, for deep debugging.
-
-We can tag distros for ad-hoc Red|Black, Blue|Green, A|B and Canary Testing.
-
-    mnt-testing     -> alternate prod used for red|black deployment, migration, testing
-
-If budget allows another strategy is to spin up a new ephemeral environment.
-
-A TMP environment for example could be usedc for testing or peak offloading.
-
-    tmp-testing
-    tmp-offload
-
-
-Jenkins Factory
-
-We use a Jenkins factory configured with pipelines, folders, views, and agents.
-
-We may need Windows agents to automate the DotNET tool chain (ask .NET developers).
-
-_TODO_
-
-    oldschool job with msbuild:
-
-    https://dzone.com/articles/cicd-in-aspnet-mvc-using-jenkins
-
-    
-    pipline job with dotnet build:
-
-    https://dotnetfullstackdev.medium.com/continuous-integration-continuous-deployment-ci-cd-with-jenkins-in-net-6eb634dfa3f2
-
-    nuke: ?
-
-    _TODO_
-
-
-
-
 
 
 # Testing
@@ -1274,131 +940,6 @@ Container Pods
 
 
 
-
-## Components
-
-We have a hybrid cloud infrastructure (Amazon AWS, Azure AD, on-premise).
-
-We have a suite of applications, namely REST services (in .NET C# code).
-
-These depend on libraries (.NET .dll), scripts (.vbs), and configs (.json).
-
-There is also a fair bit of OS-level scripting (.sh, .bat, .ps1, and others)
-
-We have sqlserver databases, with code (raw .sql) and schema data (.xml).
-
-
-
-# source code
-
-    a separate git for NET technical development 
-    
-    (separate from NET functional applications git)
-
-        AD (pull org units / users)
-
-        Secrets vault (not sure yet?)
-
-        aws configs (cloud-formation)
-
-        kubernetes configs
-
-        docker configs
-
-        scripts in sh, bash, bat, ps1
-
-        sql schemas and operations
-
-        vscode c# and .NET code
-
-        terraform configs
-
-        kubernetes configs
-
-        docker configs
-
-        scripts in sh, bash, bat, ps1
-
-        sql schemas and operations
-
-        vscode c# and .NET code
-
-
-## build system
-
-    GitBash, MingW, Python, Ruby, Go
-    
-    Docker-Desktop
-
-    VisualStudio and VSCode IDE
-
-    MS build tools: .NET, msbuild, nuget.
-
-    Cake, numake, or some cmdline tool chain
-
-
-
-## use-case
-
-_TODO_
-
-```text
-
-    Branch Tree:
-
-    api-1.0             api-1-1             api-2               fix-1               
-    model-1                                 model-2             model-2.1  
-    libcom-1                                libcom-2                                libcom-2.1          
-    v1, v1.0, v1.0.0    v1-1, v1-1.0        v2, v2.0, v2.0.0    v2.0.1              v2.1, v2.1.0
-    |                   |                   |                   |                   |
-    +-------------------+-------------------+-------------------+-------------------+-------------------+
-        \                        \                          \                           \
-         +---v1.0.0-dev----+      +---v1-1.0-dev------+      +---v2.0.0-dev------+       +---v2-1.0-dev------+
-            \                         \                          \                           v2-1-dev, v2-dev 
-             +---v1.0.0-int------+     +---v1-1.0-int------+      +---v2.0.0-int------+
-                \                           \                         v2.0-int, v2-int
-                 +---v1.0.0-mnt------+       +---v1-1.0-mnt------+
-                    \                            v1-1-mnt, v1-mnt
-                     +---v1.0.0-prd-------+
-                         v1.0-prd, v-1-prd
-
-```
-
-
-1 library change
-
-    in trunk we are developing and integrating on a V2 release, whereas production is still on V1.
-
-    a developer commits changes to the communcations library to add support for JWT token refresh.
-
-    he has a local feature branch tagged libcom-2.1
-
-
-_TODO_
-
-    he makes changes to
-
-        libcom.cs
-
-    it compiles and passes unit tests
-
-        libcom-2.1.0-bld-snapshot.dll
-
-    he checks it in trunk and it builds
-
-    the factory tags it as snapshot
-
-        libcom-2.1.0-bld-snapshot.dll
-
-    the factory pulls to DEV and runs its own tests
-    
-    tests pass, the factory tags is as latest
-
-        libcom-2.1.0-dev-latest.dll
-
-    
-
-_TODO_
 
 
  
