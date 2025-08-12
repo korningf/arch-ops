@@ -1,5 +1,5 @@
 
-# Agile Architecture
+# Agile Architecture - Arch-Ops
 
 
 
@@ -12,7 +12,9 @@
 # Theory
 
 
-## DevOps
+
+
+## Arch-Ops
 
 These days the terms CloudOps (Cloud Operations), DevOps (Development Operations), 
 
@@ -26,133 +28,61 @@ Infrastructure as Code (IAC), Build Factories, and CI/CD/CT Continuous Delivery.
 
 .
 
-In this document we will try to cover everything by splitting this vast domain:
-
-Let us call Cloud-Ops the automation of cloud infrastructure, and let Cluster-Ops
-
-be the automation of micro-services on orchestrated clusters, where as Dev-Ops
-
-shall be the automation of building and packaging applications via build tools.
+In this document we will try to cover everything by splitting this vast domain.
 
 
-
-
-## Agility
-
-Agile development manages risk through frequent short iterative release cycles.
-
-We want to avoid huge monolithic modes that generate lots of deltas or diffs.
-
-Breaking things is virtuous: we want to break things early rather than late.
-
-Breakage forces us to communicate and resolve design, specifications, APIs.
-
-This reduces surprises and allows us to rapidly prototype and evolve code.
+* Arch-Ops    agnostic architecture (orgs, accounts, infra, storage)
+* Base-Ops    base infrastructure  (vpc, networking, relays, gateways)
+* Core-Ops    core deployments (database, compute, communications)
+* Dev-Ops     application development
 
 
 
-## Pitfalls
+```text
+   arch
+      auth     accounts, access
+      storage
+      orgs     root organisations   
+      units    org units (org groups)
+      peers    
+      regions          
+      roles     
+      spaces    business domain partitions / shards
+      envs      runtime deployment environments
 
-### Waterfall Development
+   base
+      projects
 
-Monolithic waterfall development means long development cycles in isolation.
+      groups (racks and placement groups)
+      stacks       
+      networks    vnets (vpc)
+      subnets     zones
+     
 
-Releases happen seldom, are massive, and implement a monstrous set of changes.
+   core
+      vnet
+  data
+```
 
-This makes it hard isolate new specifications, refinements, additions, and fixes.
-
-This is what we must avoid.  We want parallelised development and short cycles.
-
-
-### Technical Debt
-
-Technical Debt consist of being stuck with dependencies on archaic old systems.
-
-.
-
-This can happen for a host of reasons, sometimes through no fault of one's own.
-
-Bugs happen, APIs change, trends fall out of fad, we cut corners for expediency.
-
-We may be stuck with a 20 year old CMS, on an unpatched OS, and archaic database.
-
-Every bit of software that locks us in to old code increases risks exponentially.
-
-Agile Development helps prevent that, by encouraging us to keep up and step up.
-
-
- 
-## Principles
-
-We adhere to Agile Development, Extreme Programming (XP), Lean development, etc.
+## Agile Architectures
 
 
-* Expect Failure
+An agile architecture simp0lifies a complex stack into a cloud-agnostic abstraction.
 
-    The first principle in agility is to expect things to break, often, all the time.
+It is portable, predictable, prescriptive, and make suse of generic re-usable patterns.
 
-    We design systems that are decentralised, decoupled, and resilient to breakage.
+This lowers complexity, mitigates risk, and reduces adoption and maintenance time.
 
-* Small Steps
 
-    The way to manage change is to do it in small increments with frequent iterations.
 
-    This reduces Delta-Risk, the risk of massive and nebulous complex code changes.
+## Ontology
 
-* Failure is Good
 
-    We thus favour to break things early, rather than late, and to do so gradually.
-
-    Breakage becomes a locus by which developers get together and resolve the deisgn.
-
-* Commit Everything
-
-    We need to be able to roll-back in order to break things and recover with grace.
-
-    Every micro-change must be saved in SCM and have a clear lifecycle maturity tag.
-
-* Reproducible Builds
-
-    All the above combine to give us a framework where everything is predictable.
-
-    Every build that goes to production should be clearly tracked and reproducible.
-
-* Track Everything
-
-    Every deployment to Production or any other environment should be accounted for.
-
-    We need to know who did it, when, why, and the path to revert to older versions.
-
-* Decouple Dependencies
-
-    As we plan to break things a lot, we must reduce dependencies to prevent Failure Cascades.
-
-    We aim for generic, prescriptive solutions that are easily containerised and scriptable.
-    
-    This goes for code, libraries, configurations, environments, runtimes, services, etc.
-
-* Share Nothing
-
-    The default architecture is Share-Nothing, ie try to isolate things in micro-services.
-
-    Services and data must be split up in modes which allow isolated single-responsibility.
-
-    Typically this is achieved through micro-services and sharding business domain data.
-
-* Portable Containers
-
-    Shared-Nothing isolation allows for portable, resilient, and scalable systems.
-
-    Containerisation supports high availabiity modes where we can scale with demand.
-
-    Ideally non-critical services can be scaled down to zero during lulls in demand.
 
 
 ## IAC
 
 The Cloud-Ops and Dev-Ops revolution is based on Infrastructure-as-Code (IaC).
-
-.
 
 The idea is to provide a predictable, prescriptive way to deploy entire systems,
 
@@ -162,233 +92,9 @@ all the way to binary distributions, dependency libraries, bundled applications
 
 and software configurations - in short everything necessary to get it all running.
 
+
   
-.
 
-## Source
-
-To the maximum possible, everything is source code.  We commit not just actual
-
-application code, but the entire gamut of tools needed to get it on production.
-
-.
-
-This includes configuration and scripts needed to build the clusters and clouds,
-
-to define its environments and namespaces, to provision accounts and user roles,
-
-access control lists, tool chains, configurations to build and test applications,
-
-any build and test automation settings, and any deployment and monitoring tools.
-
-.
-
-Everything should be accessible in an SCM / VCS.
-
-.
-
-Not all SCM are equal: modern hash-based ones produce nigh-perfect auto-merges.
-
-As agile code relies on frequent fast iterative changes, we need to merge a lot. 
-
-Thus the modern factory uses Git as SCM (though Mercurial/HG would do as well).
-
-.
-
-There is a steep learning curve to Git, but we can stick to vanilla patterns.
-
-Strategies are necessary as we plan to refactor and break things constantly.
-
-
- 
-## Style
-
-The days of 80-char consoles are long-gone; modern IDEs have wide displays and 
-
-have tools to visually grok code, ex via syntax highlighting to method roll-ups.
-
-.
-
-We no longer have to accomodate saving vertical and horizontal space, and modern
-
-code is so complex that what is needed is to maximize not the number of lines,
-
-but rather the structure of code, and quickly locate key areas of interest.
-
-.
-
-Code Agility is all about clarity, facilitating refactors, and reducing errors.
-
-We need a way to visually grok parameters, expressions, and easily grok deltas.
-
-
-
-## Refactoring
-
-Code that is quickly grokked produces fewer bugs and is easier to maintain.
-
-The structure and order of the code should be a form of self-documentation.
-
-.
-
-Refactoring should be encouraged to achieve well-recognised design patterns.
-
-Where possible use Interfaces and Abstract Classes that self-describe the API.
-
-One key strategy is to push Stub and Mock implementations as early as possible.
-
-This then becomes a locus by which developers collaborate to refine the design.
-
-.
-
-## Standards
-
-In order to reduce refactoring delta-risk, we clarify standards and orderings.
-
-Orderings are particularly important, as are naming standards for everything.
-
-
-### Naming
-
-_Ask the developers to formalise and document their current naming practices_
-
-    packages, libraries, classes, objects, variables, constants, methods, statics.
-
-_TODO_
-
-
-### Ordering 
-
-_Ask the developers to formalise and document orderings and any other standards._
-
-    packages, libraries, classes, objects, variables, constants, methods, statics.
-
-_TODO_
-
-
-### Formatting
-
-Where possible we use IDE hooks to autoformat code and standardise code order.
-
-.
-
-Firstly this strips away petty cosmetic diffs, allowing coders to focus on logic.
-
-Secondly some styles reduce merge errors, notably on merged nested expressions.
-
-.
-
-For this reason, we favour the GNU style, failing this the Allman style (BSD).
-
-Any style will do, so long as all developers agree on a standard and stick to it.
-
-_Ask the developers to pick a style (we recommend GNU)_
-
-    https://en.wikipedia.org/wiki/Indentation_style#GNU
-
-    https://en.wikipedia.org/wiki/Indentation_style#Allman
-
-_TODO_
-
-
-## Dynamic Code
-
-
-### Code Configuration 
-
-Inversion of Control (IOC) or Dependency Injection, allows Dynamic Code Path Configuration, 
-
-A necessity when selecting and integrating partial feature-sets, Stubs, Skeletons, and Mocks.
-
-
-_TODO_
-
-_Talk with the .NET developers to identify Inversion of Control and Dependency Injection use_
-
-
-
-### Code Generation
-
-Aspect-Oriented Programming (AOP) or Annotation-Processing, uses Code Generators or Processors,
-
-generating implementation behaviours based on known specification tags embedded in the source code. 
-
-in java these tags are called Annotations, in .NET these are called Aspects.
-
-_TODO_
-
-_Talk with the .NET developers to identify any Annotation processor and Code generator use_
-
-
-
-### Code Coverage
-
-Modern frameworks combine these techniques for maximum Agility, but the trade-off, a partial code-path,
-
-needs to be managed, typically via tools to ensure Code Test Coverage at different lifecycle scopes.
-
-_TODO_
-
-_Talk with the .NET developers to identify Code Coverage and Deependency Enforcement use_
-
-
-## Documentation
-
-Ask the AP.NET and .NET developers on how they auto-document their code and APIs.
-
-I believe this is done through XML Documentation and perhaps DocFX or Sandcastle ?
-
-XmlDoc
-
-    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/
-
-DocFX
-
-    https://dotnet.github.io/docfx/docs/dotnet-api-docs.html
-
-SandCastle
-
-    https://www.microsoft.com/en-us/download/details.aspx?id=10526
-
-    https://github.com/EWSoftware/SHFB
-
-
-
-
-### REST API 
-
-Investigate how to generate REST API documentation - ie OpenAPI /  Swagger apidocs.
-
-    https://swagger.io/specification/v3/
-
-    https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0&tabs=visual-studio%2Cvisual-studio-code
-
-
-
-### Markdown Wiki
-
-Where longer documents are needed, a Markdown wiki like this doc is preferred.
-
-Unless one needs custom graphics, this is generally adequate for most purposes.
-
-Wikis allow one to focus on content, rather than ponder layout and presentation.
-
-Also, a text-based wiki is indexed and facilitates elastic multi-document searching.
-
-    Sharepoint supports Markdown text web-parts.
-
-    https://support.microsoft.com/en-US/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b
-
-    Apparently it uses 'Marked', so there may be a way to a CSS stylesheet.
-
-    _TODO_ invetsigate how to set a custom CSS stylesheet and change the skin.
-
-    https://marked.js.org/
-
-
-
-
- 
 # Practice
 
 
