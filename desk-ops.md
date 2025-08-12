@@ -20,7 +20,17 @@ some of which will no doubt be done in an adhoc interactive way.
 Failing this, aquire temporary admin privilege for a day or so,
 in order to attempt to configure the entire tool stack at once.
 
-  
+.
+
+Some of the distribution packages are installed via chocolatey,
+but a number are installed manually in custom paths via winget.
+
+At minimum we want a chroot BASH shell with a POSIX filesystem,
+which requires symlinks (either native symlinks or Junctions).
+
+
+
+
 ##  1.  Windows SysInternals
 
 * install SysInternals in 'c:\sywin\bin'
@@ -216,7 +226,6 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
   choco install jq
   choco install yq
 ```
-
 
 
 
