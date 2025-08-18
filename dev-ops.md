@@ -418,7 +418,7 @@ Apache Maven pioneered prescriptive building, where builds followed preset patte
 
 The scripted bits were abstracted away into plugins, exposing generic configurations.
 
-One no longer has to tell it **how** to build, but rather telly it **what** to build.
+One no longer has to tell it **how** to build, but rather only tell it **what** to build.
 
 A new Developer need only know the generic Maven plugin invocation and configuration.
 
@@ -786,7 +786,7 @@ Sample OSGI versions:
 
 Let us rationalise this a bit.
 
-Succinctly, these should sort naturally with latest unnstable versions last.
+Succinctly, these should sort naturally with latest unstable versions last.
 
 .
 
@@ -810,7 +810,7 @@ That is, we want a V2 to be a shorthand for say, v2.0, v2.0.0, and v2-latest.
 
 When we do a quick version rollout, we won't be changing the os platform.
 
-What we will want to do is quickly switchfrom the old to the new version.
+What we will want to do is quickly switch from the old to the new version.
 
 .
 
@@ -832,7 +832,7 @@ The triplet is followed by a classifier for the maturity tag or label.
 
   https://semver.org/
 
-Unlike many SemVer implementations we stay away from OSGI nomenclature,
+Unlike many SemVer implementations, we stay away from OSGI nomenclature,
 
 the reason being that OSGI qualifiers liek rc-1, final, beta, alpha etc
 
@@ -1091,9 +1091,9 @@ SLF4J and SLF4Net are not only Logging Frameworks but also unified Logging Facad
 
 That is they have wrappers which cover and impersonate all the mainstream loggers.
 
-Linking with these wrappers or bridges means we can unify and intercept all logs.
+Linking with these wrappers or bridges means we can unify and intercept all runtime logs.
 
-That is, even logs and traces written by 3rd party APIs can now be intercepted.
+That is, even logs and traces bundled in linked 3rd party libraries can be intercepted.
 
 .
 
@@ -1226,7 +1226,7 @@ A large part of application development, configuration management, build and dev
 
 consists in the art of specifying, resolving, and including these additional transitive dependencies.
 
-In the modern toolchains, this is the role of the build dependecy resolver and package manager.
+In the modern toolchains, this is the role of the build dependency resolver and package manager.
 
 This component is typically handled by Maven for the world java, or by NuGet for DotNET builds. 
 
@@ -1694,6 +1694,24 @@ _TODO_
 
         libcom-2.1.0-dev-latest.dll
 
+    next, because the DEV environment has full automation,
+
+    the factory takes the new -dev-latest tag and deploys it
+
+    It performs a rolling update on the DEV kubernetes cluster.
+    
+    
+    The cluster pulls the dev-lastest images and deploys them.
+
+    it follows its orchestration rules to tear down services,
+
+    scale down services and topology, migrate schema and data,
+
+    spin up the services, populate, or update data as needed.
+
+    expose front end ingress, scale back up, enable monitoring.
+
+    
     
 
 _TODO_
