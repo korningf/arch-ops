@@ -626,8 +626,6 @@ Production in normal situations mirrors MNT, but with autoscaling.
 
 TMP is an optional ad-hoc Temporary or Ephemeral volatile environment,
 
-.
-
 which can be used for to handlle burst load, to isolate specific shards
 
 in the business domain, for example to resolve bugs, record and replay,
@@ -1390,13 +1388,17 @@ The MNT staging environment already built, this reduces complexity and costs.
 
 This may useful for migration, for slitting up load spikes, for deep debugging.
 
-We can tag distros for ad-hoc Red|Black, Blue|Green, A|B and Canary Testing.
-
-    mnt-testing     -> alternate prod used for red|black deployment, migration, testing
+    mnt-testing     -> alternate prod used for canary testing, migration, etc.
 
 If budget allows another strategy is to spin up a new ephemeral environment.
 
-A TMP environment for example could be usedc for testing or peak offloading.
+A TMP environment could be used for canary testing or sharded peak offloading.
+
+We can tag distros for ad-hoc Red|Black, Blue|Green, or A|B Canary Testing.
+
+Typically this is done by filtering or routing via some business partition.
+
+If we have modelled our data corretcly, we should be able to filter by shard.
 
     tmp-testing
     tmp-offload
