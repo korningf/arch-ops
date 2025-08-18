@@ -404,7 +404,7 @@ and automation pipelines to build, test, and deploy and provision complete syste
 
 .
 
-A long time agao app builds used programmatic dark magic known only by build masters,
+A long time ago app builds used programmatic dark magic known only by build masters,
 
 often consisting of 10,000 line Makefiles and custom scripting and other such arcana.
 
@@ -418,7 +418,7 @@ Apache Maven pioneered prescriptive building, where builds followed preset patte
 
 The scripted bits were abstracted away into plugins, exposing generic configurations.
 
-Succinctly, One no longer has to tell it **how** to build, rather **what** to build.
+One no longer has to tell it **how** to build, but rather telly it **what** to build.
 
 A new Developer need only know the generic Maven plugin invocation and configuration.
 
@@ -454,7 +454,7 @@ a markdown wiki, a bug tracker, pull requests and CI/CD/CT tooling.
 
 ## CI/CD/CT
 
-Continuous Integration, Continuous Deployment/Delivery and Continuous Testing 
+Continuous Integration, Continuous Deployment / Delivery, and Continuous Testing 
 
 is done by the factory using jobs, triggers, and an agile assisted release cycle.
 
@@ -497,7 +497,7 @@ Often there is no integration plugin for a specific framework or custom tool-cha
 
 Pipelines, in a way are a return to the past, they bring back programmatic scripting.
 
-They complement prescription, filling the gaps where standard plugin confguration
+They complement prescription, filling the gaps where standard plugin configuration
 
 alone cannot fully automate the process. 
 
