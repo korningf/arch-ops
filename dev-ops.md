@@ -1103,7 +1103,7 @@ We strongly recommend SLF4J (and logback) and SLF4Net
 
     https://github.com/ef-labs/slf4net
 
-One could also use Log4J anbd Log4Net standalone
+One could also use Log4J and Log4Net standalone
 
     https://logging.apache.org/log4j/2.x/index.html
 
@@ -1125,7 +1125,7 @@ but all the apps involved, eg to a client, server, cache, database and middlewar
 
 Tracing tracks a single user session on its end-to-end journey through the system.
 
-Modern Telemetry and Tracing implements the W3C Tarcing Context, including IIS.
+Modern Telemetry and Tracing implements the W3C Tracing Context, including IIS.
 
     https://www.w3.org/TR/trace-context/
 
@@ -1163,7 +1163,7 @@ _Select the appropriate instrumentation suites_
 
 Developing software requires a panoply of frameworks, SDKS, IDEs, and build tools.
 
-In engineering parlance this is knonw as a toolchain, and its choice is crucial.
+In engineering parlance this is known as a toolchain, and its choice is crucial.
 
 Builds are a messy affair, and reliable builds require a consistent build toolchain.
 
@@ -1191,7 +1191,7 @@ In the past Building software and configuration management was a black-art.
 
 Build systems required a level of mastery usually relying on a build-master
 
-who knew the intricacaies of the dependencies and wrote the build scripts,
+who knew the intricacies of the dependencies and wrote the build scripts,
 
 that is all the arcane incantations required to produce consistent builds. 
 
@@ -1211,7 +1211,7 @@ In the java world, this prescriptive build framework is built around Maven.
 
 .
 
-We want a similar framework for .NET (we need to augment MsBuild and NuGet).
+We need a similar framework for .NET (DotNET, MsBuild, and NuGet).
 
 
 ## Dependency Manager
@@ -1224,7 +1224,7 @@ Third party code, and boilerplate code integrated from APIs, SDKs, frameworks, a
 
 A large part of application development, configuration management, build and development operations 
 
-consists in the art of specifying, resolviong, and including these additional transitive dependencies.
+consists in the art of specifying, resolving, and including these additional transitive dependencies.
 
 In the modern toolchains, this is the role of the build dependecy resolver and package manager.
 
@@ -1234,7 +1234,7 @@ This component is typically handled by Maven for the world java, or by NuGet for
 
 ## Compiling
 
-if we can, we want to use the build toolchain to build distros and even to deploy them.
+If we can, we want to use the build toolchain to build distros and even to deploy them.
 
 Building and testing in a .NET tool chain uses Msbuild, Nuget, and NUnit (is NMake dead?)
 
@@ -1461,7 +1461,7 @@ We favour modern Liquid Database migration engines like Liquibase, FlyWay, or My
 
 This allows us to apply IaC principles to the schema, metadata, and the data itself.
 
-We can thus iteratively create populate, and update our databases as they evolve.
+We can thus iteratively create, populate, and update our databases as they evolve.
 
 .
 
@@ -1707,7 +1707,7 @@ _TODO_
 
     - setup the Landing Zone (accounts, vault, certs, secrets, roles, billing)
 
-    - setup formation templates (s3 base buckets, cloud formation, terraform, kops)
+    - setup formation templates (static storage, cloud formation, terraform, kops)
 
     - deploy core network infrastructure (VPCs, zones, spaces, gateways, routes)
 
@@ -1719,10 +1719,17 @@ _TODO_
 
     - deploy specific project compute and application stacks incrementally
 
+    - wire internal endpoints, configure auto-scaling and load balancing.
+
+    - expose frontend service endpoints, ingress, skining, and redirects.
+
+    
+    
+
 ### Serverless Ops
 
     - lambda functions
-
+    
     - fargate ecs / eks
 
 
