@@ -29,6 +29,47 @@ At minimum we want a chroot BASH shell with a POSIX filesystem,
 which requires symlinks (either native symlinks or Junctions).
 
 
+
+# GNU POSIX and a bash shell
+
+POSIX is many things; it's an OS architecture and specification,
+describing systems APIs, structures, IO, memory, routines, signals,
+file systems, input and output streams, and a shell specification;
+it's a source compilation and linkage toolchain to produce portable
+binary executables; it's an OS filesystem layout specification; and
+lastly it's a stack of universal tools including common networking
+and security on which UNIX, ArpaNet, and the internet was built.
+
+. 
+
+These tools include shell GNU core-utils like sed, awk, grep, find,
+but they also include the network stack underpinning the internet.
+Things like routing, DNS, DHCP, OpenSSL, and OpenSSH Secure-Shell.
+All of these are derived from POSIX code and work best within POSIX.
+
+.
+
+Modern Cloud and Cluster deployment via IaC uses containerisation.
+The process of containeisation often includes cross-compilation.
+We need an environment that is powerful enough to cross-compile.
+That's what POSIX was designed for.  
+
+.
+
+CloudOps and DevOps tools also require many interpreted languages.
+Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
+require tools like perl, python, ruby, go, php, and a POSIX shell.
+
+.
+
+On Windows the only real full POSIX native environment is Cygwin.
+Everything else derives from it. SysGit and Msys derive from it.
+GitBash derives in turn from MSys.  Only cygwin has a full stack.
+
+Failing this we can manage with GitBash, but it is incomplete.
+
+
+
 ##  0.  Chocolatey
 
 * install Chocolatey in 'c:\chocolatey'
@@ -313,5 +354,5 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  21.  Azure ACI-CTL ?
 
-*TODO is there an equivalent for Azure ACI/AVA adhoc containers ?*
+*TODO is there an equivalent for Azure ACI/ACA adhoc containers ?*
 
