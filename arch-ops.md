@@ -3,13 +3,13 @@
 
 
 
-## Contents
+# Contents
 
 [TOC]
 
 
 
-## Arch-Ops
+# Arch-Ops
 
 These days the terms CloudOps (Cloud Operations), DevOps (Development Operations), 
 
@@ -26,52 +26,106 @@ Infrastructure as Code (IAC), Build Factories, and CI/CD/CT Continuous Delivery.
 In this document we will try to cover everything by splitting this vast domain.
 
 
-* Arch-Ops    agnostic architecture (orgs, accounts, infra, storage)
-* Base-Ops    base infrastructure  (vpc, networking, relays, gateways)
-* Core-Ops    core deployments (database, compute, communications)
-* Dev-Ops     application development
+
+
+#  Complexity
+
+Cloud Managment is all about amanaging complexity and change on a massive scale.
+
+The way we manage complexity is we break it down in smaller, modular components.
+
+We start by specfiying an abstract ontology or taxonomy for all our cloud resources.
+
+.
+
+Key to this is the specification of an ontology, a standard on how we name things.
+
+The best architectures are self-describing and cane be quickly visually grokked.
+
+.
+
+That is we organise our clouds, resources, services, stacks into sets of hierarchies.
+
+These abstract taxonomies are  cloud-agnostic and will map to any cloud providers.
+
+The hierarchies have clear tiers that group things by business or technical domain.
+
+.
+
+We want names that increase human readability, but at the same reduce clutter.
+
+We want to use short monikers or symbols that are unique but remain significant.
+
+If possible, names are chosen for alphabetical ordering to express logical flows.
+
+Each taxon tier in our taxonomy is a composite name made stringibn up short symbols.
+
+
+
+
+
+## Ontology
+
+
+* Arch    agnostic architecture (orgs, accounts, infra, storage)
+* Base    base infrastructure  (vpc, networking, relays, gateways)
+* Core    core deployments (data, compute, messaging, pipelines)
+* Dev     application development
 
 
 
 ```text
    arch
-      auth        account, landing zones      
-      stores      static storage
+      auth        root accounts, landing zones
       locales     regions, zones
 
       orgs        root organisations   
       units       org units (org groups)
       roles       users, groups, roles, policies
 
-      projects    subscriptions          (cpi, govid, bom, bcm, rem, etc)
+      stacks      subscriptions (member accounts)
+      projects    business lines  (cpi, govid, bom, bcm, rem, etc)
       spaces      business partitions    (sbx, gov, dsp, pub)  
       environs    runtime environments   (dev, int, mnt, prd)
 
+
    base
+      storage     static storage
+
+      networks    vnets (vpc, vnet)
+      subnets     zones (az)   
+
+      wan-link    AWS Direct-Connect, AZR Express-Route
+      vpn-link    AWS Private-Link, AZR Private Link            
+
+      relays      links, gateways, vpns
+      routes      routes, ingresses,
+      dmzs        dmzs, nats, bastions
+
+      peers       VPC peering
+      endpoints   cross-vpc seviecs
+
       resources   resource groups
       services    service groups
 
       stacks      app stacks
       racks       placement groups
 
-      networks    vnets (vpc)
-      subnets     zones (azs)
-
-      relays      links, gateways, vpns
-      routes      routes, ingresses,
-      dmzs        dmzs, nats, bastions  
-
    core
       dns          forwarders and resolvers
       directories  AD forests
       domains      AD domains
 
-      compute      serverless
-      compute      clustered
-      compute      standalone
+      compute      serverless  (lambda functions)
+      compute      clusters    (kubernetes - eks, aks)
+      compute      container   (docker - ecs, aci/aca)
+      compute      machines    (vms)
+
+
+      tasks       workloads
 
   data
-      database     backend
+      database     backend      (on-premise endpoitn
       database     clustered
 
       middleware   queues, pubsub topics
@@ -91,7 +145,7 @@ In this document we will try to cover everything by splitting this vast domain.
 ## Agile Architectures
 
 
-An agile architecture simp0lifies a complex stack into a cloud-agnostic abstraction.
+An agile architecture simplifies a complex stack into a cloud-agnostic abstraction.
 
 It is portable, predictable, prescriptive, and make suse of generic re-usable patterns.
 
@@ -100,6 +154,7 @@ This lowers complexity, mitigates risk, and reduces adoption and maintenance tim
 
 
 ## Ontology
+
 
 
 
