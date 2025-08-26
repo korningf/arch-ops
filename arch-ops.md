@@ -9,6 +9,10 @@
 
 
 
+# Theory
+
+
+
 # Arch-Ops
 
 These days the terms CloudOps (Cloud Operations), DevOps (Development Operations), 
@@ -28,6 +32,22 @@ In this document we will try to cover everything by splitting this vast domain.
 
 
 
+
+
+
+## Agile Architectures
+
+
+An agile architecture simplifies a complex stack into a cloud-agnostic abstraction.
+
+It is portable, predictable, prescriptive, and make suse of generic re-usable patterns.
+
+This lowers complexity, mitigates risk, and reduces adoption and maintenance time.
+
+
+
+
+
 #  Complexity
 
 Cloud Managment is all about amanaging complexity and change on a massive scale.
@@ -36,7 +56,9 @@ The way we manage complexity is we break it down in smaller, modular components.
 
 We start by specfiying an abstract ontology or taxonomy for all our cloud resources.
 
-.
+
+## Ontology
+
 
 Key to this is the specification of an ontology, a standard on how we name things.
 
@@ -61,10 +83,6 @@ If possible, names are chosen for alphabetical ordering to express logical flows
 Each taxon tier in our taxonomy is a composite name made stringibn up short symbols.
 
 
-
-
-
-## Ontology
 
 
 * Arch    agnostic architecture (orgs, accounts, infra, storage)
@@ -138,30 +156,36 @@ Each taxon tier in our taxonomy is a composite name made stringibn up short symb
 ```
 
 
-# Theory
+
+# Ontology
+
+# Abstraction
+
+IaC is all about Abstraction, generalising and grouping similar constructs together.
+
+This reduces complexity, increases visibility and makes systems easier to understand.
+
+It enforces homogeneity: reduces differences and give us a common model and interface.
+
+Once we have standardised and modelled things, this in turn allows us to automate them.
 
 
+# Virtualisation
 
-## Agile Architectures
+Abstraction, when applied to Cloud and Computing Infrastucture, begets Virtualisation.
 
+Given an abstract common model, we can virtualise Machines, Containers, Clusters, Clouds.
 
-An agile architecture simplifies a complex stack into a cloud-agnostic abstraction.
-
-It is portable, predictable, prescriptive, and make suse of generic re-usable patterns.
-
-This lowers complexity, mitigates risk, and reduces adoption and maintenance time.
+This is what drives IaC.
 
 
+# IAC
 
-## Ontology
+Infrastructure-as-Code is really a misnomer - it should be infrastructure as Config.
 
+IaC is supported by a coding language, but it is underpinned by an abstraction Model.
 
-
-
-
-## IAC
-
-The Cloud-Ops and Dev-Ops revolution is based on Infrastructure-as-Code (IaC).
+.
 
 The idea is to provide a predictable, prescriptive way to deploy entire systems,
 
@@ -172,7 +196,90 @@ all the way to binary distributions, dependency libraries, bundled applications
 and software configurations - in short everything necessary to get it all running.
 
 
-  
+
+## Docker
+
+## Kubernetes in 10 steps
+
+0. Homogeneity:   Abstracts vendor specific components into a neutral Model based on generic services, components, and modules.
+   
+1. Visibility:    This forces us to Identify and expose Dependencies and decouple systems into single-responsibility components.
+
+2.	Portability:   This allows containerisation - focused isolated apps serving well-catalogued services and their dependencies.
+
+3.	Automation:    With isolated, portable modular components, we can now automate their runtime configuration and deployment.
+
+4. Provision:     This gives us a grammar to Provision systems, to express desired runtime topology, deployment, scale, resources.   
+   
+5. Sequencing:     This forces us to expose sequencing and orchestration rules, which are also expressed in neutral config and code.
+
+6. Orchestration:  We use this grammar to express state changes, to manage complex distributed systems including their dependencies.
+
+6. Monitoring:     The common model also forces us to expose application health checks and telemetry, metrics, logging, tracing.
+
+7.	Reliability:    Apps are abstracted in services, which can be replicated and load-balanced for fault-tolerance and reliability.
+
+8. Scalability:   This allows to scale to a desired topology, to scale the topology on demand, or define policies to autoscale.
+
+9.	Migration:     this model allows to plan any migration or transition with full support for rollback and recovery.
+   
+10. Ecosystem:   	it is ubiquitous and has a vast ecosystem including all major cloud provides and open-source developers.
+
+
+## Stacks
+
+
+Topology:
+
+auth
+- certificates
+- secrets vault
+- iam admins  
+- rbac roles
+
+arch
+- az regions
+- az topology
+- hybrid dmz
+- vpc endpoints
+
+base
+- dns names
+- ad domains
+- firewalls
+- ingress rules
+- egress rules
+
+backend
+- backend db
+- b2c userbase
+
+middleware
+- middleware bus
+- event processors
+- workflow processors
+
+core services
+- stateless web app
+- stateful web app
+
+- coded functions
+- container apps
+- cluster apps
+
+- data pipelines
+- external services
+
+frontend
+- web frontend
+- admin portal
+
+telemetry
+- metrics
+- logging
+- tracing
+
+
 
 # Practice
 
