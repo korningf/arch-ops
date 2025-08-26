@@ -1,4 +1,6 @@
-# Kubernetes in 10 steps
+# Kubernetes-Operations
+
+## Kubernetes in 10 reasons
 
 ```text
 
@@ -10,11 +12,11 @@
 
 3.	Automation:    With isolated, portable modular components, we can now automate their runtime configuration and deployment.
 
-4. Provision:     This gives us a grammar to Provision systems, to express desired runtime topology, deployment, scale, resources.   
+4. Provision:     This gives us a grammar to Provision systems, to express desired topology, deployment, scale, resources.   
    
-5. Sequencing:     This forces us to expose sequencing and orchestration rules, which are also expressed in neutral config and code.
+5. Sequencing:     This forces us to expose dependency sequence rules, which are also expressed in neutral config and code.
 
-6. Orchestration:  We use this grammar to express state changes, to manage complex distributed systems including their dependencies.
+6. Orchestration:  We use this grammar to express state changes, to manage distributed systems including their dependencies.
 
 6. Monitoring:     The common model also forces us to expose application health checks and telemetry, metrics, logging, tracing.
 
