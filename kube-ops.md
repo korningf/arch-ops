@@ -18,11 +18,11 @@
 
 6. Orchestration:  We use this grammar to express state changes, to manage distributed systems including their dependencies.
 
-6. Monitoring:     The common model also forces us to expose application health checks and telemetry, metrics, logging, tracing.
+6. Monitoring:     The common model forces us to expose application health checks and telemetry, metrics, logging, tracing.
 
-7.	Reliability:    Apps are abstracted in services, which can be replicated and load-balanced for fault-tolerance and reliability.
+7.	Reliability:    Apps abstracted in services which can be replicated and load-balanced for fault-tolerance and reliability.
 
-8. Scalability:   This allows to scale to a desired topology, to scale the topology on demand, or define policies to autoscale.
+8. Scalability:   This allows to scale to a given topology, to scale the topology on demand, or define policies to autoscale.
 
 9.	Migration:     this model allows to plan any migration or transition with full support for rollback and recovery.
    
