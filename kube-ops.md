@@ -1,5 +1,7 @@
 # Kubernetes in 10 steps
 
+```text
+
 0. Homogeneity:   Abstracts vendor specific components into a neutral Model based on generic services, components, and modules.
    
 1. Visibility:    This forces us to Identify and expose Dependencies and decouple systems into single-responsibility components.
@@ -23,5 +25,4 @@
 9.	Migration:     this model allows to plan any migration or transition with full support for rollback and recovery.
    
 10. Ecosystem:   	it is ubiquitous and has a vast ecosystem including all major cloud provides and open-source developers.
-
-    
+```
