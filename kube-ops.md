@@ -4,11 +4,11 @@
 
 ```text
 
-0. Homogeneity:   Abstracts vendor specific components into a neutral Model based on generic services, components, and modules.
+0. Homogeneity:   Abstracts vendor specific components into a neutral Model based on generic services, containers, resources.
    
-1. Visibility:    This forces us to Identify and expose Dependencies and decouple systems into single-responsibility components.
+1. Visibility:    This forces us to identify and expose Dependencies, to decouple systems in single-responsibility components.
 
-2.	Portability:   This allows containerisation - focused isolated apps serving well-catalogued services and their dependencies.
+2.	Portability:   This allows containerisation, focused isolated apps serving well-catalogued services and their dependencies.
 
 3.	Automation:    With isolated, portable modular components, we can now automate their runtime configuration and deployment.
 
@@ -20,7 +20,7 @@
 
 6. Monitoring:     The common model forces us to expose application health checks and telemetry, metrics, logging, tracing.
 
-7.	Reliability:    Apps abstracted in services which can be replicated and load-balanced for fault-tolerance and reliability.
+7.	Reliability:  Apps abstracted in services which can be replicated and load-balanced for fault-tolerance and reliability.
 
 8. Scalability:   This allows to scale to a given topology, to scale the topology on demand, or define policies to autoscale.
 
