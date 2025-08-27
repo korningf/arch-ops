@@ -12,7 +12,7 @@
 
 2. Homogeneity:   The Implementation uses plugins, but they all speak a unified Specification based on an abstract Model.
 
-3. Flexibility:   The model is based on a Configuration model and grammar in which are Injected environment config values.
+3. Flexibility:   The model is based on a Configuration and grammar in which are Injected runtime environment values.
 
 4. Security:      The model describes abstract RBAC based roles and manages unified secrets to be injected in components.
 
@@ -32,7 +32,7 @@
 
 11. Replication:   We can then run pools of apps, all implementing the same service, replicated over availability zones.
 
-12. Efficicency:   with virtual containers we can reallocate resources as needed and unburden loads to other idle machines
+12. Efficicency:   with virtual containers we can reallocate resources as needed and unburden loads to other idle machines.
 
 13. Clustering:    Now With sequencing rules, we can now run pool of replicated inter-dependent services, in clusters.
 
@@ -44,7 +44,7 @@
 
 17. Monitoring:    The common model forces us to implement a standard for health checks, metrics, logging, and tracing.
 
-18. Resiliency:   Monitored Health Checks makes the system is now self-healing, it can restart unresponsive containers.
+18. Resiliency:   Monitored Health Checks means the system is now self-healing, it can restart unresponsive containers.
 
 19. Reliability:  Monitored Apps can then be restarted, replicated, and load-balanced for fault-tolerance and reliability.
 
