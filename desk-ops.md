@@ -77,45 +77,22 @@ Failing this we can manage with GitBash, but it is incomplete.
 ```shell
   # see https://docs.chocolatey.org/en-us/choco/setup/
 
-  set ChocolateyInstall=c:\chocolatey
-  setx ChocolateyInstall c:\chocolatey
-  setx /s CHOCOLATEY c:\chocolatey  
-  winget install --id=Chocolatey.Chocolatey -e --location c:\chocolatey
-
-  # Disabled:  we favour cygwin over choco in the path
-  # setx PATH %PATH%;C:\chocolatey;C:\chocolatey\bin
+  winget install --id=Chocolatey.Chocolatey
 ```
 
 
 ##  1.  Windows SysInternals
 
-* install SysInternals in 'c:\sywin\bin'
-  
-*Choose: 1a (Choco) or 1b (winget)*
-
-a) install via choco
-```shell
-  choco install sysinternals --params "/InstallDir:C:\syswin\bin"
-```
-
-b) install via winget
+* install SysInternals
   
 ```shell
-  # see https://winget.ragerworks.com/package/Microsoft.Sysinternals.Suite
-
-  setx SYSWIN "c:\syswin" /m
-  setx PATH "%PATH%;%SYSWIN%;%SYSWIN%\bin" /m
-  winget install --id=Microsoft.Sysinternals.Suite -e  --location c:\sywin\bin
+  choco install -y sysinternals --ignore-cheksum --force
 ```
 
 
-##  2.  POSIX Bash
 
-Ideally we run a full Cygwin POSIX.  Check with cybersecurity.
+##  2.  GitBash POSIX
 
-Failing this use GitBash POSIX, and probably Windows Python too.
-
-.
 
 Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
 For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
@@ -125,22 +102,6 @@ so if Git is installed for machine-scope all-users, so should Python,
 or vice-versa.
 
 
-
-*Choose: 2a (Cygwin-Choco) or 2b (Gitbash-Choco) or 2c (Gitbash-winget)*
-
-###  2a.  Cygwin POSIX
-
-* install Cygwin POSIX in 'c:\cygwin'
-  
-```shell   
-   # see https://community.chocolatey.org/packages/Cygwin
-
-   setx CYGWIN C:\cygwin\bin winsymlinks:native
-   choco install cygwin --params "/InstallDir:C:\cygwin"
-
-   setx PATH %PATH%;C:\cygwin;C:\cygwin\bin;C:\cygwin\sbin;C:\cygwin\usr\bin;C:\cygwin\usr\sbin
-```
-
 ###  2b.  GitBash via Choco
 
 *NOTE use Python for Windows with GitBash*
@@ -148,32 +109,9 @@ or vice-versa.
 * install GitBash via Choco
 
 ```shell
-   # see https://github.com/korningf/cso-git#Python
    # see https://community.chocolatey.org/packages/git
 
-   choco install git.install --params "'/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'"
-```
-
-###  2c.  GitBash via Winget
-
-*NOTE use Python for Windows with GitBash*
-
-* install GitBash via Winget
- 
-```shell   
-   # see https://github.com/korningf/cso-git#Python
-   # see https://gitforwindows.org/silent-or-unattended-installation.html
-
-   setx GIT %USERPROFILE%\AppData\Local\Git
-   setx PIP %USERPROFILE%\AppData\Local\pip
-
-   #winget install -e --id Git.Git -source winget /ALLUSERS /SILENT /NORESTART /NOCANCEL /EnableSymlinks=Enabled /EnablePseudoConsoleSupport=Enabled
-   winget install -e --id Git.Git -source winget  /SILENT /NORESTART /NOCANCEL /EnableSymlinks=Enabled /EnablePseudoConsoleSupport=Enabled
-
-   setx PATH=%PATH%;%USERPROFILE%\AppData\Local\Git
-   setx PATH=%PATH%;%USERPROFILE%\AppData\Local\Pip
-   setx PATH=%PATH%;%USERPROFILE%\AppData\Local\Programs\Git
-   setx PATH=%PATH%;%USERPROFILE%\AppData\Local\Programs\pip
+   choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
 
 
@@ -193,23 +131,10 @@ or vice-versa.
 ```shell
    # see https://github.com/korningf/cso-git#Python
 
-   #choco install python --version 3.10.0 --params "/InstallDir:C:\Program Files\Python\Python310".
-   choco install python --version 3.10.0
+   choco install -y python --version 3.13.7 --force
 ```
 
 
-```shell   
-  # see https://github.com/korningf/cso-git#Python
-  # see https://community.chocolatey.org/packages/python
-
-  setx PYTHON c:\windows\py.exe
-
-  #winget install -e --id Python.Python.3.10 --scope machine  /ALLUSERS --location C:\Program Files\Python\Python310
-  winget install -e --id Python.Python.3.10 --scope machine
-
-  setx PATH %PATH%;%USERPROFILE%\AppData\Roaming\Python\Python310\Scripts
-  setx PATH %PATH%;%USERPROFILE%\AppData\Roaming\Python\Python310\Site-packages
-```
 
 
 ##  4.  Dot.NET SDK
@@ -218,8 +143,12 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
 * install the .NET core SDK
 
-```shell  
-   winget install Microsoft.DotNet.SDK.9
+
+
+```shell
+   # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
+
+   choco install -y dotnet-9.0-sdk
 ```
 
   
@@ -227,8 +156,12 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
 * install the ASP.NET core runtime
 
-```shell  
-   winget install Microsoft.DotNet.AspNetCore.9
+
+
+```shell
+   # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
+
+   choco install -y dotnet-9.0-aspnetruntime
 ```
 
 
@@ -239,9 +172,9 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 * install VSCode via winget 
 
 ```shell
-   # see https://winget.ragerworks.com/package/Microsoft.VisualStudioCode
+   # see https://community.chocolatey.org/packages/vscode
 
-   winget install --id=Microsoft.VisualStudioCode -e
+   choco install -y vscode
 ```
 
 
@@ -252,7 +185,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/openjdk
 
-   choco install openjdk
+   choco install -y openjdk
 ```
 
 
@@ -263,7 +196,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/maven
 
-   choco install maven
+   choco install -y maven
 ```
 
 
@@ -274,7 +207,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/eclipse-java-oxygen
   
-   choco install eclipse-java-oxygen
+   choco install -y eclipse-java-oxygen
 ```
 
 
@@ -286,8 +219,8 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
    # see https://community.chocolatey.org/packages/jq
    # see https://community.chocolatey.org/packages/yq
 
-   choco install jq
-   choco install yq
+   choco install -y jq
+   choco install -y yq
 ```
 
 
@@ -296,7 +229,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 * install the Azure-cli command-line tools
 
 ```shell
-   choco install azure-cli --params "/InstallDir:C:\Azure\bin".
+   choco install -y azure-cli --params "/InstallDir:C:\Azure\bin".
 
    setx PATH %PATH%;C:\Azure\bin
 ```
@@ -314,7 +247,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 * install the AWS-cli command-line tools
 
   ```shell
-   choco install awscli --params "/InstallDir:C:\AWS\bin".
+   choco install -y awscli --params "/InstallDir:C:\AWS\bin".
 
    setx PATH %PATH%;C:\AWS\bin
 ```
@@ -333,7 +266,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/terraform
   
-   choco install terraform --pre
+   choco install -y terraform --pre
 ```
 
 
@@ -344,7 +277,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
   # see https://community.chocolatey.org/packages/docker-desktop
   
-  choco install docker-desktop
+  choco install -y docker-desktop
 ```
 
 
@@ -355,7 +288,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/Minikube
   
-   choco install minikube
+   choco install -y minikube
 ```
 
 
@@ -366,7 +299,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-helm
   
-   choco install kubernetes-helm
+   choco install -y kubernetes-helm
 ```
 
 
@@ -377,7 +310,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-kops
   
-   choco install kubernetes-kops
+   choco install -y kubernetes-kops
 ```
 
 
@@ -391,7 +324,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
    # see https://community.chocolatey.org/packages/aksctl
    # seew https://github.com/adfolks/aksctl
 
-   choco install aksctl
+   choco install -y aksctl
 ```
 
 
@@ -402,7 +335,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```shell
    # see https://community.chocolatey.org/packages/eksctl
 
-   choco install aksctl
+   choco install -y aksctl
 ```
 
 
@@ -422,6 +355,10 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ##  21.  Azure ACI-CTL ?
 
 *TODO is there an equivalent for Azure ACI/ACA adhoc containers ?*
+
+
+
+
 
 
 # Appendix
