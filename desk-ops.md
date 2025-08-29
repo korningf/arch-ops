@@ -68,11 +68,24 @@ GitBash derives in turn from MSys.  Only cygwin has a full stack.
 
 Failing this we can manage with GitBash, but it is incomplete.
 
+.
+
+_Update: We shall have to make do with GitBash_
+
+.
+
+Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
+For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
+
+The Python needs to mirror the Git setup for user-space vs all-users,
+so if Git is installed for machine-scope all-users, so should Python,
+or vice-versa.
+
 
 
 ##  0.  Chocolatey
 
-* install Chocolatey in 'c:\chocolatey'
+* install Chocolatey
   
 ```shell
   # see https://docs.chocolatey.org/en-us/choco/setup/
@@ -83,8 +96,10 @@ Failing this we can manage with GitBash, but it is incomplete.
 
 ##  1.  Windows SysInternals
 
+SysInternals are standard MSDN Developer utils from Miscrosoft.
+
 * install SysInternals
-  
+
 ```shell
   choco install -y sysinternals --ignore-cheksum --force
 ```
@@ -93,20 +108,11 @@ Failing this we can manage with GitBash, but it is incomplete.
 
 ##  2.  GitBash POSIX
 
-
-Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
-For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
-
-The Python needs to mirror the Git setup for user-space vs all-users,
-so if Git is installed for machine-scope all-users, so should Python,
-or vice-versa.
-
-
-###  2b.  GitBash via Choco
+GitBash provides a minimal POSIX bash environment with base core-utils. 
 
 *NOTE use Python for Windows with GitBash*
 
-* install GitBash via Choco
+* install GitBash
 
 ```shell
    # see https://community.chocolatey.org/packages/git
@@ -117,15 +123,9 @@ or vice-versa.
 
 ##  3.  Python
 
+Python is absolutely necessary for aws-cli, Cloud-Ops and Dev-Ops.
+
 *NOTE use Python for Windows with GitBash*
-
-Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
-For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
-
-The Python needs to mirror the Git setup for user-space vs all-users,
-so if Git is installed for machine-scope all-users, so should Python,
-or vice-versa.
-
 
 
 ```shell
@@ -139,11 +139,9 @@ or vice-versa.
 
 ##  4.  Dot.NET SDK
 
-_TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
+_TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
 * install the .NET core SDK
-
-
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
@@ -156,8 +154,6 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
 * install the ASP.NET core runtime
 
-
-
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
 
@@ -166,8 +162,6 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0 ?
 
 
 ##  6.  VisualStudio Code
-
-_TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 * install VSCode via winget 
 
@@ -180,6 +174,8 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  7.  Java OpenJDK
 
+We will need Java to run Jenkins CI, Sonar, and a host of other systems.
+
 * install OpenJDK
 
 ```shell
@@ -190,6 +186,8 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 
 ##  8.  Apache Maven
+
+Maven is the build toolchain for Java.
 
 * install Maven
 
@@ -202,6 +200,8 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  9.  Eclipse IDE
 
+Eclipse is the IDE for Java.
+
 * install Eclipse IDE
 
 ```shell
@@ -212,6 +212,9 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 
 ##  10.  stream processors (JSON, YAML, XML)
+
+We will need these stream processors to parse JSON, YAML, XML.
+
 
 * install stream processors (JQ, YQ, XQ)
 
@@ -226,42 +229,35 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  11.  Azure-cli
 
-* install the Azure-cli command-line tools
+Azure-Cli is the Azure Cloud command-line.
+
+* install Azure-cli (AZ cloud)
 
 ```shell
-   choco install -y azure-cli --params "/InstallDir:C:\Azure\bin".
+   # see https://community.chocolatey.org/packages/azure-cli
 
-   setx PATH %PATH%;C:\Azure\bin
+   choco install -y azure-cli
 ```
 
-  
-```shell
-   setx AZURE=C:\azure
-   winget install --exact --id Microsoft.AzureCLI --location c:\Azure\bin
-
-   setx PATH %PATH%;C:\Azure\bin
-```
 
 ##  12.  AWS-cli
 
-* install the AWS-cli command-line tools
+AWS-Cli is the Amazon AWS Cloud command-line.
 
-  ```shell
-   choco install -y awscli --params "/InstallDir:C:\AWS\bin".
-
-   setx PATH %PATH%;C:\AWS\bin
-```
+* install AWS-cli (AWS cloud)
 
 ```shell
-   setx AWS C:\AWS
-   winget install --id "Amazon.AWSCLI" --location c:\AWS\bin
+     # see https://community.chocolatey.org/packages/awscli
   
-   setx PATH %PATH%;C:\AWS\bin
+     choco install -y awscli
 ```
+
 
 ##  13.  Terraform Cloud-Former
 
-* install Terraform
+Terraform is the leading cloud-neutral IaC cloud-provisioning command-line cli.
+
+* install Terraform (cloud cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/terraform
@@ -272,7 +268,9 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  14.  Docker Desktop
 
-* install Docker Desktop
+Docker-Desktop provides a local Docker runtime as well as the command-line cli.
+
+* install Docker Desktop (docker-cli + runtime)
 
 ```shell
   # see https://community.chocolatey.org/packages/docker-desktop
@@ -281,9 +279,11 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```
 
 
-##  15.  Kubernetes Cluster (Minikube)
+##  15.  Kubernetes Cluster
 
-* install Minikube Cluster
+Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
+
+* install Minikube Cluster (kube-cli + runtime)
 
 ```shell
    # see https://community.chocolatey.org/packages/Minikube
@@ -292,9 +292,13 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```
 
 
-##  16.  Kubernetes Helm (Navigator)
+##  16.  Kubernetes Helm
 
-* install Kubernetes Helm (Navigator)
+Kubernetes Helm (aka Navigator Charts) is like Composer for Kube.
+
+It simplifies the process of deploying pods of related services.
+
+* install Kubernetes Helm
 
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-helm
@@ -303,9 +307,13 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```
 
 
-##  17.  Kubernetes Operations (Kops)
+##  17.  Kubernetes Operations
 
-* install Kubernetes Operations (Kops)
+Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
+
+This would be used to build a custom cluster from a raw compute cloud.
+
+* install Kubernetes Operations (kops)
 
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-kops
@@ -314,7 +322,9 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```
 
 
-##  18.  Azure AKS-CTL (aksctl) 
+##  18.  Azure AKS-CTL
+
+Command-line cli to drive Managed Azure AKS Clusters.
 
 *TODO check this*
 
@@ -328,20 +338,24 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 ```
 
 
-##  19.  AWS EKS-CTL (eksctl)
+##  19.  AWS EKS-CTL
+
+Command-line cli to drive Managed Amazon EKS Clusters.
 
 * install EKS-ctl (eksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/eksctl
 
-   choco install -y aksctl
+   choco install -y eksctl
 ```
 
 
-##  20.  AWS ECS-CTL (ecsctl)
+##  20.  AWS ECS-CTL
 
-* install EKS-ctl (eksctl)
+Command-line cli to drive Managed Amazon ECS Containers.
+
+* install ECS-ctl (ecsctl)
 
 *TODO check this - only a PIP package for now*
 
@@ -354,7 +368,7 @@ _TODO_ (do we need VisualStudio, either Community or Licensed?)
 
 ##  21.  Azure ACI-CTL ?
 
-*TODO is there an equivalent for Azure ACI/ACA adhoc containers ?*
+*TODO is there an equivalent for Azure ACI/ACA containers ?*
 
 
 
