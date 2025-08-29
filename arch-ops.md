@@ -80,15 +80,16 @@ We want to use short monikers or symbols that are unique but remain significant.
 
 If possible, names are chosen for alphabetical ordering to express logical flows.
 
-Each taxon tier in our taxonomy is a composite name made stringibn up short symbols.
+Each taxon tier in our taxonomy is a composite name stringing up short symbols.
 
 
 
+## Taxonomy
 
 * Arch    agnostic architecture (orgs, accounts, infra, storage)
 * Base    base infrastructure  (vpc, networking, relays, gateways)
 * Core    core deployments (data, compute, messaging, pipelines)
-* Dev     application development
+* Data    application development
 
 
 
@@ -96,20 +97,20 @@ Each taxon tier in our taxonomy is a composite name made stringibn up short symb
    arch
       auth        root accounts, landing zones
       locales     regions, zones
+      storage     (static storage)
 
       orgs        root organisations   
       units       org units (org groups)
       roles       users, groups, roles, policies
 
-      stacks      subscriptions (member accounts)
+      distros     subscriptions (member accounts)
       projects    business lines  (cpi, govid, bom, bcm, rem, etc)
       spaces      business partitions    (sbx, gov, dsp, pub)  
       environs    runtime environments   (dev, int, mnt, prd)
 
 
    base
-      storage     static storage
-
+      storage     distributed storage
       networks    vnets (vpc, vnet)
       subnets     zones (az)   
 
@@ -123,6 +124,10 @@ Each taxon tier in our taxonomy is a composite name made stringibn up short symb
       peers       VPC peering
       endpoints   cross-vpc seviecs
 
+      dns          forwarders and resolvers
+      directories  AD forests
+      domains      AD domains
+
       resources   resource groups
       services    service groups
 
@@ -130,9 +135,6 @@ Each taxon tier in our taxonomy is a composite name made stringibn up short symb
       racks       placement groups
 
    core
-      dns          forwarders and resolvers
-      directories  AD forests
-      domains      AD domains
 
       compute      serverless  (lambda functions)
       compute      clusters    (kubernetes - eks, aks)
