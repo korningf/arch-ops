@@ -50,9 +50,9 @@ All of these are derived from POSIX code and work best within POSIX.
 .
 
 Modern Cloud and Cluster deployment via IaC uses containerisation.
-The process of containeisation often includes cross-compilation.
+The process of containerisation often includes cross-compilation.
 We need an environment that is powerful enough to cross-compile.
-That's what POSIX was designed for.  
+That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
 
 .
 
@@ -66,9 +66,9 @@ On Windows the only real full POSIX native environment is Cygwin.
 Everything else derives from it. SysGit and Msys derive from it.
 GitBash derives in turn from MSys.  Only cygwin has a full stack.
 
-Failing this we can manage with GitBash, but it is incomplete.
+. 
 
-.
+Failing this we can manage with GitBash, but it is incomplete.
 
 _Update: We shall have to make do with GitBash_
 
