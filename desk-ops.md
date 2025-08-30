@@ -83,6 +83,14 @@ or vice-versa.
 
 
 
+
+# Integrators
+
+
+Cloud-Ops and Dev-Ops Systems Integrators should install the following.
+
+
+
 ##  0.  Chocolatey
 
 * install Chocolatey
@@ -121,9 +129,9 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
 ```
 
 
-##  3.  Python
+## 3.  Python
 
-Python is absolutely necessary for aws-cli, Cloud-Ops and Dev-Ops.
+Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
 *NOTE use Python for Windows with GitBash*
 
@@ -135,83 +143,37 @@ Python is absolutely necessary for aws-cli, Cloud-Ops and Dev-Ops.
 ```
 
 
+##  4.  Ruby
 
+Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
 
-##  4.  Dot.NET SDK
+*NOTE use Python for Windows with GitBash*
 
-_TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
-
-* install the .NET core SDK
 
 ```shell
-   # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
+   # see https://community.chocolatey.org/packages/ruby
 
-   choco install -y dotnet-9.0-sdk
-```
-
-  
-##  5.  ASP.NET core
-
-* install the ASP.NET core runtime
-
-```shell
-   # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
-
-   choco install -y dotnet-9.0-aspnetruntime
+   choco install -y ruby
 ```
 
 
-##  6.  VisualStudio Code
 
-* install VSCode via winget 
+##  5.  Go
+
+Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
+
+*NOTE use Python for Windows with GitBash*
+
 
 ```shell
-   # see https://community.chocolatey.org/packages/vscode
+   # see https://community.chocolatey.org/packages/golang
 
-   choco install -y vscode
+   choco install -y golang
 ```
 
 
-##  7.  Java OpenJDK
 
-We will need Java to run Jenkins CI, Sonar, and a host of other systems.
-
-* install OpenJDK
-
-```shell
-   # see https://community.chocolatey.org/packages/openjdk
-
-   choco install -y openjdk
-```
-
-
-##  8.  Apache Maven
-
-Maven is the build toolchain for Java.
-
-* install Maven
-
-```shell
-   # see https://community.chocolatey.org/packages/maven
-
-   choco install -y maven
-```
-
-
-##  9.  Eclipse IDE
-
-Eclipse is the IDE for Java.
-
-* install Eclipse IDE
-
-```shell
-   # see https://community.chocolatey.org/packages/eclipse-java-oxygen
-  
-   choco install -y eclipse-java-oxygen
-```
-
-
-##  10.  stream processors (JSON, YAML, XML)
+##  6.  stream processors (JSON, YAML, XML)
 
 We will need these stream processors to parse JSON, YAML, XML.
 
@@ -227,35 +189,38 @@ We will need these stream processors to parse JSON, YAML, XML.
 ```
 
 
-##  11.  Azure-cli
 
-Azure-Cli is the Azure Cloud command-line.
+##  7.  Vault Secrets-Manager
 
-* install Azure-cli (AZ cloud)
+Hashicorp Vault is the leading agnostic cloud secrets manager.
+
+* install Vault (vault cli)
 
 ```shell
-   # see https://community.chocolatey.org/packages/azure-cli
+   # see https://community.chocolatey.org/packages/vault
 
-   choco install -y azure-cli
+   choco install -y vault
 ```
 
 
-##  12.  AWS-cli
 
-AWS-Cli is the Amazon AWS Cloud command-line.
+##  8.  Packer 
 
-* install AWS-cli (AWS cloud)
+Hashicorp Packer is the leading agnostic cloud image packager.
+
+* install Packer (packer cli)
 
 ```shell
-     # see https://community.chocolatey.org/packages/awscli
-  
-     choco install -y awscli
+   # see https://community.chocolatey.org/packages/packer
+
+   choco install -y packer
 ```
 
 
-##  13.  Terraform Cloud-Former
 
-Terraform is the leading cloud-neutral IaC cloud-provisioning command-line cli.
+##  9.  Terraform Cloud-Former
+
+Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
 * install Terraform (cloud cli)
 
@@ -266,7 +231,7 @@ Terraform is the leading cloud-neutral IaC cloud-provisioning command-line cli.
 ```
 
 
-##  14.  Docker Desktop
+##  10.  Docker Desktop
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
@@ -279,7 +244,7 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ```
 
 
-##  15.  Kubernetes Cluster
+##  11.  Kubernetes Cluster
 
 Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
 
@@ -292,7 +257,7 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 ```
 
 
-##  16.  Kubernetes Helm
+##  12.  Kubernetes Helm
 
 Kubernetes Helm (aka Navigator Charts) is like Composer for Kube.
 
@@ -307,7 +272,7 @@ It simplifies the process of deploying pods of related services.
 ```
 
 
-##  17.  Kubernetes Operations
+##  13.  Kubernetes Operations
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -322,7 +287,34 @@ This would be used to build a custom cluster from a raw compute cloud.
 ```
 
 
-##  18.  Azure AKS-CTL
+##  14.  Azure-cli
+
+Azure-Cli is the Azure Cloud command-line.
+
+* install Azure-cli (AZ cloud)
+
+```shell
+   # see https://community.chocolatey.org/packages/azure-cli
+
+   choco install -y azure-cli
+```
+
+
+##  15.  AWS-cli
+
+AWS-Cli is the Amazon AWS Cloud command-line.
+
+* install AWS-cli (AWS cloud)
+
+```shell
+     # see https://community.chocolatey.org/packages/awscli
+  
+     choco install -y awscli
+```
+
+
+
+##  16.  Azure AKS-CTL
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -338,7 +330,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  19.  AWS EKS-CTL
+##  17.  AWS EKS-CTL
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
@@ -351,7 +343,7 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  20.  AWS ECS-CTL
+##  18.  AWS ECS-CTL
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
@@ -366,10 +358,131 @@ Command-line cli to drive Managed Amazon ECS Containers.
 ```
 
 
-##  21.  Azure ACI-CTL ?
+##  19.  Azure ACI-CTL ?
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
+
+
+# Develeoprs
+
+In addition, Developers, Build-Masters, should also install the following.
+
+
+
+##  20.  Vagrant
+
+Hashicorp Vagrant is the leading agnostic devlopment mahcine provisioner.
+
+
+```shell
+   # see https://community.chocolatey.org/packages/vagrant
+
+   choco install -y vagrant
+```
+
+
+
+##  21.  Dot.NET SDK
+
+_TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
+
+* install the .NET core SDK
+
+```shell
+   # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
+
+   choco install -y dotnet-9.0-sdk
+```
+
+  
+##  22.  ASP.NET core
+
+* install the ASP.NET core runtime
+
+```shell
+   # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
+
+   choco install -y dotnet-9.0-aspnetruntime
+```
+
+
+##  23.  VisualStudio Code
+
+* install VSCode via winget 
+
+```shell
+   # see https://community.chocolatey.org/packages/vscode
+
+   choco install -y vscode
+```
+
+
+##  24.  Java OpenJDK
+
+We will need Java to run Jenkins CI, Sonar, and a host of other systems.
+
+* install OpenJDK
+
+```shell
+   # see https://community.chocolatey.org/packages/openjdk
+
+   choco install -y openjdk
+```
+
+
+##  25.  Apache Maven
+
+Maven is the build toolchain for Java.
+
+* install Maven
+
+```shell
+   # see https://community.chocolatey.org/packages/maven
+
+   choco install -y maven
+```
+
+
+##  26.  Eclipse IDE
+
+Eclipse is the IDE for Java.
+
+* install Eclipse IDE
+
+```shell
+   # see https://community.chocolatey.org/packages/eclipse-java-oxygen
+  
+   choco install -y eclipse-java-oxygen
+```
+
+
+##  27.  MinGW
+
+_TODO optional_
+
+MinGW - Minimal Gnu Windows is a complete POSIX GNU GCC/GLIBC C/C++ toolchain.
+
+It include gcc, gpp, glibc libraries, and the GNU Autotools (make, configure).
+
+It's not clear yet if we have to cross-compile anything to/from POSIX and GLibc.
+
+_TODO optional_
+
+
+
+
+# Extension
+
+_TODO Should we consider the following?_
+
+## PHP
+
+## Puppet
+
+## Ansible
+
+## Chef
 
 
 
