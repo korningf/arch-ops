@@ -463,7 +463,7 @@ _TODO optional_
 
 MinGW - Minimal Gnu Windows is a complete POSIX GNU GCC/GLIBC C/C++ toolchain.
 
-It include gcc, gpp, glibc libraries, and the GNU Autotools (make, configure).
+It include gcc, g++, glibc lib, binutils, GNU Autotools (automake, configure).
 
 It's not clear yet if we have to cross-compile anything to/from POSIX and GLibc.
 
@@ -476,13 +476,19 @@ _TODO optional_
 
 _TODO Should we consider the following?_
 
-## PHP
+## Docker-Compose ?
 
-## Puppet
+## Puppet ?
 
 ## Ansible
 
 ## Chef
+
+## Salt
+
+## Perl / CPAN
+
+## Rust / Cargo
 
 
 
