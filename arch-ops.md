@@ -99,15 +99,15 @@ made up of 5 short monikers separated by underscore with the following pattern:
 
 Occupancy
  
-​   auth _  back _ core _ dist _ envt
+​   aegis _ basis _ core _ desk _ envt
 
 where
 
-   auth   regulatory authority
-   back   backend infrastructure
-   core   cloud tenancy
-   dist   functional domain distribution
-   envt   runtime environment
+   auth   aegis aauthority (data sovereignty - who regulates the data)
+   back   basis backbone (data residency - where does the data live)
+   core   core custody (corp tenancy - who has custody of the data)
+   desk   desk division (data domain - under what functional demarcation)
+   envt   environment extend (runtime what technical scope - )
 
 ```
 
@@ -123,7 +123,7 @@ this time using a dot-separator.
 
 ```text
 
-  aegis.authority / base.backend / core.custody / dist.domain / env.extent / func.feature 
+  aegis.authority / base.backbone / core.custody / desk.domain / env.extent / func.feature 
 
 ```
 
@@ -173,14 +173,14 @@ IE Dublin, DSP Bomi, DB Model production with sharded A|B testing
       units       org units (org groups)
       roles       users, groups, roles, policies
 
-      distros     subscriptions (member accounts)
+      deskros     subscriptions (member accounts)
       projects    business lines  (cpi, govid, bom, bcm, rem, etc)
       spaces      business partitions    (sbx, gov, dsp, pub)  
       environs    runtime environments   (dev, int, mnt, prd)
 
 
    base
-      storage     distributed storage
+      storage     deskributed storage
       networks    vnets (vpc, vnet)
       subnets     zones (az)   
 
