@@ -173,8 +173,11 @@ IE Dublin, DSP Bomi, DB Model production with sharded A|B testing
       units       org units (org groups)
       roles       users, groups, roles, policies
 
-      deskros     subscriptions (member accounts)
-      projects    business lines  (cpi, govid, bom, bcm, rem, etc)
+      tenants     root accounts 
+      accounts    subscriptions (member accounts)
+
+      desks       primary business demarcations (core, inno, bcdr, sbox)
+      projects    secondary business lines  (cpi, govid, bom, bcm, rem, etc)
       spaces      business partitions    (sbx, gov, dsp, pub)  
       environs    runtime environments   (dev, int, mnt, prd)
 
