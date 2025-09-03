@@ -82,16 +82,86 @@ If possible, names are chosen for alphabetical ordering to express logical flows
 
 Each taxon tier in our taxonomy is a composite name stringing up short symbols.
 
+.
+
+Now for governance, regulatory comliance, and access control we want granularity.
+
+That is we want to be able to scope and subdivide our taxons into taxonomies.
 
 
-## Taxonomy
+# Ontology
+
+Occupancy (Subscriptions and AWS member accounts) should use a composite name,
+
+made up of 5 short monikers separated by underscore with the following pattern:
+
+```text
+
+Occupancy
+ 
+​   auth _  back _ core _ dist _ envt
+
+where
+
+   auth   regulatory authority
+   back   backend infrastructure
+   core   cloud tenancy
+   dist   functional domain distribution
+   envt   runtime environment
+
+```
+
+
+Taxonomy
+
+Our main concern is security, which means we need a more granular approach.
+
+Each short symbolic moniker maps in turn to a taxon which can be subdivided,
+
+this time using a dot-separator.
+
+
+```text
+
+  aegis.authority / base.backend / core.custody / dist.domain / env.extent / func.feature 
+
+```
+
+FR Paris, innovation, AI Claude sandbox
+   
+    Occupancy:  FR_AWS_INNO_CLAUDE_SBOX
+
+    Taxonomy:   eu.fr/aws.paris/dsp.inno/ai.claude/sbox.alpha
+
+IE Dublin, DSP Bomi, DB Model production
+
+
+    Occupancy:  IE_AWS_BOMI_MODEL_PROD
+   
+    Taxonomy:   eu.ie/aws.dublin/dsp.core/bomi.model/prod
+  
+
+IE Dublin, DSP Bomi, DB Model production with sharded A|B testing
+
+    eu.ie/aws.dublin/dsp.bomi/db.model/prod.live
+    eu.ie/aws.dublin/dsp.bomi/db.model/prod.blue
+    eu.ie/aws.dublin/dsp.bomi/db.model/prod.green
+
+
+
+## Architecture Tiers
 
 * Arch    agnostic architecture (orgs, accounts, infra, storage)
 * Base    base infrastructure  (vpc, networking, relays, gateways)
 * Core    core deployments (data, compute, messaging, pipelines)
-* Data    application development
+* Data    data pipeline
+* Elas    elastic scaling
 
 
+
+```text
+
+```
 
 ```text
    arch
@@ -174,7 +244,7 @@ Once we have standardised and modelled things, this in turn allows us to automat
 
 # Virtualisation
 
-Abstraction, when applied to Cloud and Computing Infrastucture, begets Virtualisation.
+Abstraction, when pushed to its limits, and applied to Computing, begets Virtualisation.
 
 Given an abstract common model, we can virtualise Machines, Containers, Clusters, Clouds.
 
@@ -201,31 +271,8 @@ and software configurations - in short everything necessary to get it all runnin
 
 ## Docker
 
-## Kubernetes in 10 steps
+## Kubernetes
 
-0. Homogeneity:   Abstracts vendor specific components into a neutral Model based on generic services, components, and modules.
-   
-1. Visibility:    This forces us to Identify and expose Dependencies and decouple systems into single-responsibility components.
-
-2.	Portability:   This allows containerisation - focused isolated apps serving well-catalogued services and their dependencies.
-
-3.	Automation:    With isolated, portable modular components, we can now automate their runtime configuration and deployment.
-
-4. Provision:     This gives us a grammar to Provision systems, to express desired runtime topology, deployment, scale, resources.   
-   
-5. Sequencing:     This forces us to expose sequencing and orchestration rules, which are also expressed in neutral config and code.
-
-6. Orchestration:  We use this grammar to express state changes, to manage complex distributed systems including their dependencies.
-
-6. Monitoring:     The common model also forces us to expose application health checks and telemetry, metrics, logging, tracing.
-
-7.	Reliability:    Apps are abstracted in services, which can be replicated and load-balanced for fault-tolerance and reliability.
-
-8. Scalability:   This allows to scale to a desired topology, to scale the topology on demand, or define policies to autoscale.
-
-9.	Migration:     this model allows to plan any migration or transition with full support for rollback and recovery.
-   
-10. Ecosystem:   	it is ubiquitous and has a vast ecosystem including all major cloud provides and open-source developers.
 
 
 ## Stacks
