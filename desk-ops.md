@@ -112,7 +112,7 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 * install SysInternals
 
 ```shell
-  choco install -y sysinternals --ignore-cheksum --force
+  choco install -y sysinternals --ignore-checksum --force
 ```
 
 
