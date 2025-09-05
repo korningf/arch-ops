@@ -367,15 +367,15 @@ Command-line cli to drive Managed Amazon ECS Containers.
 
 
 
-# Develeoprs
+# Developers
 
-In addition, Developers, Build-Masters, should also install the following.
+In addition Developers and Build-Masters should also install the following.
 
 
 
 ##  20.  Vagrant
 
-Hashicorp Vagrant is the leading agnostic devlopment mahcine provisioner.
+Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
 
 ```shell
@@ -460,15 +460,19 @@ Eclipse is the IDE for Java.
 ```
 
 
-##  27.  MinGW
+##  27.  GnuWin64 or MinGW
 
 _TODO optional_
 
-MinGW - Minimal Gnu Windows is a complete POSIX GNU GCC/GLIBC C/C++ toolchain.
+I usually use Cygwin64 to cross-compile from native Windows to POSIX Linux and back.
+
+GnuWin64 or MinGW are POSIX GNU GCC/GLIBC C/C++ toolchains (GnuWin64 is preferred).
 
 It include gcc, g++, glibc lib, binutils, GNU Autotools (automake, configure).
 
 It's not clear yet if we have to cross-compile anything to/from POSIX and GLibc.
+
+Investigate whether we need a complete cross-compilation toolchain for the future.
 
 _TODO optional_
 
