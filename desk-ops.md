@@ -254,9 +254,9 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 
 ##  12.  Kubernetes Helm
 
-Kubernetes Helm (aka Navigator Charts) is like Composer for Kube.
+Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
-It simplifies the process of deploying pods of related services.
+It simplifies and groups deployment of related services into charts.
 
 * install Kubernetes Helm
 
