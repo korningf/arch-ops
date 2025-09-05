@@ -138,7 +138,6 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
 *NOTE use Python for Windows with GitBash*
 
-
 ```shell
    # see https://github.com/korningf/cso-git#Python
 
@@ -149,9 +148,6 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 ##  4.  Ruby
 
 Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
-
-*NOTE use Python for Windows with GitBash*
-
 
 ```shell
    # see https://community.chocolatey.org/packages/ruby
@@ -165,9 +161,6 @@ Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
 
 Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
 
-*NOTE use Python for Windows with GitBash*
-
-
 ```shell
    # see https://community.chocolatey.org/packages/golang
 
@@ -179,7 +172,6 @@ Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
 ##  6.  stream processors (JSON, YAML, XML)
 
 We will need these stream processors to parse JSON, YAML, XML.
-
 
 * install stream processors (JQ, YQ, XQ)
 
@@ -376,7 +368,6 @@ In addition Developers and Build-Masters should also install the following.
 ##  20.  Vagrant
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
-
 
 ```shell
    # see https://community.chocolatey.org/packages/vagrant
