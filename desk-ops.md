@@ -6,7 +6,7 @@
 
 # Site Firewall Whitelist
 
-The following site sneed to be whitelisted in ordewr to install packages.
+Add the following sites to your etxrenal firewall whitelist.
 
 ```text
   Microsoft stack:
