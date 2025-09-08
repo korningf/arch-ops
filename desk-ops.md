@@ -18,11 +18,12 @@ Add the following sites to your etxrenal firewall whitelist.
     nuget.org
 
   Win Ops:
+    chocolatey.org
     cygwin.com
     msys2.org    
     packagist.org 
     git-scm.com
-    gitforwindows.org
+    gitforwindows.org    
 
   Cloud infra:
     azure.com
