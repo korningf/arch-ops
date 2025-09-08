@@ -43,12 +43,16 @@ Add the following sites to your etxrenal firewall whitelist.
 
   Dev Ops:
     cpan.org
+    anaconda.com
+    anaconda.org
     python.org
     pypi.org
     ruby-lang.org
     rubygems.org
     rubyonrails.org
     go.dev
+    oracle.com
+    apache.org
     maven.org
     jenkins.io
     eclipse.org
