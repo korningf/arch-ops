@@ -4,6 +4,65 @@
 
 
 
+# Site Firewall Whitelist
+
+The following site sneed to be whitelisted in ordewr to install packages.
+
+```text
+  Microsoft stack:
+    microsoft.com 
+    msdn.com
+
+  .NET stack:
+    winget.org  
+    nuget.org
+
+  Win Ops:
+    cygwin.com
+    msys2.org    
+    packagist.org 
+    git-scm.com
+    gitforwindows.org
+
+  Cloud infra:
+    azure.com
+    amazonaws.com    
+    googleapis.com
+    googlesource.com
+
+  Cloud Ops:
+    passwordstore.org
+    docker.io
+    docker.com
+    k8s.io
+    kubernetes.io
+    helm.sh
+    helm.releases
+    terraform.io
+    hashicorp.com
+
+  Dev Ops:
+    cpan.org
+    python.org
+    pypi.org
+    ruby-lang.org
+    rubygems.org
+    rubyonrails.org
+    go.dev
+    maven.org
+    jenkins.io
+    eclipse.org
+    sonatype.org
+
+  OSS Code:
+    github.com
+    gitlab.com
+    bitbucket.org
+    sourceforge.net
+```
+  
+
+
 # Dev Tools
 
 ☒  approved  [+]
