@@ -35,10 +35,9 @@ Add the following sites to your etxrenal firewall whitelist.
     passwordstore.org
     docker.io
     docker.com
-    k8s.io
     kubernetes.io
+    k8s.io
     helm.sh
-    helm.releases
     terraform.io
     hashicorp.com
 
