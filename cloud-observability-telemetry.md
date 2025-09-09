@@ -94,3 +94,97 @@ Now each Cloud provider has its own native Management Console and toolkits, but 
 Obvious Cloud Operations features include costing and budgeting, capacity planning, auto-scaling, and even emergency routing to ephemeral environments. Neutral Cloud Operations are facilitated with abstract container and cluster orchestrators like Kubernetes. Since most Observability platforms provide a Kubernetes dashboard, we now have a cloud-neutral interface to manage cloud, cluster, and container operations, in a generic, infrastructure-as-code way.
 Some of the more high-tech applications to Cloud Operations include AI / ML based analytics, anomaly detection, and inference engines.  
 
+
+
+# Implementation
+
+
+# Telemetry
+
+
+*OpenTelemetry* (aka OTel) is the name of the game. There are no alternatives here - this is a Cloud-Neutral abstraction backed by 95 percent of the major cloud providers, Observability dashboards and suites, telemetry engines, and unified logging frameworks and facades.
+
+No matter which observaibility suite or combined stackwe choose to use, it will work if we plug-in Otel-compliant collectors and harvesters.  We currently use a combination of Cisco Splunk, Grafana / Prometheus, and cloud-native suites from Azure and AWS.  These are all OTel-compliant.
+
+On top of the dashboard, we can wire-in more sophisticated analytics, for example with Power-BI and maybe some AI driven Big-Data analytics one day.
+
+    https://opentelemetry.io
+
+
+
+## Logging
+
+We use a Logging framework and a tracing framework, like SLF4J or SLF4Net.
+
+This allows us to define log categories for selective filtering and tracing.
+
+As much as possible, apps should support a vertical Diagnostic Trace Context.
+
+In CI/CD/CT, we want log category names to group tests by default environment.
+
+.
+
+SLF4J and SLF4Net are not only Logging Frameworks but also unified Logging Facades,
+
+That is they have wrappers which cover and impersonate all the mainstream loggers.
+
+Linking with these wrappers or bridges means we can unify and intercept all runtime logs.
+
+That is, even logs and traces bundled in linked 3rd party libraries can be intercepted.
+
+.
+
+We strongly recommend SLF4J (and logback) and SLF4Net
+
+    https://www.slf4j.org/manual.html
+
+    https://github.com/ef-labs/slf4net
+
+One could also use Log4J and Log4Net standalone
+
+    https://logging.apache.org/log4j/2.x/index.html
+
+    https://logging.apache.org/log4net/
+
+
+## Tracing
+
+Unified logging frammeworks like Log4J/SLF4J or Log4Net/SLF4Net changed everything.
+
+It is now possible to attach contextual medta-data to all distributed systems.
+
+Provided we are using instrumented apps, for example REST micro-services, etc,
+
+we can now enrich the entire flows across not just a single application call stack,
+
+but all the apps involved, eg to a client, server, cache, database and middleware.
+
+Tracing tracks a single user session on its end-to-end journey through the system.
+
+Modern Telemetry and Tracing implements the W3C Tracing Context, including IIS.
+
+    https://www.w3.org/TR/trace-context/
+
+    https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts
+
+    https://medium.com/cloud-native-daily/distributed-tracing-a-guide-for-2023-a40a1ee218b5
+
+    https://www.jimmybogard.com/building-end-to-end-diagnostics-and-tracing-a-primer-trace-context
+
+
+## Metrics
+
+The third part of Observability and Telemetry is Quantitiative Metrics and signals.
+
+All of our apps should have hooks into standard OpenMetrics or OpenTelemetry APIs.
+
+These should expose the standard Profiler values, Memory, IO, and system health.
+
+TODO Select the appropriate telemetry / Observability suites (OpenTelemetry, Grafana ?)
+
+Instrumentation Finally we should have sandbox Debug versions of apps that expose Headers and Symbols. We should also expose standard admin or management interfaces, secured in production.
+
+
+_TODO Select the appropriate instrumentation suites_
+
+
