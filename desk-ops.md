@@ -210,6 +210,12 @@ We need to set up our default shell environment and add devpc extensions.
   choco install standard_dsp_devpc_windowsfeatures -y
 ```
 
+* Restart (reboot) the DevPC and open a new admin powershell.
+
+```shell
+  Restart-Computer -Force
+```
+
 A few licensed packages may live on the offical sources (python, aws-cli).
 
 * (optional) temporarily activate licensed chocolatey sources.
@@ -220,7 +226,7 @@ In the shell, enable the repo sources.
   choco source enable -n chocolatey
   choco source enable -n chocolatey.licensed
 ```
-
+  
 
 ##  1.  Windows SysInternals
 
