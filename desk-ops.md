@@ -180,6 +180,20 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/ChocolateyInstall.ps1'))
 ```
 
+Now this only does a one-time install of a  local Chocolatey 2.4.3.
+
+Crucially we want a bootstrap to point to the private chocoserver.
+
+And we also want to upgrade our local client to choco 2.5.1.
+
+* run the bootstrap _(ignoring warnings)_
+* 
+```shell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
+```
+
 
 ##  1.  Windows SysInternals
 
