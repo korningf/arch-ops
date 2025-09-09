@@ -157,7 +157,7 @@ Cloud-Ops and Dev-Ops Systems Integrators should install the following.
 
 
 
-##  0.  Chocolatey
+##  0.  Chocolatey ([!] mandatory)
 
 * install Chocolatey
 
@@ -206,8 +206,11 @@ We need to set up our default shell environment and add devpc extensions.
 
 ```shell
   choco install standard_dsp_powershell_execpolicyunrestricted -y
+
   choco install standard_dsp_devpc_windowsconfig -y
   choco install standard_dsp_devpc_windowsfeatures -y
+
+  choco install standard_dsp_enable_rsat -y
 ```
 
 * Restart (reboot) the DevPC and open a new admin powershell.
@@ -228,7 +231,35 @@ In the shell, enable the repo sources.
 ```
   
 
-##  1.  Windows SysInternals
+## 1.  DevPC Tools ([!] mandatory)
+
+DevTools install additional developer tools (most are ports of POSIX tools).
+
+In addition it installs WSL (Windows Subsystem for Linux - aka Winterix) VMs.
+
+
+* Install root certs to enable NT auth in TLS/SSL.
+
+```shell
+  choco install standard_dsp_root_ca -y
+  choco install standard_dsp_pip_cert -y
+```
+
+* Install Developer Tools
+
+```shell
+  choco install standard_dsp_devpc_tools -y
+  choco install standard_dsp_devpc_sqltools -y
+```
+
+* Best to Restart the system, and re-open an admin shell.
+
+```shell
+  Restart-Computer -Force
+```
+
+
+##  2.  Windows SysInternals ([!] mandatory)
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
 
@@ -240,7 +271,7 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 
 
 
-##  2.  GitBash POSIX
+##  3.  GitBash POSIX ([!] mandatory)
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
@@ -258,24 +289,33 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
 
 We use a custom .profile script for the GitBash POSIX environment.
 
-Install the script, entering the GitBash roo  ('C:\Program Files\Git')
+Install the script, entering the GitBash root  ('C:\Program Files\Git')
 
 ```shell
-  choco install standard_dsp_powershell_profile -y
+    choco install standard_dsp_powershell_profile -y
+```
+
+* Edit your profile as needed.
+
+ 
+
+* Configure Git
+
+When prompted, enter your email address (eg joe.bloggs@welfare.ie).
+
+```shell
+    choco install standard_dsp_git_config
+```
+Verify that the Git global email and username are properly configured:
+
+```shell
+    git config --global user.name 
+    git config --global user.email
 ```
 
 
-* Install Developer Tools
 
-We install a number of additional developer tools (akin to POSIX tools)
-
-```shell
-  choco install standard_dsp_devpc_tools -y
-  choco install standard_dsp_devpc_sqltools -y
-```
-
-
-## 3.  Python
+## 4.  Python ([*] provided)
 
 Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
@@ -284,35 +324,25 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 ```shell
    # see https://github.com/korningf/cso-git#Python
 
-   choco install -y python --version 3.13.7 --force
+   choco install -y python --force
 ```
 
 
-##  4.  Ruby
 
-Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
+##  5.  Keepass ([*] provided)
+
+We Use Keepass for a local developer secure secret and password store.
+
+I prefer the POSIX pass cmd (password-store), but keepass will do.
+
 
 ```shell
-   # see https://community.chocolatey.org/packages/ruby
-
-   choco install -y ruby
+  	choco install keepass -y
 ```
 
 
 
-##  5.  Go
-
-Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
-
-```shell
-   # see https://community.chocolatey.org/packages/golang
-
-   choco install -y golang
-```
-
-
-
-##  6.  stream processors (JSON, YAML, XML)
+##  6.  stream processors (JSON, YAML, XML) ([*] provided)
 
 We will need these stream processors to parse JSON, YAML, XML.
 
@@ -328,7 +358,7 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  7.  Vault Secrets-Manager
+##  7.  Vault Secrets-Manager ([-] missing)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
@@ -342,7 +372,7 @@ Hashicorp Vault is the leading agnostic cloud secrets manager.
 
 
 
-##  8.  Packer 
+##  8.  Packer Packager-Provisioner ([-] missing)
 
 Hashicorp Packer is the leading agnostic cloud image packager.
 
@@ -356,7 +386,7 @@ Hashicorp Packer is the leading agnostic cloud image packager.
 
 
 
-##  9.  Terraform Cloud-Former
+##  9.  Terraform Cloud-Former ([*] provided)
 
 Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
@@ -382,7 +412,9 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ```
 
 
-##  11.  Kubernetes Cluster
+##  11.  Kubernetes Cluster ([?] evaluate)
+
+The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
 
 Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
 
@@ -395,7 +427,7 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 ```
 
 
-##  12.  Kubernetes Helm
+##  12.  Kubernetes Helm ([!] default)
 
 Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
@@ -410,7 +442,7 @@ It simplifies and groups deployment of related services into charts.
 ```
 
 
-##  13.  Kubernetes Operations
+##  13. Kubernetes Operations ([-] missing)
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -425,7 +457,7 @@ This would be used to build a custom cluster from a raw compute cloud.
 ```
 
 
-##  14.  Azure-cli
+##  14.  Azure-cli ([+] provided)
 
 Azure-Cli is the Azure Cloud command-line.
 
@@ -610,6 +642,28 @@ Investigate whether we need a complete cross-compilation toolchain for the futur
 
 _TODO optional_
 
+
+##  28.  Ruby ([?] evaluate)
+
+Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
+
+```shell
+   # see https://community.chocolatey.org/packages/ruby
+
+   choco install -y ruby
+```
+
+
+
+##  29.  Go  ([?] evaluate)
+
+Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
+
+```shell
+   # see https://community.chocolatey.org/packages/golang
+
+   choco install -y golang
+```
 
 
 
