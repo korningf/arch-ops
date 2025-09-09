@@ -160,11 +160,24 @@ Cloud-Ops and Dev-Ops Systems Integrators should install the following.
 ##  0.  Chocolatey
 
 * install Chocolatey
-  
+
+We use a custom private chocoserver instead of the public one.
+a custom powershell PS1 script sets up the choco environment.
+
+* _(skip this) the usual way with the public chocolatey.org url_
+
 ```shell
   # see https://docs.chocolatey.org/en-us/choco/setup/
 
   winget install --id=Chocolatey.Chocolatey
+```
+
+* (use this) _our custom install with a private chocoserver script_
+
+```shell
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/ChocolateyInstall.ps1'))
 ```
 
 
