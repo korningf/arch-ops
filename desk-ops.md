@@ -161,10 +161,12 @@ Cloud-Ops and Dev-Ops Systems Integrators should install the following.
 
 * install Chocolatey
 
+
 We use a custom private chocoserver instead of the public one.
+
 a custom powershell PS1 script sets up the choco environment.
 
-* _(skip this) the usual way with the public chocolatey.org url_
+* (skip this) _the usual way with the public chocolatey.org url_
 
 ```shell
   # see https://docs.chocolatey.org/en-us/choco/setup/
@@ -173,6 +175,8 @@ a custom powershell PS1 script sets up the choco environment.
 ```
 
 * (use this) _our custom install with a private chocoserver script_
+
+Open a new elevated powershell (run as administrator):
 
 ```shell
 Set-ExecutionPolicy Bypass -Scope Process -Force
@@ -187,13 +191,15 @@ Crucially we want a bootstrap to point to the private chocoserver.
 And we also want to upgrade our local client to choco 2.5.1.
 
 * run the bootstrap _(ignoring warnings)_
-* 
+  
 ```shell
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
 ```
 
+* close the powershell and open another one.
+  
 
 ##  1.  Windows SysInternals
 
