@@ -245,6 +245,18 @@ In addition it installs WSL (Windows Subsystem for Linux - aka Winterix) VMs.
   choco install standard_dsp_pip_cert -y
 ```
 
+* Install
+  
+We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
+
+This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker hub, etc.
+
+```shell
+choco install standard_3rdparty_nuget_packageprovider
+choco install ci_dsp_feeds -y
+```
+
+
 * Install Developer Tools
 
 ```shell
