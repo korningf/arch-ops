@@ -198,23 +198,30 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
 ```
 
-This policy makes us default to the internal chocoserver for bandwidth and latency.
+The policy defaults to the internal chocoserver for bandwidth and latency.
 
-A couple of approved licensed  packages have to be fetched manually (python, aws-cli).
-
-We will have to temporarily activate licensed chocolatey packages.
-
+We need to set up our default shell environment and add devpc extensions.
 
 * close the powershell and open another one.
+
+```shell
+  choco install standard_dsp_powershell_execpolicyunrestricted -y
+  choco install standard_dsp_devpc_windowsconfig -y
+  choco install standard_dsp_devpc_windowsfeatures -y
+```
+
+A few licensed packages may live on the offical sources (python, aws-cli).
+
+* (optional) temporarily activate licensed chocolatey sources.
 
 In the shell, enable the repo sources.
 
 ```shell
   choco source enable -n chocolatey
   choco source enable -n chocolatey.licensed
-
-  choco install standard_dsp_powershell_execpolicyunrestricted -y
 ```
+
+
 ##  1.  Windows SysInternals
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
@@ -252,13 +259,12 @@ We installed GitBash in the default location (note the following).
     C:\Program Files\Git
 ```
 
-Enter the GitBash root location
+Run the script, entering the GitBash root location  (C:\Program Files\Git)
 
 ```shell
   choco install standard_dsp_powershell_profile -y  
 ```
 
-  
 
 ## 3.  Python
 
