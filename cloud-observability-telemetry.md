@@ -6,7 +6,7 @@ As Cloud Infrastructure grows in scope and complexity according to the demands o
 
 Observability is a recent concept. The idea is to provide a unified central Dashboard that observes cloud infrastructure and shows an overview of Telemetry, provides system Health Monitoring and Alerts, and runs Analytics based on usage, trends, and historical comparisons. The tools harvest events, compile results, render graphs, build reports, and in more sophisticated frameworks offer more intelligent inferences, say for audits, capacity planning, cost reporting, or security and compliance.  
 
-It would be preferrable to select industry-standard, cloud-agnostic, open-source tools that will allow us to visualise and manage our different cloud components with a common interface. Second best would be the AWS Cloud tools. A primary reason for this is the AWS Landing Zone budget has already been allocated and AWS tools are priced-in.
+It would be preferrable to select industry-standard, cloud-agnostic, open-source tools that will allow us to visualise and manage our different cloud components with a common interface. Second best would be the nativeCloud tools from Azure and AWS. A primary reason for this is the Landing Zone budget has already been allocated and these tools are priced-in.
 
 *OpenTelemetry* (aka OTel) is the name of the game. There are no alternatives here - this is a Cloud-Neutral abstraction backed by 95 percent of the major cloud providers, Observability dashboards and suites, telemetry engines, and unified logging frameworks and facades.
 
