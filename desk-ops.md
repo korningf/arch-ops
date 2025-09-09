@@ -254,21 +254,24 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
 
-
 * Customise Gitbash
 
-We use custom .profile scripts for the GitBash POSIX environment.
+We use a custom .profile script for the GitBash POSIX environment.
 
-We installed GitBash in the default location (note the following).
+Install the script, entering the GitBash roo  ('C:\Program Files\Git')
 
 ```shell
-    C:\Program Files\Git
+  choco install standard_dsp_powershell_profile -y
 ```
 
-Run the script, entering the GitBash root location  (C:\Program Files\Git)
+
+* Install Developer Tools
+
+We install a number of additional developer tools (akin to POSIX tools)
 
 ```shell
-  choco install standard_dsp_powershell_profile -y  
+  choco install standard_dsp_devpc_tools -y
+  choco install standard_dsp_devpc_sqltools -y
 ```
 
 
