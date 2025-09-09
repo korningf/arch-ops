@@ -4,10 +4,12 @@
 
 As Cloud Infrastructure grows in scope and complexity according to the demands of connecting External-Tenancy Cloud-Subscriptions, On-Premise networks, and more On-Demand custom Cloud-Services, we slowly move into a federated Multi-Cloud environment. To make heads or tails of this we need a unified Cloud-Agnostic way of managing complex multi-cloud infrastructures.  
 
-We are building the AWS Landing Zone with multiple VPCs, a VPN link, on-premise connectivity, and we may have to connect to external suppliers and providers which may in turn have their own Cloud deployments. Internally, we run a Windows and Office365 network, which implies we have an Azure Cloud tenancy. In addition, the lessons learnt from the EirEvo migration are that it would be detrimental to lock ourselves too tightly to another provider.
+Observability is a recent concept. The idea is to provide a unified central Dashboard that observes cloud infrastructure and shows an overview of Telemetry, provides system Health Monitoring and Alerts, and runs Analytics based on usage, trends, and historical comparisons. The tools harvest events, compile results, render graphs, build reports, and in more sophisticated frameworks offer more intelligent inferences, say for audits, capacity planning, cost reporting, or security and compliance.  
+
 It would be preferrable to select industry-standard, cloud-agnostic, open-source tools that will allow us to visualise and manage our different cloud components with a common interface. Second best would be the AWS Cloud tools. A primary reason for this is the AWS Landing Zone budget has already been allocated and AWS tools are priced-in.
 
-Observability is a recent concept. The idea is to provide a unified central Dashboard that observes cloud infrastructure and shows an overview of Telemetry, provides system Health Monitoring and Alerts, and runs Analytics based on usage, trends, and historical comparisons. The tools harvest events, compile results, render graphs, build reports, and in more sophisticated frameworks offer more intelligent inferences, say for audits, capacity planning, cost reporting, or security and compliance.  
+*OpenTelemetry* (aka OTel) is the name of the game. There are no alternatives here - this is a Cloud-Neutral abstraction backed by 95 percent of the major cloud providers, Observability dashboards and suites, telemetry engines, and unified logging frameworks and facades.
+
 
 # 1.1. Definition
 
@@ -45,6 +47,7 @@ Perhaps the best way to understand Observability is to pick a narrative explaini
 ### 1.2.1.  Metrics, Time-Series, Telemetry
 
 This all started a long time ago during the infancy of internet with MRTG, a specialised time-series database used by ISPs to track network traffic by sampling and harvesting usage events over discrete and granular time periods, and then render graphs and reports. The tool was generalised into RRDTool and things exploded from on there.
+
 Telemetry already existed, notably for specialised engineering applications like flight control avionics, but with the birth of the network came the birth of a holistic application-neutral network-wide systems telemetry: the idea to formalise events from many different divergent sources, that metrics could be sampled and harvested over varying time-scales, and then results aggregated, compiled, interpreted, analysed, and graphed.
 
 ### 1.2.2.  Healthchecks, Monitoring, Alerts
@@ -101,8 +104,6 @@ Some of the more high-tech applications to Cloud Operations include AI / ML base
 
 # Telemetry
 
-
-*OpenTelemetry* (aka OTel) is the name of the game. There are no alternatives here - this is a Cloud-Neutral abstraction backed by 95 percent of the major cloud providers, Observability dashboards and suites, telemetry engines, and unified logging frameworks and facades.
 
 No matter which observaibility suite or combined stackwe choose to use, it will work if we plug-in Otel-compliant collectors and harvesters.  We currently use a combination of Cisco Splunk, Grafana / Prometheus, and cloud-native suites from Azure and AWS.  These are all OTel-compliant.
 
