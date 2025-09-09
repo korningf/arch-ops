@@ -41,14 +41,14 @@ The term dashboards here is deceptive: behind these like a complex stack of tool
 
 ## A Brief History of Time-Series
   
-Perhaps the best way to understand Observability is to pick a narrative explaining its evolution. Though history is a complex weave of trends, perspectives, and patterns, it may he useful to pick one thread and follow its perspective. The following history is a synthetic overview of how observability came about and where it might be heading.
+Perhaps the best way to understand Observability is to pick a narrative explaining its evolution. Though history is a complex weave of trends, perspectives, and patterns, it may be useful to pick one thread and follow its perspective. The following history is a synthetic overview of how observability came about and where it might be heading.
 
 
 ### 1.2.1.  Metrics, Time-Series, Telemetry
 
-This all started a long time ago during the infancy of internet with MRTG, a specialised time-series database used by ISPs to track network traffic by sampling and harvesting usage events over discrete and granular time periods, and then render graphs and reports. The tool was generalised into RRDTool and things exploded from on there.
+This all started a long time ago during the infancy of internet with MRTG, a specialised time-series database used by ISPs to track network traffic by sampling and harvesting usage over discrete and granular time periods, and then render graphs and reports. The tool was generalised into RRDTool and things exploded from on there.
 
-Telemetry already existed, notably for specialised engineering applications like flight control avionics, but with the birth of the network came the birth of a holistic application-neutral network-wide systems telemetry: the idea to formalise events from many different divergent sources, that metrics could be sampled and harvested over varying time-scales, and then results aggregated, compiled, interpreted, analysed, and graphed.
+Telemetry already existed, notably for specialised engineering applications like flight control avionics, but with the birth of the network came the birth of a holistic application-neutral, network-wide systems telemetry: the idea to formalise generic abstract events from all sources however different and divergent, that metrics could be sampled and harvested over varying time-scales, and then results aggregated, compiled, interpreted, analysed, and graphed.
 
 ### 1.2.2.  Healthchecks, Monitoring, Alerts
 
@@ -61,6 +61,7 @@ In short, we went from a Passive model harvesting event metrics to a more Proact
 ### 1.2.3.  Logging and Tracing 
 
 A long time ago, Appliance Logging followed no set standards and was a chaotic cacophony, except for Unix SysLog.
+
 Then came the revolution of Unified Logging-Frameworks, like Log4J or Log4Net, which allowed to classify events, to attach Contextual Meta-Data, and facilitate logical filtering by narrowing specific dimensions or slices of interest. 
 
 The Log Diagnostic Context meant events could now be tagged and scoped into a particular service tier, technical library, or business domain, even when that function was provided by an embedded cross-linked third-party library or API - from low-level technical drivers like database connection pools to high-level functional filters for a specific region or user cohort.
@@ -78,9 +79,10 @@ Previously, aggregating and tabulating and was costly and this was only done for
 The Data Science revolution now allowed new Observability Dashboards to render sophisticated graphs, like directed graphs, edge diagrams, and to run analytics including clustering, regression, prediction and inference. The advent of AI / ML has great potential in identifying base patterns and isolating anomalies, quite useful for security, for example in intrusion detection, as well as for operations budgeting, for example in peak, trough, normal and surge capacity planning.
 
 This is where we are, the attempted synergy to bind these ideas, stacks, and suites into a Unified Dashboard to monitor and manage cloud health. 
+
 Note describing this as a Unified Dashboard is a bit of a unicorn: there is considerable overlap between competing frameworks and their components, and collaborating sub-components are often competing tools or frameworks in their own right. Rather than dashboards, these are frameworks with complex Tool Stacks, with some components open-source and some commercial, and most sub-components can be mixed-and matched.
 
-For example, alongside the canonical Elastic ELK stack with ElasticSearch, LogStash, and Kibana, there is an EFK stack substituting Fluentd for LogStash. Prometheus can be wired pretty much everywhere, as can Fluentd or Statsd, tons of vendors use OpenTelemetry, and most integrated dashboards like Grafana have adapters to ingest data from just about all the other ones. Integration is the name of the game, with the trade-off of using a Custom Stack instead of a vanilla Vendor Stack being more customer Systems Integration work. 
+For example, alongside the canonical Elastic ELK stack with ElasticSearch, LogStash, and Kibana, there is an EFK stack substituting Fluentd for LogStash. Prometheus can be wired pretty much everywhere, as can Fluentd or Statsd, almost all vendors speak OpenTelemetry, and most integrated dashboards like Grafana have adapters to ingest data from just about all the other ones. Integration is the name of the game, with the trade-off of using a Custom Stack instead of a vanilla Vendor Stack being more customer Systems Integration work. 
 
 ## 1.3.  Hosting and Pricing Models
 
@@ -105,7 +107,7 @@ Some of the more high-tech applications to Cloud Operations include AI / ML base
 # Telemetry
 
 
-No matter which observaibility suite or combined stackwe choose to use, it will work if we plug-in Otel-compliant collectors and harvesters.  We currently use a combination of Cisco Splunk, Grafana / Prometheus, and cloud-native suites from Azure and AWS.  These are all OTel-compliant.
+No matter which observability suite or combined stack we choose to use, it will work if we plug-in Otel-compliant collectors and harvesters.  We currently use a combination of Cisco Splunk, Grafana / Prometheus, and cloud-native suites from Azure and AWS.  These are all OTel-compliant.
 
 On top of the dashboard, we can wire-in more sophisticated analytics, for example with Power-BI and maybe some AI driven Big-Data analytics one day.
 
