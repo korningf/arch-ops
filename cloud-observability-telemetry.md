@@ -68,17 +68,18 @@ At the same time as Json and other convenient neutral data formats became ubiqui
 
 Now not all log formats use structured logging, but we can at least attach meta-data to other plain-text logs, labelling these with context.  Log Context is key.
 
-Now modern apps rely on a complex stack including linking with 3rd party APIs, libraries, and tools, over which we often have very little control. Even within an ecosystem, say Java, there are a number of competing logging frameworks (Java native logging, WebLogic logging, Log4J, etc).   That is when app is runnig, diffrent layersa up its stack could be writing ogs iun different formats over which one had zero control.  For example the web application part could be writing log4J logs, its web app framework using spring with weblogic logging, but its hibernate databnase layer writing java native logging apps.  
+Now modern apps rely on a complex stack including linking with 3rd party APIs, libraries, and tools, over which we often have very little control. Even within an ecosystem, say Java, there are a number of competing logging frameworks (Java native logging, WebLogic logging, Log4J, etc).   That is when app is running, different layers up its stack may be writing logs in different formats over which one has zero control.  For example the web application part could be writing log4J logs, its web app framework using spring with weblogic logging, but its hibernate database layer writing java native logging apps...  
 
-The next revolution, Unified Logging Facades like SLF4J, now abstract all these different frameworks in a common facade, which means all of these different layers can now be intercepted, filtered, enriched with context, and basically the entire stack is available for log analysis and telemetry. 
-
-Pretty soon ETL Pipelines evolved to ingest, parse, format, and transform logs and events with scope and state. This gave the ability to enrich, store, and track events with contextual meta-data. From this arose Tracing, using a unified Tracing Context to follow a user Session on its end-to-end journey through partial service-layer Spans or through the full Vertical Service Stack.
+The next revolution, Unified Logging Facades like SLF4J / SLF4NET, now abstract all these different frameworks in a common facade, which means all of these different layers can now be intercepted, filtered, enriched with the same context, and basically the entire stack is available for log analysis and telemetry.  Rinse and repeat.
 
 The Log Diagnostic Context meant events could now be tagged and scoped into a particular service tier, technical library, or business domain, even when that function was provided by an embedded cross-linked third-party library or API - from low-level technical drivers like database connection pools to high-level functional filters for a specific region or user cohort.
 
 But if we can attach context throughout the stack from frontend, application, database, all the way to infrastructure, why not add the same context for all bits of a user's journey trough the stack?  
 
-This idea is called Tracing, and it relies on a universal Diagnostic Trace Context.
+This idea is called Tracing, and it relies on a universal Diagnostic Trace Context, basically tracking the stack, ie tagging upstream components that called our layer.
+
+Pretty soon ETL Pipelines evolved to ingest, parse, format, and transform logs and events with scope and state. This gave the ability to enrich, store, and track events with contextual meta-data. From this arose Tracing, using a unified Tracing Context to follow a user Session on its end-to-end journey through partial service-layer Spans or through the full Vertical Service Stack.
+
 
 
 
