@@ -209,8 +209,6 @@ We need to set up our default shell environment and add devpc extensions.
 
   choco install standard_dsp_devpc_windowsconfig -y
   choco install standard_dsp_devpc_windowsfeatures -y
-
-  choco install standard_dsp_enable_rsat -y
 ```
 
 * Restart (reboot) the DevPC and open a new admin powershell.
@@ -293,6 +291,9 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
 
 ```shell
    # see https://community.chocolatey.org/packages/git
+
+   #choco install standard_dsp_enable_rsat -y
+   #choco install standard_dsp_enable_windowsupdate -y
 
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
