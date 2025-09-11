@@ -169,9 +169,9 @@ a custom powershell PS1 script sets up the choco environment.
 * (skip this) _the usual way with the public chocolatey.org url_
 
 ```shell
-  # see https://docs.chocolatey.org/en-us/choco/setup/
+    # see https://docs.chocolatey.org/en-us/choco/setup/
 
-  winget install --id=Chocolatey.Chocolatey
+    winget install --id=Chocolatey.Chocolatey
 ```
 
 * (use this) _our custom install with a private chocoserver script_
@@ -179,9 +179,9 @@ a custom powershell PS1 script sets up the choco environment.
 Open a new elevated powershell (run as administrator):
 
 ```shell
-Set-ExecutionPolicy Bypass -Scope Process -Force
+    Set-ExecutionPolicy Bypass -Scope Process -Force
 
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/ChocolateyInstall.ps1'))
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/ChocolateyInstall.ps1'))
 ```
 
 Now this only does a one-time install of a  local Chocolatey 2.4.3.
@@ -193,9 +193,9 @@ And we also want to upgrade our local client to choco 2.5.1.
 * run the bootstrap _(ignoring warnings)_
   
 ```shell
-Set-ExecutionPolicy Bypass -Scope Process -Force
+    Set-ExecutionPolicy Bypass -Scope Process -Force
 
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
 ```
 
 The policy defaults to the internal chocoserver for bandwidth and latency.
@@ -205,16 +205,16 @@ We need to set up our default shell environment and add devpc extensions.
 * close the powershell and open another one.
 
 ```shell
-  choco install standard_dsp_powershell_execpolicyunrestricted -y
+    choco install standard_dsp_powershell_execpolicyunrestricted -y
 
-  choco install standard_dsp_devpc_windowsconfig -y
-  choco install standard_dsp_devpc_windowsfeatures -y
+    choco install standard_dsp_devpc_windowsconfig -y
+    choco install standard_dsp_devpc_windowsfeatures -y
 ```
 
 * Restart (reboot) the DevPC and open a new admin powershell.
 
 ```shell
-  Restart-Computer -Force
+    Restart-Computer -Force
 ```
 
 A few licensed packages may live on the offical sources (python, aws-cli).
@@ -224,8 +224,8 @@ A few licensed packages may live on the offical sources (python, aws-cli).
 In the shell, enable the repo sources.
 
 ```shell
-  choco source enable -n chocolatey
-  choco source enable -n chocolatey.licensed
+    choco source enable -n chocolatey
+    choco source enable -n chocolatey.licensed
 ```
   
 
@@ -239,8 +239,8 @@ In addition it installs WSL (Windows Subsystem for Linux - aka Winterix) VMs.
 * Install root certs to enable NT auth in TLS/SSL.
 
 ```shell
-  choco install standard_dsp_root_ca -y
-  choco install standard_dsp_pip_cert -y
+    choco install standard_dsp_root_ca -y
+    choco install standard_dsp_pip_cert -y
 ```
 
 * Install
@@ -250,38 +250,46 @@ We use a local Nexus Repository as a supply-chain proxy for common dev package m
 This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker hub, etc.
 
 ```shell
-choco install standard_3rdparty_nuget_packageprovider
-choco install ci_dsp_feeds -y
+    choco install standard_3rdparty_nuget_packageprovider
+    choco install ci_dsp_feeds -y
 ```
 
 
 * Install Developer Tools
 
 ```shell
-  choco install standard_dsp_devpc_tools -y
-  choco install standard_dsp_devpc_sqltools -y
+    choco install standard_dsp_devpc_tools -y
+    choco install standard_dsp_devpc_sqltools -y
 ```
 
 * Best to Restart the system, and re-open an admin shell.
 
 ```shell
-  Restart-Computer -Force
+    Restart-Computer -Force
 ```
 
+* Install Windows Update and Remote Admin tools
 
-##  2.  Windows SysInternals ([!] mandatory)
+By default Windows Update is disabled as we manage machines locally.
 
-SysInternals are standard MSDN Developer utils from Miscrosoft.
+We need to enable it and also enable remote admin acces via RDP/SSH.
 
-* install SysInternals
 
 ```shell
-  choco install -y sysinternals --ignore-checksum --force
+    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+    reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+    reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+    reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+
+     Restart-Service wuauserv
 ```
 
+```shell
+    choco install standard_dsp_enable_windowsupdate -y
+    choco install standard_dsp_enable_rsat -y
+```
 
-
-##  3.  GitBash POSIX ([!] mandatory)
+##  2.  GitBash POSIX ([!] mandatory)
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
@@ -291,9 +299,6 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
 
 ```shell
    # see https://community.chocolatey.org/packages/git
-
-   #choco install standard_dsp_enable_rsat -y
-   #choco install standard_dsp_enable_windowsupdate -y
 
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
@@ -328,7 +333,7 @@ Verify that the Git global email and username are properly configured:
 
 
 
-## 4.  Python ([*] provided)
+## 3.  Python ([*] provided)
 
 Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
@@ -338,6 +343,18 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
    # see https://github.com/korningf/cso-git#Python
 
    choco install -y python --force
+```
+
+
+
+##  4.  Windows SysInternals ([!] mandatory)
+
+SysInternals are standard MSDN Developer utils from Miscrosoft.
+
+* install SysInternals
+
+```shell
+  choco install -y sysinternals --ignore-checksum --force
 ```
 
 
