@@ -231,6 +231,43 @@ In the shell, enable the repo sources.
 
 ## 1.  DevPC Tools ([!] mandatory)
 
+
+* Install Windows Update and Remote Admin tools
+
+By default Windows Update is disabled as we manage machines locally.
+
+We need to enable it and also enable remote admin acces via RDP/SSH.
+
+
+```shell
+    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+    reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+    reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
+    reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
+
+    reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess  /t REG_DWORD /d 0 /f
+
+    Restart-Service wuauserv
+```
+
+```shell
+    choco install standard_dsp_enable_windowsupdate -y
+    choco install standard_dsp_enable_rsat -y
+```
+
+* Install Developer Tools
+
+```shell
+    choco install standard_dsp_devpc_tools -y
+    choco install standard_dsp_devpc_sqltools -y
+```
+
+* Best to Restart the system, and re-open an admin shell.
+
+```shell
+    Restart-Computer -Force
+```
 DevTools install additional developer tools (most are ports of POSIX tools).
 
 In addition it installs WSL (Windows Subsystem for Linux - aka Winterix) VMs.
@@ -255,39 +292,6 @@ This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker h
 ```
 
 
-* Install Developer Tools
-
-```shell
-    choco install standard_dsp_devpc_tools -y
-    choco install standard_dsp_devpc_sqltools -y
-```
-
-* Best to Restart the system, and re-open an admin shell.
-
-```shell
-    Restart-Computer -Force
-```
-
-* Install Windows Update and Remote Admin tools
-
-By default Windows Update is disabled as we manage machines locally.
-
-We need to enable it and also enable remote admin acces via RDP/SSH.
-
-
-```shell
-    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-    reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
-    reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-    reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
-
-     Restart-Service wuauserv
-```
-
-```shell
-    choco install standard_dsp_enable_windowsupdate -y
-    choco install standard_dsp_enable_rsat -y
-```
 
 ##  2.  GitBash POSIX ([!] mandatory)
 
