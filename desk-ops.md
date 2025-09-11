@@ -198,11 +198,10 @@ And we also want to upgrade our local client to choco 2.5.1.
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
 ```
 
-The policy defaults to the internal chocoserver for bandwidth and latency.
-
 We need to set up our default shell environment and add devpc extensions.
 
 * close the powershell and open another one.
+
 
 ```shell
     choco install standard_dsp_powershell_execpolicyunrestricted -y
@@ -211,11 +210,23 @@ We need to set up our default shell environment and add devpc extensions.
     choco install standard_dsp_devpc_windowsfeatures -y
 ```
 
+* 
+   gpedit.msc
+  
+    -> browse: Computer Configuration -> Administrative Templates -> Windows Components -> Windows Update
+  
+      -> folder: "Manage updates offered from Windows Server Update Service"
+  
+        change: "Specify intranet Microsoft update service location" to "disabled"
+
+
 * Restart (reboot) the DevPC and open a new admin powershell.
 
 ```shell
     Restart-Computer -Force
 ```
+
+The policy defaults to the internal chocoserver for bandwidth and latency.
 
 A few licensed packages may live on the offical sources (python, aws-cli).
 
