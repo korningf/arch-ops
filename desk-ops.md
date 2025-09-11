@@ -257,14 +257,15 @@ We need to enable it and also enable remote admin acces via RDP/SSH.
     reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
     reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
 
-    reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess  /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess  /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate  /t REG_DWORD /d 1 /f 
 
     Restart-Service wuauserv
 ```
 
 ```shell
     choco install standard_dsp_enable_windowsupdate -y
-    choco install standard_dsp_enable_rsat -y
+    #choco install standard_dsp_enable_rsat -y
 ```
 
 * Install Developer Tools
