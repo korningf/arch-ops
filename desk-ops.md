@@ -6,7 +6,7 @@
 
 # Site Firewall Whitelist
 
-Add the following sites to your etxrenal firewall whitelist.
+Add the following sites to your external firewall whitelist.
 
 ```text
   Microsoft stack:
@@ -257,7 +257,7 @@ We want to be able to use specific linux version in WSL.
 
 The WSL start menu icon will start the installer for ubuntu-22-lts jammy).
 
-The installer is interactive, we will have to congigure it as well.
+The installer is interactive, we will have to configure it as well.
 
 ```shell
     choco install wsl_3rdparty_ubuntu2204 -y
