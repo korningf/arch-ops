@@ -496,6 +496,39 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ```
 
 
+* Install docker on the WSL machine:
+
+```shell
+    choco install wsl_apt_ubuntu2204_docker -y
+    choco install wsl_dsp_ubuntu2204_usermod_docker -y
+``` 
+
+
+* We use a local Nexusrepository as a supply-chain firewall proxy for DockerHub images.
+
+```shell
+choco install wsl_dsp_ubuntu2204_dockerhub_proxy -y
+```
+
+* Start the docker daemon
+
+```shell
+    wsl systemctl status docker
+    wsl systemctl restart docker
+```
+
+* Test it by spinning up a hello-world docker appliance.
+
+```shell
+    wsl sudo docker pull hello-world
+    wsl sudo docker run hello-world
+```
+
+* Browse to localhost:80
+
+
+
+
 ##  12.  Kubernetes Cluster ([?] evaluate)
 
 The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
