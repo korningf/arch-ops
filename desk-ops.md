@@ -236,6 +236,22 @@ They require WSL (windows Subsystem for Linux) and HyperV.
 ```
 
 
+* Update the WSL kernel:
+
+```shell
+    choco install wsl_dsp_update_kernel -y
+    choco install wsl_dsp_wsl2 -y
+```
+
+* Install a specific Linux Distribution 
+
+ubuntu-22-lts jammy:
+
+```shell
+    choco install wsl_3rdparty_ubuntu2204 -y
+```
+
+
 ## 1.  DevPC Tools ([!] mandatory)
 
 
