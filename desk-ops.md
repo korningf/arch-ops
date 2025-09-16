@@ -218,11 +218,19 @@ We need to set up our default shell environment and add devpc extensions.
 ```
 
 
-* Install WSL and HyperV
+##  1.  WSL ([!] mandatory)
 
-Our Docker containers run native windows and WSL containers.
+Before we go on to installing other PcDev and DevEng we instal WSL.
 
-They require WSL (windows Subsystem for Linux) and HyperV.
+WSL (windows Subsystem for Linux) run a native linux VM on HyperV.
+
+Our Docker containers run native windows and require WSL containers.
+
+This is long litany of manual steps (we should provision devpc vms).
+
+
+* Install WSL vms and container services
+
 
 ```shell
     choco install wsl_dsp_enable_wsl -y
@@ -238,15 +246,16 @@ They require WSL (windows Subsystem for Linux) and HyperV.
 
 * Update the WSL kernel:
 
+We want to be able to use specific linux version in WSL.
+
 ```shell
     choco install wsl_dsp_update_kernel -y
     choco install wsl_dsp_wsl2 -y
 ```
 
-* Install a specific Linux Distribution 
+* Install a specific Linux Distribution (ubuntu-22-lts aka jammy-jellyfish).
 
-
-The WSL start menu icon will start the installer for ubuntu-22-lts jammy.
+The WSL start menu icon will start the installer for ubuntu-22-lts jammy).
 
 The installer is interactive, we will have to congigure it as well.
 
@@ -254,15 +263,48 @@ The installer is interactive, we will have to congigure it as well.
     choco install wsl_3rdparty_ubuntu2204 -y
 ```
 
-Pick English-UK, and the following mount options
+Pick English-UK and the following mount options
+
 ```shell
-    mount=/mnt
-    enabled=true
     options=metadata,uid=1000,gid=1000,umask=022
 ```
 
+* Configure sudo
 
-## 1.  DevPC Tools ([!] mandatory)
+Configure passwordless sudo and add yourself to sudoers.
+
+```shell
+    $WSL_USER=wsl -d Ubuntu-22.04 whoami
+    $str="$WSL_USER ALL=(ALL) NOPASSWD:ALL"
+    $tempFile=New-TemporaryFile
+    wsl -d Ubuntu-22.04 sh -c "echo '$str' > /tmp/$tempFile.Name"
+    wsl -d Ubuntu-22.04 sudo chown root /tmp/$tempFile.Name
+```
+if prompted enter your ubuntu password.
+
+```shell
+    wsl -d Ubuntu-22.04 sudo mv /tmp/$tempFile.Name /etc/sudoers.d/$WSL_USER
+```
+
+* Install root ca certs and Nexus repository proxies.
+
+We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
+
+This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and microsoft WSL.
+
+```shell
+    choco install wsl_dsp_ubuntu2204_root_ca -y
+    choco install wsl_dsp_ubuntu2204_apt_proxy -y
+
+    choco install wsl_3rdparty_ubuntu2204_ms_package_repo -y
+    choco install wsl_3rdparty_ubuntu2204_distrod -y    
+```
+
+
+
+
+## 2.  DevPC Tools ([!] mandatory)
+
 
 
 * Install Developer Tools
@@ -279,30 +321,29 @@ Pick English-UK, and the following mount options
 ```
 DevTools install additional developer tools (most are ports of POSIX tools).
 
-In addition it installs WSL (Windows Subsystem for Linux - aka Winterix) VMs.
 
 
-* Install root certs to enable NT auth in TLS/SSL.
+* Install root ca certs and Nexus repository proxies.
 
-```shell
-    choco install standard_dsp_root_ca -y
-    choco install standard_dsp_pip_cert -y
-```
-
-* Install
-  
 We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
 
 This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker hub, etc.
 
+
 ```shell
+    choco install standard_dsp_root_ca -y
+    choco install standard_dsp_pip_cert -y
+
     choco install standard_3rdparty_nuget_packageprovider
     choco install ci_dsp_feeds -y
 ```
 
+Before going any further, confirm that curl can resolve an https website without error:
+
+wsl -d Ubuntu-22.04 curl https://www.google.com
 
 
-##  2.  GitBash POSIX ([!] mandatory)
+##  3.  GitBash POSIX ([!] mandatory)
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
@@ -346,7 +387,7 @@ Verify that the Git global email and username are properly configured:
 
 
 
-## 3.  Python ([*] provided)
+## 4.  Python ([*] provided)
 
 Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
@@ -360,7 +401,7 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
 
 
-##  4.  Windows SysInternals ([!] mandatory)
+##  5.  Windows SysInternals ([!] mandatory)
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
 
@@ -372,7 +413,7 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 
 
 
-##  5.  Keepass ([*] provided)
+##  6.  Keepass ([*] provided)
 
 We Use Keepass for a local developer secure secret and password store.
 
@@ -385,7 +426,7 @@ I prefer the POSIX pass cmd (password-store), but keepass will do.
 
 
 
-##  6.  stream processors (JSON, YAML, XML) ([*] provided)
+##  7.  stream processors (JSON, YAML, XML) ([*] provided)
 
 We will need these stream processors to parse JSON, YAML, XML.
 
@@ -401,7 +442,7 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  7.  Vault Secrets-Manager ([-] missing)
+##  8.  Vault Secrets-Manager ([-] missing)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
@@ -415,7 +456,7 @@ Hashicorp Vault is the leading agnostic cloud secrets manager.
 
 
 
-##  8.  Packer Packager-Provisioner ([-] missing)
+##  9.  Packer Packager-Provisioner ([-] missing)
 
 Hashicorp Packer is the leading agnostic cloud image packager.
 
@@ -429,7 +470,7 @@ Hashicorp Packer is the leading agnostic cloud image packager.
 
 
 
-##  9.  Terraform Cloud-Former ([*] provided)
+##  10.  Terraform Cloud-Former ([*] provided)
 
 Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
@@ -442,7 +483,7 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  10.  Docker Desktop
+##  11.  Docker Desktop
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
@@ -455,7 +496,7 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ```
 
 
-##  11.  Kubernetes Cluster ([?] evaluate)
+##  12.  Kubernetes Cluster ([?] evaluate)
 
 The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
 
@@ -470,7 +511,7 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 ```
 
 
-##  12.  Kubernetes Helm ([!] default)
+##  13.  Kubernetes Helm ([!] default)
 
 Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
@@ -485,7 +526,7 @@ It simplifies and groups deployment of related services into charts.
 ```
 
 
-##  13. Kubernetes Operations ([-] missing)
+##  14. Kubernetes Operations ([-] missing)
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -500,7 +541,7 @@ This would be used to build a custom cluster from a raw compute cloud.
 ```
 
 
-##  14.  Azure-cli ([+] provided)
+##  15.  Azure-cli ([+] provided)
 
 Azure-Cli is the Azure Cloud command-line.
 
@@ -513,7 +554,7 @@ Azure-Cli is the Azure Cloud command-line.
 ```
 
 
-##  15.  AWS-cli
+##  16.  AWS-cli
 
 AWS-Cli is the Amazon AWS Cloud command-line.
 
@@ -527,7 +568,7 @@ AWS-Cli is the Amazon AWS Cloud command-line.
 
 
 
-##  16.  Azure AKS-CTL
+##  17.  Azure AKS-CTL
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -543,7 +584,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  17.  AWS EKS-CTL
+##  18.  AWS EKS-CTL
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
@@ -556,7 +597,7 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  18.  AWS ECS-CTL
+##  19.  AWS ECS-CTL
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
@@ -571,7 +612,7 @@ Command-line cli to drive Managed Amazon ECS Containers.
 ```
 
 
-##  19.  Azure ACI-CTL ?
+##  20.  Azure ACI-CTL ?
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
@@ -583,7 +624,7 @@ In addition Developers and Build-Masters should also install the following.
 
 
 
-##  20.  Vagrant
+##  21.  Vagrant
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
@@ -595,7 +636,7 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
 
 
-##  21.  Dot.NET SDK
+##  22.  Dot.NET SDK
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
@@ -608,7 +649,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
   
-##  22.  ASP.NET core
+##  23.  ASP.NET core
 
 * install the ASP.NET core runtime
 
@@ -619,7 +660,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  23.  VisualStudio Code
+##  24.  VisualStudio Code
 
 * install VSCode via winget 
 
@@ -630,7 +671,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  24.  Java OpenJDK
+##  25.  Java OpenJDK
 
 We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 
@@ -643,7 +684,7 @@ We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 ```
 
 
-##  25.  Apache Maven
+##  26.  Apache Maven
 
 Maven is the build toolchain for Java.
 
@@ -656,7 +697,7 @@ Maven is the build toolchain for Java.
 ```
 
 
-##  26.  Eclipse IDE
+##  27.  Eclipse IDE
 
 Eclipse is the IDE for Java.
 
@@ -669,7 +710,7 @@ Eclipse is the IDE for Java.
 ```
 
 
-##  27.  GnuWin64 or MinGW
+##  28.  GnuWin64 or MinGW
 
 _TODO optional_
 
@@ -686,7 +727,7 @@ Investigate whether we need a complete cross-compilation toolchain for the futur
 _TODO optional_
 
 
-##  28.  Ruby ([?] evaluate)
+##  29.  Ruby ([?] evaluate)
 
 Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
 
@@ -698,7 +739,7 @@ Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
 
 
 
-##  29.  Go  ([?] evaluate)
+##  30.  Go  ([?] evaluate)
 
 Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
 
