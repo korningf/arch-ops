@@ -504,10 +504,10 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ``` 
 
 
-* We use a local Nexusrepository as a supply-chain firewall proxy for DockerHub images.
+* We use a local Nexus Repository as a supply-chain firewall proxy for DockerHub images.
 
 ```shell
-choco install wsl_dsp_ubuntu2204_dockerhub_proxy -y
+    choco install wsl_dsp_ubuntu2204_dockerhub_proxy -y
 ```
 
 * Start the docker daemon
