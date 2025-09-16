@@ -245,10 +245,20 @@ They require WSL (windows Subsystem for Linux) and HyperV.
 
 * Install a specific Linux Distribution 
 
-ubuntu-22-lts jammy:
+
+The WSL start menu icon will start the installer for ubuntu-22-lts jammy.
+
+The installer is interactive, we will have to congigure it as well.
 
 ```shell
     choco install wsl_3rdparty_ubuntu2204 -y
+```
+
+Pick English-UK, and the following mount options
+```shell
+    mount=/mnt
+    enabled=true
+    options=metadata,uid=1000,gid=1000,umask=022
 ```
 
 
