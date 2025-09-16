@@ -487,14 +487,6 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
-* install Docker Desktop (docker-cli + runtime)
-
-```shell
-  # see https://community.chocolatey.org/packages/docker-desktop
-  
-  choco install -y docker-desktop
-```
-
 
 * Install docker on the WSL machine:
 
@@ -520,13 +512,83 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 * Test it by spinning up a hello-world docker appliance.
 
 ```shell
-    wsl sudo docker pull hello-world
-    wsl sudo docker run hello-world
+    wsl docker run hello-world
 ```
 
-* Browse to localhost:80
+* Test networking by installing a local nginx:
+
+  ```shell
+    wsl docker run -it --rm -d -p 8080:80 --name web nginx
+  ```
+
+* Browse to localhost:8080
+
+You should see the nginx page
 
 
+* Expose the WSL docker daemon on TCP:2375
+
+_TODO_
+
+    see https://thelinuxcode.com/configure-docker-daemon-with-systemd/
+    see https://stackoverflow.com/questions/72629279/how-to-pass-a-configuration-file-to-the-containerd-runtime-by-using-deamon-json
+
+
+_TODO_  manually via /etc/docker/daemon.json
+
+_TODO works if you manually start dockerd, but does not run it via containerd_
+
+```shell
+    wsl echo '{ "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"] }' > /etc/docker/daemon.json
+    wsl systemctl restart docker
+```
+
+_maybe we need an alternate configuration_
+
+daemon.json    
+```json
+{
+"debug": true,
+"hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"] ,
+"runtimes": {
+  "containerd": {
+    "path": "/usr/bin/containerd"
+  }
+}
+},
+"insecure-registries": ["myregistry.local:5000"],
+"registry-mirrors": ["https://mirror.gcr.io"]
+}
+```
+
+
+_TODO_  via systemctl and containerd (does not work)
+
+Edit the file /etc/systemd/system/docker.service.d/override.conf by calling the command
+
+```shell
+    systemctl edit docker
+```
+
+overrride the following
+
+```text
+ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H fd:// --containerd=/run/containerd/containerd.sock
+```
+ 
+_does not work_
+
+
+
+* install Docker Desktop (docker-cli + runtime)
+
+_TODO_
+
+```shell
+  # see https://community.chocolatey.org/packages/docker-desktop
+  
+  choco install -y docker-desktop
+```
 
 
 ##  12.  Kubernetes Cluster ([?] evaluate)
