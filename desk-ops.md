@@ -207,17 +207,8 @@ We need to set up our default shell environment and add devpc extensions.
     choco install standard_dsp_powershell_execpolicyunrestricted -y
 
     choco install standard_dsp_devpc_windowsconfig -y
-    choco install standard_dsp_devpc_windowsfeatures -y
+    #choco install standard_dsp_devpc_windowsfeatures -y
 ```
-
-* 
-   gpedit.msc
-  
-    -> browse: Computer Configuration -> Administrative Templates -> Windows Components -> Windows Update
-  
-      -> folder: "Manage updates offered from Windows Server Update Service"
-  
-        change: "Specify intranet Microsoft update service location" to "disabled"
 
 
 * Restart (reboot) the DevPC and open a new admin powershell.
@@ -226,47 +217,27 @@ We need to set up our default shell environment and add devpc extensions.
     Restart-Computer -Force
 ```
 
-The policy defaults to the internal chocoserver for bandwidth and latency.
 
-A few licensed packages may live on the offical sources (python, aws-cli).
+* Install WSL and HyperV
 
-* (optional) temporarily activate licensed chocolatey sources.
+Our Docker containers run native windows and WSL containers.
 
-In the shell, enable the repo sources.
+They require WSL (windows Subsystem for Linux) and HyperV.
 
 ```shell
-    choco source enable -n chocolatey
-    choco source enable -n chocolatey.licensed
+    choco install wsl_dsp_enable_wsl -y
+    choco install wsl_dsp_enable_virtualmachineplatform -y
 ```
-  
+
+  * Restart (reboot) the DevPC and open a new admin powershell.
+
+```shell
+    Restart-Computer -Force
+```
+
 
 ## 1.  DevPC Tools ([!] mandatory)
 
-
-* Install Windows Update and Remote Admin tools
-
-By default Windows Update is disabled as we manage machines locally.
-
-We need to enable it and also enable remote admin acces via RDP/SSH.
-
-
-```shell
-    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-    reg delete "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-    reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
-    reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /f
-    reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /f
-
-    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindowsUpdateAccess  /t REG_DWORD /d 0 /f
-    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate  /t REG_DWORD /d 1 /f 
-
-    Restart-Service wuauserv
-```
-
-```shell
-    choco install standard_dsp_enable_windowsupdate -y
-    #choco install standard_dsp_enable_rsat -y
-```
 
 * Install Developer Tools
 
