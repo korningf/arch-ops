@@ -228,7 +228,7 @@ Before we go on to installing other PcDev and DevEng we instal WSL.
 
 WSL (windows Subsystem for Linux) run a native linux VM on HyperV.
 
-Our Docker containers run native windows and require WSL containers.
+Our Docker containers currently run on a WSL ubuntu linux machine.
 
 This is long litany of manual steps (we should provision devpc vms).
 
