@@ -159,14 +159,15 @@ Cloud Operators, Integrators, and Developers should all install the following:
 
 ##  0.  Chocolatey ([!] mandatory)
 
-* install Chocolatey
+_TODO This is really complicated - a litany of manual commands and reboots_
 
 
 We use a custom private chocoserver instead of the public one.
 
 a custom powershell PS1 script sets up the choco environment.
 
-* Install Choco
+
+###  Install Chocolatey
 
 Open a new elevated powershell (run as administrator):
 
@@ -182,7 +183,7 @@ Crucially we want a bootstrap to point to the private chocoserver.
 
 And we also want to upgrade our local client to choco 2.5.1.
 
-* run the bootstrap _(ignoring warnings)_
+###  Run the bootstrap _(ignore warnings)_
   
 ```shell
     Set-ExecutionPolicy Bypass -Scope Process -Force
@@ -192,7 +193,7 @@ And we also want to upgrade our local client to choco 2.5.1.
 
 We need to set up our default shell environment and add devpc extensions.
 
-* close the powershell and open another one.
+###  Close the powershell and open another one.
 
 
 ```shell
@@ -211,15 +212,17 @@ _currently broken:_
     standard_dsp_devpc_enable_rbac
     
 
-
-* Restart (reboot) the DevPC and open a new admin powershell.
+###  Restart (reboot) the DevPC and open a new admin powershell.
 
 ```shell
     Restart-Computer -Force
 ```
 
 
-##  1.  WSL ([!] mandatory)
+##  1.  WSL ([!] mandatory) 
+
+_TODO This is really complicated - a litany of manual commands and reboots_
+
 
 Before we go on to installing other PcDev and DevEng we instal WSL.
 
@@ -230,7 +233,7 @@ Our Docker containers run native windows and require WSL containers.
 This is long litany of manual steps (we should provision devpc vms).
 
 
-* Install WSL vms and container services
+###  Install WSL vms and container services
 
 
 ```shell
@@ -238,14 +241,14 @@ This is long litany of manual steps (we should provision devpc vms).
     choco install wsl_dsp_enable_virtualmachineplatform -y
 ```
 
-  * Restart (reboot) the DevPC and open a new admin powershell.
+###  Restart (reboot) the DevPC and open a new admin powershell.
 
 ```shell
     Restart-Computer -Force
 ```
 
 
-* Update the WSL kernel:
+###  Update the WSL kernel:
 
 We want to be able to use specific linux version in WSL.
 
@@ -254,7 +257,7 @@ We want to be able to use specific linux version in WSL.
     choco install wsl_dsp_wsl2 -y
 ```
 
-* Install a specific Linux Distribution (ubuntu-22-lts aka jammy-jellyfish).
+###  Install a specific Linux Distribution (ubuntu-22-lts aka jammy-jellyfish).
 
 The WSL start menu icon will start the installer for ubuntu-22-lts jammy).
 
@@ -270,7 +273,7 @@ Pick English-UK and the following mount options
     options=metadata,uid=1000,gid=1000,umask=022
 ```
 
-* Configure sudo
+### Configure sudo
 
 Configure passwordless sudo and add yourself to sudoers.
 
@@ -288,7 +291,7 @@ if prompted enter your ubuntu password.
     wsl -d Ubuntu-22.04 sudo mv /tmp/$tempFile.Name /etc/sudoers.d/$WSL_USER
 ```
 
-* Install root ca certs and Nexus repository proxies.
+###  Install root ca certs and Nexus repository proxies.
 
 We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
 
@@ -309,14 +312,14 @@ This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and
 
 
 
-* Install Developer Tools
+###  Install Developer Tools _(ignore warnings)_
 
 ```shell
     choco install standard_dsp_devpc_tools -y
     choco install standard_dsp_devpc_sqltools -y
 ```
 
-* Best to Restart the system, and re-open an admin shell.
+###  Restart the system, and re-open an admin shell.
 
 ```shell
     Restart-Computer -Force
@@ -325,7 +328,7 @@ DevTools install additional developer tools (most are ports of POSIX tools).
 
 
 
-* Install root ca certs and Nexus repository proxies.
+###  Install root ca certs and Nexus repository proxies.
 
 We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
 
@@ -346,13 +349,20 @@ Before going any further, confirm that curl can resolve an https website without
     wsl -d Ubuntu-22.04 curl https://www.google.com
 ```
 
+
+
 ##  3.  GitBash POSIX ([!] mandatory)
+
+_Gitbash is already included, but we need to force a reinstall_
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
+We need a custom install to enble symlinks and use a proper TTY terminal.
+
 *NOTE use Python for Windows with GitBash*
 
-* install GitBash
+
+###  Install GitBash 
 
 ```shell
    # see https://community.chocolatey.org/packages/git
@@ -360,7 +370,7 @@ GitBash provides a minimal POSIX bash environment with base core-utils.
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
 
-* Customise Gitbash
+###  Customise Gitbash
 
 We use a custom .profile script for the GitBash POSIX environment.
 
@@ -370,27 +380,34 @@ Install the script, entering the GitBash root  ('C:\Program Files\Git')
     choco install standard_dsp_powershell_profile -y
 ```
 
-* Edit your profile as needed.
+###  Edit your profile as needed.
+
+ _TODO_
 
  
 
-* Configure Git (broken)
+###  Configure Git _(broken)_
 
 _TODO: The Git Config script is currently broken. configure it by hand_
+
 
 ```shell
     choco install standard_dsp_git_config
 ```
 
 
-* Configure Git by hand
+###  Configure Git by hand
 
 ```shell
     git config --global user.name   JohnDoe
     git config --global user.email  JohnDoe@welfare.ie.
 ```
 
-* Generate your SSH RSA 4096 keypair (USE a passphrase!)
+###  Generate your SSH RSA 4096 keypair (USE a passphrase!)
+
+_TODO: we should really standardise one of: POSIX Pass, KeePass, or Hashicorp Vault_
+
+Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
 
 
 ```shell
@@ -399,11 +416,13 @@ _TODO: The Git Config script is currently broken. configure it by hand_
 
 
 
-##  4.  Windows SysInternals ([!] mandatory)
+##  4.  Windows SysInternals ([*] provided)
+
+_this may already be included in the devtools_
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
 
-* install SysInternals
+###  Install SysInternals
 
 ```shell
   choco install -y sysinternals --ignore-checksum --force
@@ -413,10 +432,13 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 
 ##  5.  Keepass ([*] provided)
 
+_this may already be included in the devtools_
+
 We Use Keepass for a local developer secure secret and password store.
 
 I prefer the POSIX pass cmd (password-store), but keepass will do.
 
+###  Install Keepass
 
 ```shell
   	choco install keepass -y
@@ -426,9 +448,11 @@ I prefer the POSIX pass cmd (password-store), but keepass will do.
 
 ##  6.  stream processors (JSON, YAML, XML) ([*] provided)
 
+_this may already be included in the devtools_
+
 We will need these stream processors to parse JSON, YAML, XML.
 
-* install stream processors (JQ, YQ, XQ)
+###  Install stream processors (JQ, YQ, XQ)
 
 ```shell
    # see https://community.chocolatey.org/packages/jq
@@ -440,11 +464,13 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  7.  Terraform Cloud-Former ([*] provided)
+##  7.  Terraform Cloud-Former ([!] mandatory)
+
+_this may already be included in the devtools_
 
 Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
-* install Terraform (cloud cli)
+###  Install Terraform (cloud cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/terraform
@@ -453,12 +479,16 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  8.  Docker Desktop
+##  8.  Docker Desktop ([!] mandatory)
+
+_TODO This is really complicated - we really should be runniong docker-desktop_
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
+The current DevEng standard runs Docker inside a WSL ubuntu VM on containerd.
 
-* Install docker on the WSL machine:
+
+###  Install docker on the WSL machine:
 
 ```shell
     choco install wsl_apt_ubuntu2204_docker -y
@@ -466,37 +496,37 @@ Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 ``` 
 
 
-* We use a local Nexus Repository as a supply-chain firewall proxy for DockerHub images.
+###  We use a local Nexus Repository as a supply-chain firewall proxy for DockerHub images.
 
 ```shell
     choco install wsl_dsp_ubuntu2204_dockerhub_proxy -y
 ```
 
-* Start the docker daemon
+###  Start the docker daemon
 
 ```shell
     wsl systemctl status docker
     wsl systemctl restart docker
 ```
 
-* Test it by spinning up a hello-world docker appliance.
+###  Test it by spinning up a hello-world docker appliance.
 
 ```shell
     wsl docker run hello-world
 ```
 
-* Test networking by installing a local nginx:
+###  Test networking by installing a local nginx:
 
   ```shell
     wsl docker run -it --rm -d -p 8080:80 --name web nginx
   ```
 
-* Browse to localhost:8080
+###  Browse to localhost:8080
 
 You should see the nginx page
 
 
-* Expose the WSL docker daemon on TCP:2375 ?
+###  Expose the WSL docker daemon on TCP:2375 ?
 
 _TODO_
 
@@ -515,7 +545,7 @@ The default standard devpc dev tools script already install kubernetes-cli (aka 
 
 Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
 
-* install Minikube Cluster (kube-cli + runtime)
+###  Install Minikube Cluster (kube-cli + runtime)
 
 ```shell
    # see https://community.chocolatey.org/packages/Minikube
@@ -531,7 +561,7 @@ Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
 It simplifies and groups deployment of related services into charts.
 
-* install Kubernetes Helm
+###  Install Kubernetes Helm
 
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-helm
@@ -546,7 +576,7 @@ Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
 This would be used to build a custom cluster from a raw compute cloud.
 
-* install Kubernetes Operations (kops)
+###  install Kubernetes Operations (kops)
 
 ```shell
    # see https://community.chocolatey.org/packages/kubernetes-kops
@@ -559,7 +589,7 @@ This would be used to build a custom cluster from a raw compute cloud.
 
 Azure-Cli is the Azure Cloud command-line.
 
-* install Azure-cli (AZ cloud)
+###  Install Azure-cli (AZ cloud)
 
 ```shell
    # see https://community.chocolatey.org/packages/azure-cli
@@ -572,7 +602,7 @@ Azure-Cli is the Azure Cloud command-line.
 
 AWS-Cli is the Amazon AWS Cloud command-line.
 
-* install AWS-cli (AWS cloud)
+###  Install AWS-cli (AWS cloud)
 
 ```shell
      # see https://community.chocolatey.org/packages/awscli
@@ -588,7 +618,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 
 *TODO check this*
 
-* install AKS-ctl (aksctl)
+###  Install AKS-ctl (aksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/aksctl
@@ -602,7 +632,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
-* install EKS-ctl (eksctl)
+###  Install EKS-ctl (eksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/eksctl
@@ -615,7 +645,7 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
-* install ECS-ctl (ecsctl)
+###  Install ECS-ctl (ecsctl)
 
 *TODO check this - only a PIP package for now*
 
@@ -636,7 +666,7 @@ Command-line cli to drive Managed Amazon ECS Containers.
 
 Hashicorp Packer is the leading agnostic cloud image packager.
 
-* install Packer (packer cli)
+###  Install Packer (packer cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/packer
@@ -644,6 +674,9 @@ Hashicorp Packer is the leading agnostic cloud image packager.
    choco install -y packer
 ```
 
+### Nexus Repository for Packer (_TODO_)
+
+_TODO_
 
 
 ##  19.  Vagrant
@@ -656,19 +689,22 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
    choco install -y vagrant
 ```
 
+### Nexus Repository for Vgagrant (_TODO_)
+
+_TODO_
+
 
 ##  20.  Vault Secrets-Manager ([-] missing)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
-* install Vault (vault cli)
+###  Install Vault (vault cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/vault
 
    choco install -y vault
 ```
-
 
 
 
@@ -685,16 +721,24 @@ Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
 
 *NOTE use Python for Windows with GitBash*
 
+###  Install Python
+
 ```shell
    # see https://github.com/korningf/cso-git#Python
 
    choco install -y python --force
 ```
 
+###  Nexus Repository for Python (_TODO_)
+
+_TODO_
+
 
 ##  22.  Ruby ([?] evaluate)
 
 Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
+
+###  Install Ruby
 
 ```shell
    # see https://community.chocolatey.org/packages/ruby
@@ -702,11 +746,17 @@ Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
    choco install -y ruby
 ```
 
+###  Nexus Repository for Ruby (_TODO_)
+
+_TODO_
+
 
 
 ##  23.  Go  ([?] evaluate)
 
 Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
+
+###  Install Go-Lang
 
 ```shell
    # see https://community.chocolatey.org/packages/golang
@@ -714,13 +764,17 @@ Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
    choco install -y golang
 ```
 
+###  Nexus Repository for Go (_TODO_)
+
+_TODO_
 
 
-##  24.  Dot.NET SDK
+
+##  24.  Dot.NET SDK  ([?] _which version?_)
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
-* install the .NET core SDK
+### Install the .NET core SDK
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
@@ -729,9 +783,11 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
   
-##  25.  ASP.NET core
+##  25.  ASP.NET core  ([?] _which version?_)
 
-* install the ASP.NET core runtime
+_TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
+
+### install the ASP.NET core runtime
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
@@ -740,9 +796,11 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  26.  VisualStudio Code
+##  26.  VisualStudio Code ([*] provided)
 
-* install VSCode via winget 
+_this may already be provided with devtools_
+
+###  Install VSCode
 
 ```shell
    # see https://community.chocolatey.org/packages/vscode
@@ -751,7 +809,9 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  27.  Java OpenJDK
+##  27.  Java OpenJDK ([+] upgrade)
+
+_Devtools installs a legacy openjdk-8, we need to upgrade it the latest_
 
 We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 
@@ -764,11 +824,13 @@ We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 ```
 
 
-##  28.  Apache Maven
+##  28.  Apache Maven ([+] upgrade)
+
+_devtools provides an older version, we need to upgrade to the latest_
 
 Maven is the build toolchain for Java.
 
-* install Maven
+###  Install Maven
 
 ```shell
    # see https://community.chocolatey.org/packages/maven
@@ -777,11 +839,11 @@ Maven is the build toolchain for Java.
 ```
 
 
-##  29.  Eclipse IDE
+##  29.  Eclipse IDE  ([-] optional)
 
 Eclipse is the IDE for Java.
 
-* install Eclipse IDE
+###  Install Eclipse IDE
 
 ```shell
    # see https://community.chocolatey.org/packages/eclipse-java-oxygen
@@ -790,7 +852,7 @@ Eclipse is the IDE for Java.
 ```
 
 
-##  30.  GnuWin64 or MinGW
+##  30.  GnuWin64 or MinGW  ([-] optional)
 
 _TODO optional_
 
