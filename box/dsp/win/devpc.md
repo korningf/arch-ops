@@ -342,8 +342,9 @@ This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker h
 
 Before going any further, confirm that curl can resolve an https website without error:
 
-wsl -d Ubuntu-22.04 curl https://www.google.com
-
+```shell
+    wsl -d Ubuntu-22.04 curl https://www.google.com
+```
 
 ##  3.  GitBash POSIX ([!] mandatory)
 
