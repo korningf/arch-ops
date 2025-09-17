@@ -224,7 +224,7 @@ _currently broken:_
 _TODO This is really complicated - a litany of manual commands and reboots_
 
 
-Before we go on to installing other PcDev and DevEng we instal WSL.
+Before iningstall other PcDev and DevEng tools we should install WSL.
 
 WSL (windows Subsystem for Linux) run a native linux VM on HyperV.
 
