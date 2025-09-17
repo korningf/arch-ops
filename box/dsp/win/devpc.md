@@ -357,7 +357,7 @@ _Gitbash is already included, but we need to force a reinstall_
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
-We need a custom install to enble symlinks and use a proper TTY terminal.
+We need a custom install to enable symlinks and a proper TTY terminal.
 
 *NOTE use Python for Windows with GitBash*
 
