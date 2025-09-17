@@ -150,10 +150,10 @@ or vice-versa.
 
 
 
-# Integrators
+# Operators, Integrator, Developers (everyone)
 
 
-Cloud-Ops and Dev-Ops Systems Integrators should install the following.
+Cloud Operators, Integrators, and Developers should all install the following:
 
 
 
@@ -398,21 +398,7 @@ _TODO: The Git Config script is currently broken. configure it by hand_
 
 
 
-## 4.  Python ([*] provided)
-
-Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
-
-*NOTE use Python for Windows with GitBash*
-
-```shell
-   # see https://github.com/korningf/cso-git#Python
-
-   choco install -y python --force
-```
-
-
-
-##  5.  Windows SysInternals ([!] mandatory)
+##  4.  Windows SysInternals ([!] mandatory)
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
 
@@ -424,7 +410,7 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 
 
 
-##  6.  Keepass ([*] provided)
+##  5.  Keepass ([*] provided)
 
 We Use Keepass for a local developer secure secret and password store.
 
@@ -437,7 +423,7 @@ I prefer the POSIX pass cmd (password-store), but keepass will do.
 
 
 
-##  7.  stream processors (JSON, YAML, XML) ([*] provided)
+##  6.  stream processors (JSON, YAML, XML) ([*] provided)
 
 We will need these stream processors to parse JSON, YAML, XML.
 
@@ -453,35 +439,7 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  8.  Vault Secrets-Manager ([-] missing)
-
-Hashicorp Vault is the leading agnostic cloud secrets manager.
-
-* install Vault (vault cli)
-
-```shell
-   # see https://community.chocolatey.org/packages/vault
-
-   choco install -y vault
-```
-
-
-
-##  9.  Packer Packager-Provisioner ([-] missing)
-
-Hashicorp Packer is the leading agnostic cloud image packager.
-
-* install Packer (packer cli)
-
-```shell
-   # see https://community.chocolatey.org/packages/packer
-
-   choco install -y packer
-```
-
-
-
-##  10.  Terraform Cloud-Former ([*] provided)
+##  7.  Terraform Cloud-Former ([*] provided)
 
 Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
@@ -494,7 +452,7 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  11.  Docker Desktop
+##  8.  Docker Desktop
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
@@ -543,8 +501,14 @@ _TODO_
 
 
 
+# Integrators, Developers 
 
-##  12.  Kubernetes Minikube ([?] evaluate)
+
+Cloud Integrators and Developers should also install the following:
+
+
+
+##  9.  Kubernetes Minikube ([?] evaluate)
 
 The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
 
@@ -559,7 +523,8 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 ```
 
 
-##  13.  Kubernetes Helm ([!] default)
+
+##  10.  Kubernetes Helm ([!] default)
 
 Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
@@ -574,7 +539,7 @@ It simplifies and groups deployment of related services into charts.
 ```
 
 
-##  14. Kubernetes Operations ([-] missing)
+##  11. Kubernetes Operations ([-] missing)
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -589,7 +554,7 @@ This would be used to build a custom cluster from a raw compute cloud.
 ```
 
 
-##  15.  Azure-cli ([+] provided)
+##  12.  Azure-cli ([+] provided)
 
 Azure-Cli is the Azure Cloud command-line.
 
@@ -602,7 +567,7 @@ Azure-Cli is the Azure Cloud command-line.
 ```
 
 
-##  16.  AWS-cli
+##  13.  AWS-cli
 
 AWS-Cli is the Amazon AWS Cloud command-line.
 
@@ -616,7 +581,7 @@ AWS-Cli is the Amazon AWS Cloud command-line.
 
 
 
-##  17.  Azure AKS-CTL
+##  14.  Azure AKS-CTL
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -632,7 +597,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  18.  AWS EKS-CTL
+##  15.  AWS EKS-CTL
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
@@ -645,7 +610,7 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  19.  AWS ECS-CTL
+##  16.  AWS ECS-CTL
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
@@ -660,19 +625,27 @@ Command-line cli to drive Managed Amazon ECS Containers.
 ```
 
 
-##  20.  Azure ACI-CTL ?
+##  17.  Azure ACI-CTL ?
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
 
 
-# Developers
+##  18.  Packer Packager-Provisioner ([-] missing)
 
-In addition Developers and Build-Masters should also install the following.
+Hashicorp Packer is the leading agnostic cloud image packager.
+
+* install Packer (packer cli)
+
+```shell
+   # see https://community.chocolatey.org/packages/packer
+
+   choco install -y packer
+```
 
 
 
-##  21.  Vagrant
+##  19.  Vagrant
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
@@ -683,8 +656,66 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
 ```
 
 
+##  20.  Vault Secrets-Manager ([-] missing)
 
-##  22.  Dot.NET SDK
+Hashicorp Vault is the leading agnostic cloud secrets manager.
+
+* install Vault (vault cli)
+
+```shell
+   # see https://community.chocolatey.org/packages/vault
+
+   choco install -y vault
+```
+
+
+
+
+
+# Developers
+
+In addition Developers and Build-Masters should also install the following.
+
+
+
+##  21.  Python ([*] provided)
+
+Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
+
+*NOTE use Python for Windows with GitBash*
+
+```shell
+   # see https://github.com/korningf/cso-git#Python
+
+   choco install -y python --force
+```
+
+
+##  22.  Ruby ([?] evaluate)
+
+Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
+
+```shell
+   # see https://community.chocolatey.org/packages/ruby
+
+   choco install -y ruby
+```
+
+
+
+##  23.  Go  ([?] evaluate)
+
+Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
+
+```shell
+   # see https://community.chocolatey.org/packages/golang
+
+   choco install -y golang
+```
+
+
+
+##  24.  Dot.NET SDK
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
@@ -697,7 +728,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
   
-##  23.  ASP.NET core
+##  25.  ASP.NET core
 
 * install the ASP.NET core runtime
 
@@ -708,7 +739,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  24.  VisualStudio Code
+##  26.  VisualStudio Code
 
 * install VSCode via winget 
 
@@ -719,7 +750,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  25.  Java OpenJDK
+##  27.  Java OpenJDK
 
 We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 
@@ -732,7 +763,7 @@ We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 ```
 
 
-##  26.  Apache Maven
+##  28.  Apache Maven
 
 Maven is the build toolchain for Java.
 
@@ -745,7 +776,7 @@ Maven is the build toolchain for Java.
 ```
 
 
-##  27.  Eclipse IDE
+##  29.  Eclipse IDE
 
 Eclipse is the IDE for Java.
 
@@ -758,7 +789,7 @@ Eclipse is the IDE for Java.
 ```
 
 
-##  28.  GnuWin64 or MinGW
+##  30.  GnuWin64 or MinGW
 
 _TODO optional_
 
@@ -773,29 +804,6 @@ It's not clear yet if we have to cross-compile anything to/from POSIX and GLibc.
 Investigate whether we need a complete cross-compilation toolchain for the future.
 
 _TODO optional_
-
-
-##  29.  Ruby ([?] evaluate)
-
-Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
-
-```shell
-   # see https://community.chocolatey.org/packages/ruby
-
-   choco install -y ruby
-```
-
-
-
-##  30.  Go  ([?] evaluate)
-
-Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
-
-```shell
-   # see https://community.chocolatey.org/packages/golang
-
-   choco install -y golang
-```
 
 
 
