@@ -157,9 +157,12 @@ Cloud Operators, Integrators, and Developers should all install the following:
 
 
 
+
 ##  0.  Chocolatey ([!] mandatory)
 
 _TODO This is really complicated - a litany of manual commands and reboots_
+
+
 
 
 We use a custom private chocoserver instead of the public one.
@@ -224,13 +227,14 @@ _currently broken:_
 _TODO This is really complicated - a litany of manual commands and reboots_
 
 
-Before iningstall other PcDev and DevEng tools we should install WSL.
+Before installing other PcDev DevEng tools we should install WSL.
 
-WSL (windows Subsystem for Linux) run a native linux VM on HyperV.
+WSL (windows Subsystem for Linux) runs a native linux hypervisor VM.
 
 Our Docker containers currently run on a WSL ubuntu linux machine.
 
-This is long litany of manual steps (we should provision devpc vms).
+
+_This is long litany of manual steps (we should provision devpc vms)_
 
 
 ###  Install WSL vms and container services
@@ -250,7 +254,7 @@ This is long litany of manual steps (we should provision devpc vms).
 
 ###  Update the WSL kernel:
 
-We want to be able to use specific linux version in WSL.
+We want to be able to use a specific linux version in WSL.
 
 ```shell
     choco install wsl_dsp_update_kernel -y
@@ -259,21 +263,27 @@ We want to be able to use specific linux version in WSL.
 
 ###  Install a specific Linux Distribution (ubuntu-22-lts aka jammy-jellyfish).
 
-The WSL start menu icon will start the installer for ubuntu-22-lts jammy).
-
-The installer is interactive, we will have to configure it as well.
-
 ```shell
     choco install wsl_3rdparty_ubuntu2204 -y
 ```
 
-Pick English-UK and the following mount options
+This will have created a WSL Ubuntu-2204 launcher in your windows Start Menu.
+
+On first launch, the WSL start menu icon runs the installer for the ubuntu VM.
+
+The installer is interactive, we will have to configure a few options by hand.
+
+
+_Pick English-UK and the following mount options_
 
 ```shell
     options=metadata,uid=1000,gid=1000,umask=022
 ```
 
+
 ### Configure sudo
+
+The WSL command-line either runs as 'root' or 'ubuntu'.
 
 Configure passwordless sudo and add yourself to sudoers.
 
@@ -310,9 +320,16 @@ This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and
 
 ## 2.  DevPC Tools ([!] mandatory)
 
+The DevTools scripts install a vast panoply of additional developer tools.
+
+Some scripts are broken, so we decompose them, and run some steps by hand.
+
+
 
 
 ###  Install Developer Tools _(ignore warnings)_
+
+Start with the base tools for geenral developers and database developers.
 
 ```shell
     choco install standard_dsp_devpc_tools -y
@@ -324,9 +341,6 @@ This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and
 ```shell
     Restart-Computer -Force
 ```
-DevTools install additional developer tools (most are ports of POSIX tools).
-
-
 
 ###  Install root ca certs and Nexus repository proxies.
 
