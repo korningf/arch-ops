@@ -50,11 +50,74 @@ This lowers complexity, mitigates risk, and reduces adoption and maintenance tim
 
 #  Complexity
 
-Cloud Managment is all about amanaging complexity and change on a massive scale.
+Cloud Managment is all about managing complexity and change on a massive scale.
 
 The way we manage complexity is we break it down in smaller, modular components.
 
-We start by specfiying an abstract ontology or taxonomy for all our cloud resources.
+
+Beyond the technical aspect, deploying to the cloud is a challenge for security.
+
+Complexities like federated multi-clouds or hybrid cloud with on-premise components,
+
+with some exotic services or business data held in remote regions and jurisdictions.
+
+
+
+# Nomenclature
+
+We want names that increase human readability, but at the same reduce clutter.
+
+We want to use short monikers or symbols that are unique but remain significant.
+
+Long names should not be used to describe generic or well-known components.
+
+Long names should only be used in the parts that have the most variability.
+
+
+a purely hyportheical counter-example
+
+    welfare_sandbox_database_resource_group_ns_evt_backend_data_sync
+
+This is bad.  
+
+``welfare`` is a top tenant name and is a much reused term.
+
+``resource_group`` is a genrric and much reused technical term. 
+
+``database`` is a service tier name and is a much reused term.
+
+``ns`` means non-production system, it is superfluous and meaningless.
+
+``evt`` early-visibility-test is meaningless - this is a `dev` environment.
+
+
+    DSP_WFR_BOMI_MODEL_DEV/_db_rg_backend_data_sync
+
+
+The bit in UPPERCASE scopes down from tenant to workload and environment.
+
+The bit in lowercase scopes down from resource group and service tier.
+
+Finally the actual lambfa function.
+
+
+
+If possible, names are chosen for alphabetical ordering to express logical flows.
+
+Names should sort in natural order for increasing scope.
+
+For example in environments:
+
+    BOX  sandbox       - internal, no backend, internal developer access only           - (replaces sandbox)
+    ---
+    DEV  development   - internal, mock data, feature development with mock data        - (replaces EVT)
+    INT  integration   - internal, partial data, integration with related systems       -
+    MNT  maintenance   - internal, limited data, re-production staging and testing      - (replaces UAT) 
+    ---
+    PRD  production    - external, live backend, live production system                 -
+    ---
+    TMP  temporary     - external, live sharding, use for overflow or A|B testing       - (we need this)
+
 
 
 ## Ontology
@@ -72,82 +135,98 @@ These abstract taxonomies are  cloud-agnostic and will map to any cloud provider
 
 The hierarchies have clear tiers that group things by business or technical domain.
 
-.
-
-We want names that increase human readability, but at the same reduce clutter.
-
-We want to use short monikers or symbols that are unique but remain significant.
-
-If possible, names are chosen for alphabetical ordering to express logical flows.
-
 Each taxon tier in our taxonomy is a composite name stringing up short symbols.
 
-.
 
-Now for governance, regulatory comliance, and access control we want granularity.
+```text
+
+Taxnomy:
+ 
+​    aegis _ basis _ clade _ desk _ envt
+
+
+
+where:
+
+   aegis  authority (data sovereignty - who regulates the data)
+   basis  boundary (data residency - where does the data live)
+   clade  custody  (corp custody - who has custody of the data)
+   desk   division (data division - for which business domain)
+   envt   environment (runtime extent - for what environment scope)
+
+```
+
+
+  
+
+
+# Taxonomy
+
+Now for governance, regulatory compliance, and access control we want granularity.
 
 That is we want to be able to scope and subdivide our taxons into taxonomies.
 
 
-# Ontology
-
-Occupancy (Subscriptions and AWS member accounts) should use a composite name,
-
-made up of 5 short monikers separated by underscore with the following pattern:
-
-```text
-
-Occupancy
- 
-​   aegis _ basis _ core _ desk _ envt
-
-where
-
-   auth   aegis aauthority (data sovereignty - who regulates the data)
-   back   basis backbone (data residency - where does the data live)
-   core   core custody (corp tenancy - who has custody of the data)
-   desk   desk division (data domain - under what functional demarcation)
-   envt   environment extend (runtime what technical scope - )
-
-```
 
 
-Taxonomy
+Like Biological taxons, the taxonomy is plastic and we can add sub-taxons.
 
-Our main concern is security, which means we need a more granular approach.
+Sub-taxons use a dot separator, and news taxons can be added, for example,
 
-Each short symbolic moniker maps in turn to a taxon which can be subdivided,
-
-this time using a dot-separator.
+to define Faccess rights for service facility, feature set, or function.
 
 
 ```text
 
-  aegis.authority / base.backbone / core.custody / desk.domain / env.extent / func.feature 
+Sub-Taxons:
+
+    aegis.authority / basis.boundary / clade.custody / desk.division / envt.extent / facility.feature.function
+
+Examples:
+
+  eu.ie   /   gov.extranet  /  gov.public  /  id.mygovid   / prod
+  eu.ie   /   gov.extranet  /  cso.public  /  db.census    / prod.2017
+
+  eu.ie   /   dsp.intranet  /  dsp.onprem  /  api.model    / prod
+  eu.ie   /   dsp.intranet  /  dsp.onprem  /  db.bomi      / prod
+
+  eu.ie   /   dsp.intranet  /  dsp.onprem  /  db.bomi      / test.model-a
+  eu.ie   /   dsp.intranet  /  dsp.onprem  /  db.bomi      / test.model-b
+
+  eu.ie   /   azr.dublin   /  dsp.core     /  bomi.model   / prod
+
+  eu.fr   /   aws.paris    /  dsp.inno     /  ai.sandbox   / box.claude / fraud.detection
 
 ```
 
-FR Paris, innovation, AI Claude sandbox
+IE, DSP On-Premise, DSP model, BOMI Model, production
+
+    Occupancy:  IE_AZR_CORE_BOMI_MODEL_PROD
+     
+    Taxonomy:    eu.ie   / dsp.onprem  /  dsp.data /  db.model / prod
+
+
+IE, AZR Dublin, DSP Core, BOMI Model, production
+
+    Occupancy:  IE_AZR_CORE_BOMI_MODEL_PROD
+   
+    Taxonomy:   eu.ie/azr.dublin/dsp.core/bomi.model/prod
+  
+
+IE, AZR Dublin, DSP Core, BOMI Model, production with sharded A|B testing
+
+    eu.ie/azr.dublin/dsp.core/bomi.model/prod.live
+    eu.ie/azr.dublin/dsp.core/bomi.model/prod.model-a
+    eu.ie/azr.dublin/dsp.core/bomi.model/prod.model-b
+
+
+
+FR, AWS Paris, Innovation Hub, AI sandbox, Claude model-a, fraud detection
    
     Occupancy:  FR_AWS_INNO_CLAUDE_SBOX
 
-    Taxonomy:   eu.fr/aws.paris/dsp.inno/ai.claude/sbox.alpha
-
-IE Dublin, DSP Bomi, DB Model production
-
-
-    Occupancy:  IE_AWS_BOMI_MODEL_PROD
-   
-    Taxonomy:   eu.ie/aws.dublin/dsp.core/bomi.model/prod
-  
-
-IE Dublin, DSP Bomi, DB Model production with sharded A|B testing
-
-    eu.ie/aws.dublin/dsp.bomi/db.model/prod.live
-    eu.ie/aws.dublin/dsp.bomi/db.model/prod.blue
-    eu.ie/aws.dublin/dsp.bomi/db.model/prod.green
-
-
+    Taxonomy:   eu.fr/aws.paris/dsp.inno/ai.sanbox/claude.model-a/.fraud
+    
 
 ## Architecture Tiers
 
