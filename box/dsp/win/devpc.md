@@ -763,6 +763,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
+   # see https://dotnet.microsoft.com/en-us/download/dotnet/9.0
 
    choco install -y dotnet-9.0-sdk
 ```
@@ -776,6 +777,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
+   # see https://dotnet.microsoft.com/en-us/download/dotnet/9.0
 
    choco install -y dotnet-9.0-aspnetruntime
 ```
