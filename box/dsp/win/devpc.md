@@ -1,79 +1,54 @@
 
+# Dev-Box
 
-# Desk-Ops
-
-
-
-# Site Firewall Whitelist
-
-Add the following sites to your external firewall whitelist.
-
-```text
-  Microsoft stack:
-    microsoft.com 
-    msdn.com
-
-  .NET stack:
-    winget.org  
-    nuget.org
-
-  Win Ops:
-    chocolatey.org
-    cygwin.com
-    msys2.org    
-    packagist.org 
-    git-scm.com
-    gitforwindows.org    
-
-  Cloud infra:
-    azure.com
-    amazonaws.com    
-    googleapis.com
-    googlesource.com
-
-  Cloud Ops:
-    passwordstore.org
-    docker.io
-    docker.com
-    kubernetes.io
-    k8s.io
-    helm.sh
-    terraform.io
-    hashicorp.com
-
-  Dev Ops:
-    cpan.org
-    anaconda.com
-    anaconda.org
-    python.org
-    pypi.org
-    ruby-lang.org
-    rubygems.org
-    rubyonrails.org
-    go.dev
-    oracle.com
-    apache.org
-    maven.org
-    jenkins.io
-    eclipse.org
-    sonatype.org
-
-  OSS Code:
-    github.com
-    gitlab.com
-    bitbucket.org
-    sourceforge.net
-```
-  
+*a windows box for Clodu Develeoprs, Integrators, and Operators*
 
 
-# Dev Tools
-
-☒  approved  [+]
-☐  evaluate  [?]
 
 
-# Installation
+# Background
+
+The following provides a canonical generic windows development machine,
+
+with the tools for Cloud Operators, Systems Integrator, and Developers.
+
+As much as possible, it relies on the excellent Chocolatey package manager.
+
+
+
+
+## GNU POSIX and a bash shell
+
+
+Modern Cloud and Cluster deployment via IaC uses containerisation.
+The process of containerisation often includes cross-compilation.
+We need an environment that is powerful enough to cross-compile.
+That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
+
+
+CloudOps and DevOps tools also require many interpreted languages.
+Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
+require tools like perl, python, ruby, go, php, and a POSIX shell.
+
+
+## Cygwin POSIX
+
+On Windows the only real full POSIX native environment is Cygwin.
+
+Everything else derives from it. SysGit and Msys derive from it.
+GitBash derives in turn from MSys.  Only cygwin has a full stack.
+
+
+## GitBash POSIX
+
+However, some corporate environments disallow a full Cygwin POSIX.
+
+The following assumes this is the case and relies on GitBahs instead.
+
+
+
+
+# Prerequisites
 
 
 ##  Admin on Desktop or Laptop
@@ -86,71 +61,54 @@ some of which will no doubt be done in an adhoc interactive way.
 Failing this, aquire temporary admin privilege for a day or so,
 in order to attempt to configure the entire tool stack at once.
 
-.
-
-Some of the distribution packages are installed via chocolatey,
-but a number are installed manually in custom paths via winget.
-
-At minimum we want a chroot BASH shell with a POSIX filesystem,
-which requires symlinks (either native symlinks or Junctions).
 
 
 
-# GNU POSIX and a bash shell
+## Firewall Whitelist
 
-POSIX is many things; it's an OS architecture and specification,
-describing systems APIs, structures, IO, memory, routines, signals,
-file systems, input and output streams, and a shell specification;
-it's a source compilation and linkage toolchain to produce portable
-binary executables; it's an OS filesystem layout specification; and
-lastly it's a stack of universal tools including common networking
-and security on which UNIX, ArpaNet, and the internet was built.
 
-. 
+Some corporate environments may use a scanning firewall proxy.
 
-These tools include shell GNU core-utils like sed, awk, grep, find,
-but they also include the network stack underpinning the internet.
-Things like routing, DNS, DHCP, OpenSSL, and OpenSSH Secure-Shell.
-All of these are derived from POSIX code and work best within POSIX.
+Add the following sites to your external firewall whitelist.
 
-.
 
-Modern Cloud and Cluster deployment via IaC uses containerisation.
-The process of containerisation often includes cross-compilation.
-We need an environment that is powerful enough to cross-compile.
-That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
+  
 
-.
 
-CloudOps and DevOps tools also require many interpreted languages.
-Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
-require tools like perl, python, ruby, go, php, and a POSIX shell.
+# Installation
 
-.
 
-On Windows the only real full POSIX native environment is Cygwin.
-Everything else derives from it. SysGit and Msys derive from it.
-GitBash derives in turn from MSys.  Only cygwin has a full stack.
 
-. 
+## Legend
 
-Failing this we can manage with GitBash, but it is incomplete.
+    [!]  mandatory
+    [*]  provided
+    [?]  evaluate  
+    [+]  upgrade  
+    [-]  missing
 
-_Update: We shall have to make do with GitBash_
 
-.
+## Incremental Installations
 
-Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
-For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
+    [A]  Cloud Operator     - deploy infrastructure (ie run terraform IAC)
+    [B]  Cloud Integrator   - integrate services (ie package apps and services)
+    [C]  Cloud Developer    - build appliances (ie build portable appliances)
+    
 
-The Python needs to mirror the Git setup for user-space vs all-users,
-so if Git is installed for machine-scope all-users, so should Python,
-or vice-versa.
+*The next 3 sections list incremental installations for Cloud Operator, Integrators, and Developers.*
+
+
+*Cloud Operators* need only install section A.
+
+*Cloud Integrators* should install section B and C.
+
+*Cloud Developers* should install sections A, B, and C.
 
 
 
 
-# Operators, Integrator, Developers (everyone)
+
+#  A.  Cloud Operators, Integrators, Developers
 
 
 Cloud Operators, Integrators, and Developers should all install the following:
@@ -162,6 +120,10 @@ Cloud Operators, Integrators, and Developers should all install the following:
 
 _TODO This is really complicated - a litany of manual commands and reboots_
 
+
+    # see https://docs.chocolatey.org/en-us/choco/setup/
+    # see https://docs.chocolatey.org/en-us/choco/setup/#install-using-winget    
+    # see https://winstall.app/apps/Chocolatey.Chocolatey
 
 
 
@@ -414,7 +376,7 @@ _TODO: The Git Config script is currently broken. configure it by hand_
 
 ```shell
     git config --global user.name   JohnDoe
-    git config --global user.email  JohnDoe@welfare.ie.
+    git config --global user.email  JohnDoe@email.com
 ```
 
 ###  Generate your SSH RSA 4096 keypair (USE a passphrase!)
@@ -493,7 +455,41 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  8.  Docker Desktop ([!] mandatory)
+##  8.  Azure-cli ([+] provided)
+
+Azure-Cli is the Azure Cloud command-line.
+
+###  Install Azure-cli (AZ cloud)
+
+```shell
+   # see https://community.chocolatey.org/packages/azure-cli
+
+   choco install -y azure-cli
+```
+
+
+##  9.  AWS-cli
+
+AWS-Cli is the Amazon AWS Cloud command-line.
+
+###  Install AWS-cli (AWS cloud)
+
+```shell
+     # see https://community.chocolatey.org/packages/awscli
+  
+     choco install -y awscli
+```
+
+
+
+#  B.  Backend Integrators, Developers 
+
+
+Cloud Integrators and Developers should also install the following:
+
+
+
+##  10.  Docker Desktop ([!] mandatory)
 
 _TODO This is really complicated - we really should be runniong docker-desktop_
 
@@ -507,7 +503,7 @@ The current DevEng standard runs Docker inside a WSL ubuntu VM on containerd.
 ```shell
     choco install wsl_apt_ubuntu2204_docker -y
     choco install wsl_dsp_ubuntu2204_usermod_docker -y
-``` 
+```
 
 
 ###  We use a local Nexus Repository as a supply-chain firewall proxy for DockerHub images.
@@ -546,14 +542,8 @@ _TODO_
 
 
 
-# Integrators, Developers 
 
-
-Cloud Integrators and Developers should also install the following:
-
-
-
-##  9.  Kubernetes Minikube ([?] evaluate)
+##  11.  Kubernetes Minikube  ([?] evaluate)
 
 The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
 
@@ -569,7 +559,7 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 
 
 
-##  10.  Kubernetes Helm ([!] default)
+##  12.  Kubernetes Helm  ([+] upgrade)
 
 Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
@@ -584,7 +574,8 @@ It simplifies and groups deployment of related services into charts.
 ```
 
 
-##  11. Kubernetes Operations ([-] missing)
+
+##  13. Kubernetes Operations  ([?] evaluate)
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -599,34 +590,8 @@ This would be used to build a custom cluster from a raw compute cloud.
 ```
 
 
-##  12.  Azure-cli ([+] provided)
 
-Azure-Cli is the Azure Cloud command-line.
-
-###  Install Azure-cli (AZ cloud)
-
-```shell
-   # see https://community.chocolatey.org/packages/azure-cli
-
-   choco install -y azure-cli
-```
-
-
-##  13.  AWS-cli
-
-AWS-Cli is the Amazon AWS Cloud command-line.
-
-###  Install AWS-cli (AWS cloud)
-
-```shell
-     # see https://community.chocolatey.org/packages/awscli
-  
-     choco install -y awscli
-```
-
-
-
-##  14.  Azure AKS-CTL
+##  14.  Azure AKS-CTL   ([-] missing)
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -642,7 +607,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  15.  AWS EKS-CTL
+##  15.  AWS EKS-CTL   ([-] missing)
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
@@ -655,7 +620,7 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  16.  AWS ECS-CTL
+##  16.  AWS ECS-CTL   ([-] missing)
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
@@ -670,13 +635,15 @@ Command-line cli to drive Managed Amazon ECS Containers.
 ```
 
 
-##  17.  Azure ACI-CTL ?
+
+##  17.  Azure ACI-CTL  ([?] investigate)
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
 
 
-##  18.  Packer Packager-Provisioner ([-] missing)
+
+##  18.  Hashicorp Packer  ([-] missing)
 
 Hashicorp Packer is the leading agnostic cloud image packager.
 
@@ -693,7 +660,7 @@ Hashicorp Packer is the leading agnostic cloud image packager.
 _TODO_
 
 
-##  19.  Vagrant
+##  19.  Hashicorp Vagrant  ([-] missing)
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
@@ -708,7 +675,7 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
 _TODO_
 
 
-##  20.  Vault Secrets-Manager ([-] missing)
+##  20.  Hashicorp Vault  ([-] missing)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
@@ -723,7 +690,7 @@ Hashicorp Vault is the leading agnostic cloud secrets manager.
 
 
 
-# Developers
+#  C.  Coders and Developers
 
 In addition Developers and Build-Masters should also install the following.
 

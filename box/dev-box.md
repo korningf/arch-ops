@@ -1,12 +1,98 @@
 
+# Dev-Box  
 
-# Desk-Ops
+*a windows box for Clodu Develeoprs, Integrators, and Operators*
 
 
 
-# Site Firewall Whitelist
+# Background
+
+The following provides a canonical generic windows development machine,
+
+with the tools for Cloud Operators, Systems Integrator, and Developers.
+
+As much as possible, it relies on the excellent Chocolatey package manager.
+
+
+
+
+## GNU POSIX and a bash shell
+
+POSIX is many things; it's an OS architecture and specification,
+describing systems APIs, structures, IO, memory, routines, signals,
+file systems, input and output streams, and a shell specification;
+it's a source compilation and linkage toolchain to produce portable
+binary executables; it's an OS filesystem layout specification; and
+lastly it's a stack of universal tools including common networking
+and security on which UNIX, ArpaNet, and the internet was built.
+
+. 
+
+These tools include shell GNU core-utils like sed, awk, grep, find,
+but they also include the network stack underpinning the internet.
+Things like routing, DNS, DHCP, OpenSSL, and OpenSSH Secure-Shell.
+All of these are derived from POSIX code and work best within POSIX.
+
+.
+
+Modern Cloud and Cluster deployment via IaC uses containerisation.
+The process of containerisation often includes cross-compilation.
+We need an environment that is powerful enough to cross-compile.
+That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
+
+.
+
+CloudOps and DevOps tools also require many interpreted languages.
+Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
+require tools like perl, python, ruby, go, php, and a POSIX shell.
+
+
+## Cygwin POSIX
+
+On Windows the only real full POSIX native environment is Cygwin.
+
+Everything else derives from it. SysGit and Msys derive from it.
+GitBash derives in turn from MSys.  Only cygwin has a full stack.
+
+
+## GitBash POSIX
+
+However, some corporate environments disallow a full Cygwin POSIX.
+
+The following assumes this is the case and relies on GitBahs instead.
+
+
+
+
+# Prerequisites
+
+
+##  Admin on Desktop or Laptop
+
+Ideally get admin privilege on the box in a permanent fashion. 
+
+At minimum we want a chroot BASH shell with a POSIX filesystem,
+
+which requires symlinks (either native symlinks or Junctions).
+
+
+
+## An email identity for Git, SSH, GPG
+
+You should have an email identity fonfigured with a Git Account.
+
+The same identity will be used for your SSH key and GPG keyring.
+
+
+
+
+## Firewall Whitelist
+
+
+Some corporate environments may use a scanning firewall proxy.
 
 Add the following sites to your external firewall whitelist.
+
 
 ```text
   Microsoft stack:
@@ -67,345 +153,178 @@ Add the following sites to your external firewall whitelist.
   
 
 
-# Dev Tools
-
-☒  approved  [+]
-☐  evaluate  [?]
-
-
 # Installation
 
 
-##  Admin on Desktop or Laptop
 
-Ideally get admin privilege on the box in a permanent fashion. 
+## Legend
 
-This a vast tools list and they require custom configurations,
-some of which will no doubt be done in an adhoc interactive way.
-
-Failing this, aquire temporary admin privilege for a day or so,
-in order to attempt to configure the entire tool stack at once.
-
-.
-
-Some of the distribution packages are installed via chocolatey,
-but a number are installed manually in custom paths via winget.
-
-At minimum we want a chroot BASH shell with a POSIX filesystem,
-which requires symlinks (either native symlinks or Junctions).
+    [!]  mandatory
+    [*]  provided
+    [?]  evaluate  
+    [+]  upgrade  
+    [-]  missing
 
 
+## Incremental Installations
 
-# GNU POSIX and a bash shell
+    [A]  Cloud Operator     - deploy infrastructure (ie run terraform IAC)
+    [B]  Cloud Integrator   - integrate services (ie package apps and services)
+    [C]  Cloud Developer    - build appliances (ie build portable appliances)
+    
 
-POSIX is many things; it's an OS architecture and specification,
-describing systems APIs, structures, IO, memory, routines, signals,
-file systems, input and output streams, and a shell specification;
-it's a source compilation and linkage toolchain to produce portable
-binary executables; it's an OS filesystem layout specification; and
-lastly it's a stack of universal tools including common networking
-and security on which UNIX, ArpaNet, and the internet was built.
+*The next 3 sections list incremental installations for Cloud Operator, Integrators, and Developers.*
 
-. 
 
-These tools include shell GNU core-utils like sed, awk, grep, find,
-but they also include the network stack underpinning the internet.
-Things like routing, DNS, DHCP, OpenSSL, and OpenSSH Secure-Shell.
-All of these are derived from POSIX code and work best within POSIX.
+*Cloud Operators* need only install section A.
 
-.
+*Cloud Integrators* should install section A and B.
 
-Modern Cloud and Cluster deployment via IaC uses containerisation.
-The process of containerisation often includes cross-compilation.
-We need an environment that is powerful enough to cross-compile.
-That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
-
-.
-
-CloudOps and DevOps tools also require many interpreted languages.
-Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
-require tools like perl, python, ruby, go, php, and a POSIX shell.
-
-.
-
-On Windows the only real full POSIX native environment is Cygwin.
-Everything else derives from it. SysGit and Msys derive from it.
-GitBash derives in turn from MSys.  Only cygwin has a full stack.
-
-. 
-
-Failing this we can manage with GitBash, but it is incomplete.
-
-_Update: We shall have to make do with GitBash_
-
-.
-
-Gitbash, Python, PyEnv, and the Pip package manager are temperamental.
-For it to work properly, PIP needs to use Windows auth TLS/SSL certs.
-
-The Python needs to mirror the Git setup for user-space vs all-users,
-so if Git is installed for machine-scope all-users, so should Python,
-or vice-versa.
+*Cloud Developers* should install sections A, B, and C.
 
 
 
 
-# Integrators
+#  A.  Cloud Operators, Integrator, Developers
 
 
-Cloud-Ops and Dev-Ops Systems Integrators should install the following.
+Cloud Operators, Integrators, and Developers should all install the following:
+
 
 
 
 ##  0.  Chocolatey ([!] mandatory)
 
-* install Chocolatey
+Everything starts with Chocolatey.
 
+Best to install Chocolatey via winget.  
 
-We use a custom private chocoserver instead of the public one.
+Refer to docs when behind a corporate firewall.
 
-a custom powershell PS1 script sets up the choco environment.
-
-* (skip this) _the usual way with the public chocolatey.org url_
-
-```shell
     # see https://docs.chocolatey.org/en-us/choco/setup/
+    # see https://docs.chocolatey.org/en-us/choco/setup/#install-using-winget    
+    # see https://winstall.app/apps/Chocolatey.Chocolatey
 
-    winget install --id=Chocolatey.Chocolatey
-```
 
-* (use this) _our custom install with a private chocoserver script_
+
+###  Install Chocolatey
+
 
 Open a new elevated powershell (run as administrator):
 
-```shell
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/ChocolateyInstall.ps1'))
-```
-
-Now this only does a one-time install of a  local Chocolatey 2.4.3.
-
-Crucially we want a bootstrap to point to the private chocoserver.
-
-And we also want to upgrade our local client to choco 2.5.1.
-
-* run the bootstrap _(ignoring warnings)_
-  
-```shell
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocoserver:8443/repository/bootstrap/OnPremSetup.ps1'))
-```
-
-We need to set up our default shell environment and add devpc extensions.
-
-* close the powershell and open another one.
-
 
 ```shell
-    choco install standard_dsp_powershell_execpolicyunrestricted -y
-
-    choco install standard_dsp_devpc_windowsconfig -y
-    #choco install standard_dsp_devpc_windowsfeatures -y
+    winget install -e --id=Chocolatey.Chocolatey    
 ```
 
 
-* Restart (reboot) the DevPC and open a new admin powershell.
+
+##  1.  WSL ([!] mandatory) 
+
+
+
+WSL (windows Subsystem for Linux) provides a native linux hypervisor VM.
+    
+Our IaC test clouds, clusters, and docker containers will all run on WSL.
+
+The simplest way is to use Choco.
+
+
+    see https://community.chocolatey.org/packages/wsl2
+
+
+
+###  Install WSL-2  
+
+The current WSL-2 linux version is Ubuntu-22-lts aka Jammy-JellyFish.
+
 
 ```shell
-    Restart-Computer -Force
-```
-
-
-##  1.  WSL ([!] mandatory)
-
-Before we go on to installing other PcDev and DevEng we instal WSL.
-
-WSL (windows Subsystem for Linux) run a native linux VM on HyperV.
-
-Our Docker containers run native windows and require WSL containers.
-
-This is long litany of manual steps (we should provision devpc vms).
-
-
-* Install WSL vms and container services
-
-
-```shell
-    choco install wsl_dsp_enable_wsl -y
-    choco install wsl_dsp_enable_virtualmachineplatform -y
-```
-
-  * Restart (reboot) the DevPC and open a new admin powershell.
-
-```shell
-    Restart-Computer -Force
-```
-
-
-* Update the WSL kernel:
-
-We want to be able to use specific linux version in WSL.
-
-```shell
-    choco install wsl_dsp_update_kernel -y
-    choco install wsl_dsp_wsl2 -y
-```
-
-* Install a specific Linux Distribution (ubuntu-22-lts aka jammy-jellyfish).
-
-The WSL start menu icon will start the installer for ubuntu-22-lts jammy).
-
-The installer is interactive, we will have to configure it as well.
-
-```shell
-    choco install wsl_3rdparty_ubuntu2204 -y
-```
-
-Pick English-UK and the following mount options
-
-```shell
-    options=metadata,uid=1000,gid=1000,umask=022
-```
-
-* Configure sudo
-
-Configure passwordless sudo and add yourself to sudoers.
-
-```shell
-    $WSL_USER=wsl -d Ubuntu-22.04 whoami
-    $str="$WSL_USER ALL=(ALL) NOPASSWD:ALL"
-    $tempFile=New-TemporaryFile
-    wsl -d Ubuntu-22.04 sh -c "echo '$str' > /tmp/$tempFile.Name"
-    wsl -d Ubuntu-22.04 sudo chown root /tmp/$tempFile.Name
-```
-if prompted enter your ubuntu password.
-
-```shell
-    wsl -d Ubuntu-22.04 sudo mv /tmp/$tempFile.Name /etc/sudoers.d/$WSL_USER
-```
-
-* Install root ca certs and Nexus repository proxies.
-
-We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
-
-This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and microsoft WSL.
-
-```shell
-    choco install wsl_dsp_ubuntu2204_root_ca -y
-    choco install wsl_dsp_ubuntu2204_apt_proxy -y
-
-    choco install wsl_3rdparty_ubuntu2204_ms_package_repo -y
-    choco install wsl_3rdparty_ubuntu2204_distrod -y    
+    choco install wsl2
 ```
 
 
 
 
-## 2.  DevPC Tools ([!] mandatory)
 
+##  2.  GitBash POSIX ([!] mandatory)
 
-
-* Install Developer Tools
-
-```shell
-    choco install standard_dsp_devpc_tools -y
-    choco install standard_dsp_devpc_sqltools -y
-```
-
-* Best to Restart the system, and re-open an admin shell.
-
-```shell
-    Restart-Computer -Force
-```
-DevTools install additional developer tools (most are ports of POSIX tools).
-
-
-
-* Install root ca certs and Nexus repository proxies.
-
-We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
-
-This includes repos for java maven, NuGet .NET, Python pip, NodeJS npm, Docker hub, etc.
-
-
-```shell
-    choco install standard_dsp_root_ca -y
-    choco install standard_dsp_pip_cert -y
-
-    choco install standard_3rdparty_nuget_packageprovider
-    choco install ci_dsp_feeds -y
-```
-
-Before going any further, confirm that curl can resolve an https website without error:
-
-wsl -d Ubuntu-22.04 curl https://www.google.com
-
-
-##  3.  GitBash POSIX ([!] mandatory)
+_Gitbash is already included, but we need to force a reinstall_
 
 GitBash provides a minimal POSIX bash environment with base core-utils. 
 
+We need a custom install to enable symlinks and a proper TTY terminal.
+
 *NOTE use Python for Windows with GitBash*
 
-* install GitBash
+
+   # see https://community.chocolatey.org/packages/git
+
+
+###  Install GitBash 
 
 ```shell
-   # see https://community.chocolatey.org/packages/git
 
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
 
-* Customise Gitbash
 
-We use a custom .profile script for the GitBash POSIX environment.
-
-Install the script, entering the GitBash root  ('C:\Program Files\Git')
+###  Configure your Git login
 
 ```shell
-    choco install standard_dsp_powershell_profile -y
-```
-
-* Edit your profile as needed.
-
- 
-
-* Configure Git
-
-When prompted, enter your email address (eg joe.bloggs@welfare.ie).
-
-```shell
-    choco install standard_dsp_git_config
-```
-Verify that the Git global email and username are properly configured:
-
-```shell
-    git config --global user.name 
-    git config --global user.email
+    git config --global user.name   JohnDoe
+    git config --global user.email  JohnDoe@email.com
 ```
 
 
+###  Generate your SSH keys
 
-## 4.  Python ([*] provided)
+_TODO: we should really standardise one of: POSIX Pass, KeePass, or Hashicorp Vault_
 
-Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
+If you don't have an SSH keypair already, generate one now (RSA 4096 with passphrase).
 
-*NOTE use Python for Windows with GitBash*
+Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
+
 
 ```shell
-   # see https://github.com/korningf/cso-git#Python
+    ssh-keygen -t rsa
+```
 
-   choco install -y python --force
+###  Generate your GPG keyring
+
+_TODO_
+
+
+
+
+##  3.  Install PacMan  ([!] mandatory and missing)
+
+In addition we  need to extend GitBash with the PacMan packageManager from MSys2.
+
+
+###   Install PacMan
+
+_in a gitbash bash shell_
+
+
+```shell
+    pushd /tmp/
+    git clone https://github.com/korningf/cso-git.git
+    cd cso-git
+    ./install-pacman-git-bash.sh
 ```
 
 
+###   Configure PacMan
 
-##  5.  Windows SysInternals ([!] mandatory)
+
+
+
+##  4.  Windows SysInternals  ([*] provided)
 
 SysInternals are standard MSDN Developer utils from Miscrosoft.
 
-* install SysInternals
+###  Install SysInternals
 
 ```shell
   choco install -y sysinternals --ignore-checksum --force
@@ -413,24 +332,27 @@ SysInternals are standard MSDN Developer utils from Miscrosoft.
 
 
 
-##  6.  Keepass ([*] provided)
+##  5.  Keepass  ([*] provided)
 
 We Use Keepass for a local developer secure secret and password store.
 
 I prefer the POSIX pass cmd (password-store), but keepass will do.
 
 
+###  Install Keepass
+
 ```shell
-  	choco install keepass -y
+    choco install keepass -y
 ```
 
 
 
-##  7.  stream processors (JSON, YAML, XML) ([*] provided)
+##  6.  Stream Processors (JQ, YQ, XQ)  ([*] provided)
 
-We will need these stream processors to parse JSON, YAML, XML.
+We will need stream processors to parse JSON, YAML, XML.
 
-* install stream processors (JQ, YQ, XQ)
+###  Install stream processors (JQ, YQ, XQ)
+
 
 ```shell
    # see https://community.chocolatey.org/packages/jq
@@ -442,39 +364,11 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  8.  Vault Secrets-Manager ([-] missing)
-
-Hashicorp Vault is the leading agnostic cloud secrets manager.
-
-* install Vault (vault cli)
-
-```shell
-   # see https://community.chocolatey.org/packages/vault
-
-   choco install -y vault
-```
-
-
-
-##  9.  Packer Packager-Provisioner ([-] missing)
-
-Hashicorp Packer is the leading agnostic cloud image packager.
-
-* install Packer (packer cli)
-
-```shell
-   # see https://community.chocolatey.org/packages/packer
-
-   choco install -y packer
-```
-
-
-
-##  10.  Terraform Cloud-Former ([*] provided)
+##  7.  Hashicorp Terraform  ([+] upgrade)
 
 Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 
-* install Terraform (cloud cli)
+###  Install Terraform (cloud cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/terraform
@@ -483,164 +377,12 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  11.  Docker Desktop
 
-Docker-Desktop provides a local Docker runtime as well as the command-line cli.
-
-
-* Install docker on the WSL machine:
-
-```shell
-    choco install wsl_apt_ubuntu2204_docker -y
-    choco install wsl_dsp_ubuntu2204_usermod_docker -y
-``` 
-
-
-* We use a local Nexus Repository as a supply-chain firewall proxy for DockerHub images.
-
-```shell
-    choco install wsl_dsp_ubuntu2204_dockerhub_proxy -y
-```
-
-* Start the docker daemon
-
-```shell
-    wsl systemctl status docker
-    wsl systemctl restart docker
-```
-
-* Test it by spinning up a hello-world docker appliance.
-
-```shell
-    wsl docker run hello-world
-```
-
-* Test networking by installing a local nginx:
-
-  ```shell
-    wsl docker run -it --rm -d -p 8080:80 --name web nginx
-  ```
-
-* Browse to localhost:8080
-
-You should see the nginx page
-
-
-* Expose the WSL docker daemon on TCP:2375
-
-_TODO_
-
-    see https://thelinuxcode.com/configure-docker-daemon-with-systemd/
-    see https://stackoverflow.com/questions/72629279/how-to-pass-a-configuration-file-to-the-containerd-runtime-by-using-deamon-json
-
-
-_TODO_  manually via /etc/docker/daemon.json
-
-_TODO works if you manually start dockerd, but does not run it via containerd_
-
-```shell
-    wsl echo '{ "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"] }' > /etc/docker/daemon.json
-    wsl systemctl restart docker
-```
-
-_maybe we need an alternate configuration_
-
-daemon.json    
-```json
-{
-"debug": true,
-"hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"] ,
-"runtimes": {
-  "containerd": {
-    "path": "/usr/bin/containerd"
-  }
-}
-},
-"insecure-registries": ["myregistry.local:5000"],
-"registry-mirrors": ["https://mirror.gcr.io"]
-}
-```
-
-
-_TODO_  via systemctl and containerd (does not work)
-
-Edit the file /etc/systemd/system/docker.service.d/override.conf by calling the command
-
-```shell
-    systemctl edit docker
-```
-
-overrride the following
-
-```text
-ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H fd:// --containerd=/run/containerd/containerd.sock
-```
- 
-_does not work_
-
-
-
-* install Docker Desktop (docker-cli + runtime)
-
-_TODO_
-
-```shell
-  # see https://community.chocolatey.org/packages/docker-desktop
-  
-  choco install -y docker-desktop
-```
-
-
-##  12.  Kubernetes Cluster ([?] evaluate)
-
-The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
-
-Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
-
-* install Minikube Cluster (kube-cli + runtime)
-
-```shell
-   # see https://community.chocolatey.org/packages/Minikube
-  
-   choco install -y minikube
-```
-
-
-##  13.  Kubernetes Helm ([!] default)
-
-Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
-
-It simplifies and groups deployment of related services into charts.
-
-* install Kubernetes Helm
-
-```shell
-   # see https://community.chocolatey.org/packages/kubernetes-helm
-  
-   choco install -y kubernetes-helm
-```
-
-
-##  14. Kubernetes Operations ([-] missing)
-
-Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
-
-This would be used to build a custom cluster from a raw compute cloud.
-
-* install Kubernetes Operations (kops)
-
-```shell
-   # see https://community.chocolatey.org/packages/kubernetes-kops
-  
-   choco install -y kubernetes-kops
-```
-
-
-##  15.  Azure-cli ([+] provided)
+##  8.  Azure-cli  ([+] upgrade)
 
 Azure-Cli is the Azure Cloud command-line.
 
-* install Azure-cli (AZ cloud)
+###  Install Azure-cli (AZ cloud)
 
 ```shell
    # see https://community.chocolatey.org/packages/azure-cli
@@ -649,11 +391,12 @@ Azure-Cli is the Azure Cloud command-line.
 ```
 
 
-##  16.  AWS-cli
+
+##  9.  AWS-cli  ([!] mandatory and missing !)
 
 AWS-Cli is the Amazon AWS Cloud command-line.
 
-* install AWS-cli (AWS cloud)
+###  Install AWS-cli (AWS cloud)
 
 ```shell
      # see https://community.chocolatey.org/packages/awscli
@@ -663,13 +406,83 @@ AWS-Cli is the Amazon AWS Cloud command-line.
 
 
 
-##  17.  Azure AKS-CTL
+
+
+#  B. Integrators, Developers 
+
+
+Cloud Integrators and Developers should also install the following:
+
+
+##  10.  Docker Desktop  ([!] mandatory)
+
+Docker-Desktop provides a local Docker runtime as well as the command-line cli.
+
+The current DevEng standard runs Docker inside a WSL ubuntu VM on containerd.
+
+
+###  Install docker on the WSL machine:
+
+```shell
+    choco install docker-desktop
+```
+
+
+
+
+##  11.  Kubernetes Minikube ([?] evaluate)
+
+The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
+
+Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
+
+###  Install Minikube Cluster (kube-cli + runtime)
+
+```shell
+   # see https://community.chocolatey.org/packages/Minikube
+  
+   choco install -y minikube
+```
+
+
+
+##  12.  Kubernetes Helm ([!] default)
+
+Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
+
+It simplifies and groups deployment of related services into charts.
+
+###  Install Kubernetes Helm
+
+```shell
+   # see https://community.chocolatey.org/packages/kubernetes-helm
+  
+   choco install -y kubernetes-helm
+```
+
+
+##  13. Kubernetes Operations ([-] missing)
+
+Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
+
+This would be used to build a custom cluster from a raw compute cloud.
+
+###  install Kubernetes Operations (kops)
+
+```shell
+   # see https://community.chocolatey.org/packages/kubernetes-kops
+  
+   choco install -y kubernetes-kops
+```
+
+
+##  14.  Azure AKS-CTL
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
 *TODO check this*
 
-* install AKS-ctl (aksctl)
+###  Install AKS-ctl (aksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/aksctl
@@ -679,11 +492,11 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  18.  AWS EKS-CTL
+##  15.  AWS EKS-CTL
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
-* install EKS-ctl (eksctl)
+###  Install EKS-ctl (eksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/eksctl
@@ -692,11 +505,11 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  19.  AWS ECS-CTL
+##  16.  AWS ECS-CTL
 
 Command-line cli to drive Managed Amazon ECS Containers.
 
-* install ECS-ctl (ecsctl)
+###  Install ECS-ctl (ecsctl)
 
 *TODO check this - only a PIP package for now*
 
@@ -707,19 +520,32 @@ Command-line cli to drive Managed Amazon ECS Containers.
 ```
 
 
-##  20.  Azure ACI-CTL ?
+
+##  17.  Azure ACI-CTL ?  ([?] investigate)
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
 
 
-# Developers
+##  18.  Hashicorp Packer  ([-] missing)
 
-In addition Developers and Build-Masters should also install the following.
+Hashicorp Packer is the leading agnostic cloud image packager.
+
+###  Install Packer (packer cli)
+
+```shell
+   # see https://community.chocolatey.org/packages/packer
+
+   choco install -y packer
+```
+
+### Nexus Repository for Packer (_TODO_)
+
+_TODO_
 
 
 
-##  21.  Vagrant
+##  19.  Hashicorp Vagrant  ([-] missing)
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
@@ -729,13 +555,92 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
    choco install -y vagrant
 ```
 
+### Nexus Repository for Vgagrant (_TODO_)
+
+_TODO_
 
 
-##  22.  Dot.NET SDK
+##  20.  Hashicorp Vault  ([-] missing)
+
+Hashicorp Vault is the leading agnostic cloud secrets manager.
+
+###  Install Vault (vault cli)
+
+```shell
+   # see https://community.chocolatey.org/packages/vault
+
+   choco install -y vault
+```
+
+
+
+
+# Developers
+
+In addition Developers and Build-Masters should also install the following.
+
+
+
+##  21.  Python ([*] provided)
+
+Python is required for Cloud-Ops and Dev-Ops tools (aws-cli, azure-cli ...)
+
+*NOTE use Python for Windows with GitBash*
+
+###  Install Python
+
+```shell
+   # see https://github.com/korningf/cso-git#Python
+
+   choco install -y python --force
+```
+
+###  Nexus Repository for Python (_TODO_)
+
+_TODO_
+
+
+##  22.  Ruby ([?] evaluate)
+
+Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
+
+###  Install Ruby
+
+```shell
+   # see https://community.chocolatey.org/packages/ruby
+
+   choco install -y ruby
+```
+
+###  Nexus Repository for Ruby (_TODO_)
+
+_TODO_
+
+
+
+##  23.  Go  ([?] evaluate)
+
+Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
+
+###  Install Go-Lang
+
+```shell
+   # see https://community.chocolatey.org/packages/golang
+
+   choco install -y golang
+```
+
+###  Nexus Repository for Go (_TODO_)
+
+_TODO_
+
+
+
+##  24.  Dot.NET SDK  ([?] _which version?_)
 
 _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
-* install the .NET core SDK
+### Install the .NET core SDK
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-sdk
@@ -744,9 +649,11 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
   
-##  23.  ASP.NET core
+##  25.  ASP.NET core  ([?] _which version?_)
 
-* install the ASP.NET core runtime
+_TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
+
+### install the ASP.NET core runtime
 
 ```shell
    # see https://community.chocolatey.org/packages/dotnet-9.0-aspnetruntime
@@ -755,9 +662,11 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  24.  VisualStudio Code
+##  26.  VisualStudio Code ([*] provided)
 
-* install VSCode via winget 
+_this may already be provided with devtools_
+
+###  Install VSCode
 
 ```shell
    # see https://community.chocolatey.org/packages/vscode
@@ -766,7 +675,9 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 ```
 
 
-##  25.  Java OpenJDK
+##  27.  Java OpenJDK ([+] upgrade)
+
+_Devtools installs a legacy openjdk-8, we need to upgrade it the latest_
 
 We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 
@@ -779,11 +690,13 @@ We will need Java to run Jenkins CI, Sonar, and a host of other systems.
 ```
 
 
-##  26.  Apache Maven
+##  28.  Apache Maven ([+] upgrade)
+
+_devtools provides an older version, we need to upgrade to the latest_
 
 Maven is the build toolchain for Java.
 
-* install Maven
+###  Install Maven
 
 ```shell
    # see https://community.chocolatey.org/packages/maven
@@ -792,11 +705,11 @@ Maven is the build toolchain for Java.
 ```
 
 
-##  27.  Eclipse IDE
+##  29.  Eclipse IDE  ([-] optional)
 
 Eclipse is the IDE for Java.
 
-* install Eclipse IDE
+###  Install Eclipse IDE
 
 ```shell
    # see https://community.chocolatey.org/packages/eclipse-java-oxygen
@@ -805,7 +718,7 @@ Eclipse is the IDE for Java.
 ```
 
 
-##  28.  GnuWin64 or MinGW
+##  30.  GnuWin64 or MinGW  ([-] optional)
 
 _TODO optional_
 
@@ -822,31 +735,8 @@ Investigate whether we need a complete cross-compilation toolchain for the futur
 _TODO optional_
 
 
-##  29.  Ruby ([?] evaluate)
 
-Ruby is required for Cloud-Ops and Dev-Ops tools (vagrant, puppet ...)
-
-```shell
-   # see https://community.chocolatey.org/packages/ruby
-
-   choco install -y ruby
-```
-
-
-
-##  30.  Go  ([?] evaluate)
-
-Go-Lang is required for Cloud-Ops and Dev-Ops tools (docker, kubernetes ...)
-
-```shell
-   # see https://community.chocolatey.org/packages/golang
-
-   choco install -y golang
-```
-
-
-
-# Extension
+# Extensions
 
 _TODO Should we consider the following?_
 
