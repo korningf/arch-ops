@@ -468,7 +468,11 @@ Azure-Cli is the Azure Cloud command-line.
 ```
 
 
-##  9.  AWS-cli
+##  9.  AWS-cli  ([!] missing from chocoserver!) 
+
+_TODO AWS-cli should be manadtory, It is missing from our chocoserver_
+
+_TODO we should get the PcEng PcDev team to approve an provide it ASAP_
 
 AWS-Cli is the Amazon AWS Cloud command-line.
 
