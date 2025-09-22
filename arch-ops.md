@@ -69,12 +69,17 @@ We want names that increase human readability, but at the same reduce clutter.
 
 We want to use short monikers or symbols that are unique but remain significant.
 
-Long names should not be used to describe generic or well-known components.
+.
 
-Long names should only be used in the parts that have the most variability.
+*Long name parts should not be used to describe generic or well-known components*.
 
+*Long names part should be used in those parts that have the most variability*.
 
-a purely hyportheical counter-example
+Use Monikers for root tenants, projects, or workloads, environments, layers etc.
+
+.
+
+a purely hypothetical counter-example
 
     welfare_sandbox_database_resource_group_ns_evt_backend_data_sync
 
@@ -86,7 +91,7 @@ This is bad.
 
 ``database`` is a service tier name and is a much reused term.
 
-``ns`` means non-production system, it is superfluous and meaningless.
+``ns`` non-production system, it is superfluous and meaningless.
 
 ``evt`` early-visibility-test is meaningless - this is a `dev` environment.
 
@@ -143,7 +148,6 @@ Each taxon tier in our taxonomy is a composite name stringing up short symbols.
 Taxnomy:
  
 ​    aegis _ basis _ clade _ desk _ envt
-
 
 
 where:
