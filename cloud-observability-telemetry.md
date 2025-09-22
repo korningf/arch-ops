@@ -197,11 +197,19 @@ All of our apps should have hooks into standard OpenMetrics or OpenTelemetry API
 
 These should expose the standard Profiler values, Memory, IO, and system health.
 
-TODO Select the appropriate telemetry / Observability suites (OpenTelemetry, Grafana ?)
+TODO Select the appropriate telemetry / Observability suites (OpenTelemetry + Signoz, Grafana ?)
 
-Instrumentation Finally we should have sandbox Debug versions of apps that expose Headers and Symbols. We should also expose standard admin or management interfaces, secured in production.
+
+## Instrumentation 
+
+Finally we should have sandbox Debug versions of apps that expose Headers and Symbols. 
+
+We should also expose standard admin or management interfaces, secured in production.
+
 
 
 _TODO Select the appropriate instrumentation suites_
 
+
+# Appendix
 
