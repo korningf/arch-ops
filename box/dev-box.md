@@ -206,9 +206,7 @@ Refer to docs when behind a corporate firewall.
     # see https://winstall.app/apps/Chocolatey.Chocolatey
 
 
-
 ###  Install Chocolatey
-
 
 Open a new elevated powershell (run as administrator):
 
@@ -219,9 +217,19 @@ Open a new elevated powershell (run as administrator):
 
 
 
-##  1.  WSL ([!] mandatory) 
+##  1.  Windows SysInternals  ([*] provided)
+
+SysInternals are standard MSDN Developer utils from Miscrosoft.
+
+###  Install SysInternals
+
+```shell
+  choco install -y sysinternals --ignore-checksum --force
+```
 
 
+
+##  1.  WSL - Windows Subsystem for Linux  ([*] provided) 
 
 WSL (windows Subsystem for Linux) provides a native linux hypervisor VM.
     
@@ -229,12 +237,10 @@ Our IaC test clouds, clusters, and docker containers will all run on WSL.
 
 The simplest way is to use Choco.
 
-
     see https://community.chocolatey.org/packages/wsl2
 
 
-
-###  Install WSL-2  
+###  Install WSL (Windows Subsystem for Linux)  
 
 The current WSL-2 linux version is Ubuntu-22-lts aka Jammy-JellyFish.
 
@@ -242,8 +248,6 @@ The current WSL-2 linux version is Ubuntu-22-lts aka Jammy-JellyFish.
 ```shell
     choco install wsl2
 ```
-
-
 
 
 
@@ -257,8 +261,7 @@ We need a custom install to enable symlinks and a proper TTY terminal.
 
 *NOTE use Python for Windows with GitBash*
 
-
-   # see https://community.chocolatey.org/packages/git
+    see https://community.chocolatey.org/packages/git
 
 
 ###  Install GitBash 
@@ -268,7 +271,6 @@ We need a custom install to enable symlinks and a proper TTY terminal.
    choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
 ```
 
-
 ###  Configure your Git login
 
 ```shell
@@ -277,13 +279,18 @@ We need a custom install to enable symlinks and a proper TTY terminal.
 ```
 
 
+
+##  3.  SSH and PGP Keys ([*] provided)
+
+
+### Memorable Passphrase
+
+Pick a [https://strongphrase.net/](https://strongphrase.net/ Memorable Passphrase)
+
+
 ###  Generate your SSH keys
 
-_TODO: we should really standardise one of: POSIX Pass, KeePass, or Hashicorp Vault_
-
-If you don't have an SSH keypair already, generate one now (RSA 4096 with passphrase).
-
-Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
+If you don't have an SSH keypair already, generate one now.
 
 
 ```shell
@@ -292,44 +299,56 @@ Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
 
 ###  Generate your GPG keyring
 
-_TODO_
+
+If you don't have an SSH keypair already, generate one now.
+
+```shell
+    gpg --gen-key
+```
+
+Use the following parameters:
+
+```text
+key kind:      1 (RSA)
+key size:      4096
+validity:      0 (never expires)
+```
 
 
 
+##  4.  Install Git-Pass
 
-##  3.  Install PacMan  ([!] mandatory and missing)
+We will use the POSIX ``pass`` command (password-store) as a secrets vault.
 
-In addition we  need to extend GitBash with the PacMan packageManager from MSys2.
+I have ported this for a minimal corporate gitbash in the Git-Pass project.
+
+    see [git-pass](https://github.com/korningf/git-pass/ git-pass)
 
 
-###   Install PacMan
-
-_in a gitbash bash shell_
-
+###   Install Git-Pass (POSIX pass command)
 
 ```shell
     pushd /tmp/
-    git clone https://github.com/korningf/cso-git.git
-    cd cso-git
-    ./install-pacman-git-bash.sh
+    git clone https://github.com/korningf/git-pass
+    cd git-pass
+    ./install.sh
+    popd
 ```
 
 
-###   Configure PacMan
+###   Configure Git-Pass
 
-
-
-
-##  4.  Windows SysInternals  ([*] provided)
-
-SysInternals are standard MSDN Developer utils from Miscrosoft.
-
-###  Install SysInternals
+Create the password-store dir as a git repo.
 
 ```shell
-  choco install -y sysinternals --ignore-checksum --force
+    git init ~/.password-store
 ```
 
+Initialize the password-store dir as a pass database.
+
+```shell
+    pass init JohnDoe@email.com
+```
 
 
 ##  5.  Keepass  ([*] provided)
