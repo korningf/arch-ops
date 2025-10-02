@@ -215,7 +215,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-272" value="Build" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=150;fontStyle=0;fontFamily=Verdana;" vertex="1" parent="1">
-          <mxGeometry x="5420" y="3080" width="400" height="190" as="geometry" />
+          <mxGeometry x="5450" y="2990" width="400" height="190" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-273" value="Analyse" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=150;fontStyle=0;fontFamily=Verdana;" vertex="1" parent="1">
           <mxGeometry x="3395" y="2020" width="610" height="190" as="geometry" />
