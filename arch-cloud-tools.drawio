@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0" version="28.2.5">
   <diagram name="Page-1" id="CZLCnK6TREHxsby2yksW">
-    <mxGraphModel dx="3890" dy="2530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1945" dy="1265" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -179,10 +179,10 @@
           <mxGeometry x="3250" y="3720" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-264" value="AWS&lt;div&gt;Cloudwatch&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="2677.5" y="3450" width="80" height="80" as="geometry" />
+          <mxGeometry x="2855" y="3370" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-265" value="Azure&lt;div&gt;Monitor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="2920" y="3550" width="80" height="80" as="geometry" />
+          <mxGeometry x="2975" y="3440" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-266" value="Hashicorp&lt;div&gt;Boundary&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" parent="1" vertex="1">
           <mxGeometry x="3290" y="3935" width="90" height="70" as="geometry" />
@@ -272,10 +272,10 @@
           <mxGeometry x="4165" y="4930" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-303" value="Azure&lt;div&gt;Defender&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3610" y="3150" width="80" height="80" as="geometry" />
+          <mxGeometry x="3465" y="3210" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-305" value="AWS&lt;div&gt;SecurityHub&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3600" y="2990" width="80" height="80" as="geometry" />
+          <mxGeometry x="3470" y="3050" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-306" value="Grafana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3280" y="3530" width="80" height="80" as="geometry" />
@@ -381,6 +381,21 @@
         </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-18" value="Stage&lt;div&gt;Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3420" y="4970" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-21" value="Azure&lt;div&gt;Froewalls&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="3600" y="3150" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=22.5;exitDy=35;exitPerimeter=0;entryX=0.333;entryY=0.714;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ed6syFEXDo3e149slvSL-21" target="ed6syFEXDo3e149slvSL-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-24" value="AWS&lt;div&gt;Firewalls&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="3600" y="2990" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-29" value="Azure&lt;div&gt;Logs&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2840" y="3520" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-31" value="AWS&lt;div&gt;Logs&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2690" y="3450" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
