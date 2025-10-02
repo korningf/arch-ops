@@ -37,8 +37,8 @@
         <mxCell id="qX9qabngvb6qFZ-4m96P-218" value="Mozilla&lt;div&gt;SOPS&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacingTop=-20;" vertex="1" parent="1">
           <mxGeometry x="3570" y="4207.5" width="90" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-219" value="Azure&amp;nbsp;&lt;div&gt;PIM&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
-          <mxGeometry x="3665" y="3890" width="90" height="70" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-219" value="AWS&lt;div&gt;AD&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
+          <mxGeometry x="3530" y="3860" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-220" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Taxonomy&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Tree&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3760" y="4060" width="80" height="80" as="geometry" />
@@ -185,7 +185,7 @@
           <mxGeometry x="2920" y="3550" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-266" value="Hashicorp&lt;div&gt;Boundary&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
-          <mxGeometry x="3430" y="4135" width="90" height="70" as="geometry" />
+          <mxGeometry x="3275" y="3910" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-267" value="password&lt;div&gt;store&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-10;spacingLeft=0;" vertex="1" parent="1">
           <mxGeometry x="3570" y="4060" width="90" height="70" as="geometry" />
@@ -340,8 +340,8 @@
         <mxCell id="qX9qabngvb6qFZ-4m96P-343" value="B2C&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
           <mxGeometry x="3000" y="3780" width="90" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-344" value="B2B&lt;div&gt;RBAC&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
-          <mxGeometry x="3165" y="3880" width="90" height="70" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-344" value="Azure&lt;div&gt;PIM&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="3430" y="4130" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-345" value="AWS&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
           <mxGeometry x="2580" y="3590" width="90" height="70" as="geometry" />
@@ -351,6 +351,9 @@
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-347" value="Azure&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
           <mxGeometry x="2770" y="3689" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-355" value="Local&lt;div&gt;AD&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
+          <mxGeometry x="3765" y="3860" width="90" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
