@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0" version="28.1.2">
   <diagram name="Page-1" id="CZLCnK6TREHxsby2yksW">
-    <mxGraphModel dx="3112" dy="2024" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1556" dy="1012" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -23,28 +23,28 @@
           <mxGeometry x="3990" y="4410" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-214" value="Conf&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3580" y="4030" width="60" height="80" as="geometry" />
+          <mxGeometry x="3920" y="4132.5" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-215" value="+--&lt;div&gt;Git&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3430" y="3990" width="80" height="80" as="geometry" />
+          <mxGeometry x="3760" y="4197.5" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-216" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Azure&amp;nbsp;&lt;/div&gt;&lt;div&gt;AD&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
           <mxGeometry x="3665" y="3775" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-217" value="Hashicorp&amp;nbsp;&lt;div&gt;Vault&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
-          <mxGeometry x="3890" y="3985" width="90" height="70" as="geometry" />
+          <mxGeometry x="3430" y="3980" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-218" value="Mozilla&lt;div&gt;SOPS&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacingTop=-20;" vertex="1" parent="1">
-          <mxGeometry x="3745" y="4180" width="90" height="70" as="geometry" />
+          <mxGeometry x="3570" y="4207.5" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-219" value="Azure&amp;nbsp;&lt;div&gt;PIM&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
           <mxGeometry x="3665" y="3890" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-220" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Taxonomy&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Tree&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3430" y="4130" width="80" height="80" as="geometry" />
+          <mxGeometry x="3760" y="4060" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-221" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Static&lt;div&gt;DB&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3570" y="4160" width="70" height="80" as="geometry" />
+          <mxGeometry x="3910" y="4000" width="70" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-222" value="Hashicorp&lt;div&gt;Terraform&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3580" y="4390" width="80" height="90" as="geometry" />
@@ -134,22 +134,19 @@
           <mxGeometry x="3670" y="3390" width="100" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-247" value="Hashicorp&lt;div&gt;Consul&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3280" y="4020" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-248" value="Hashicorp&lt;div&gt;Boundary&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3140" y="3850" width="80" height="80" as="geometry" />
+          <mxGeometry x="3155" y="4290" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-249" value="Azure&lt;div&gt;DevOps&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3780" y="4680" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-250" value="Azure&amp;nbsp;&lt;div&gt;Cloud&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.25,0],[0.75,0],[1,0.25],[1,0.75],[0.75,1],[0.25,1],[0,0.75],[0,0.25]];polyline=0;spacingBottom=0;labelPosition=center;align=center;" vertex="1" parent="1">
-          <mxGeometry x="2782.5" y="4390" width="90" height="90" as="geometry" />
+          <mxGeometry x="2785" y="4400" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-251" value="Nexus&lt;div&gt;Repository&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" vertex="1" parent="1">
           <mxGeometry x="4050" y="4200" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-252" value="AWS&lt;div&gt;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Cloud&lt;/span&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.25,0],[0.75,0],[1,0.25],[1,0.75],[0.75,1],[0.25,1],[0,0.75],[0,0.25]];polyline=0;labelPosition=center;align=center;" vertex="1" parent="1">
-          <mxGeometry x="2582.5" y="4510" width="90" height="90" as="geometry" />
+          <mxGeometry x="2585" y="4470" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-253" value="AWS&lt;div&gt;Pipeline&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3590" y="5070" width="95" height="80" as="geometry" />
@@ -172,26 +169,26 @@
         <mxCell id="qX9qabngvb6qFZ-4m96P-259" value="Code&lt;div&gt;asp.net&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3685" y="3525" width="70" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-261" value="Hashicorp&lt;div&gt;Vagrant&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4660" y="3450" width="80" height="60" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-261" value="Test&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4470" y="4155" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-262" value="&lt;div&gt;Test-&lt;/div&gt;&lt;div&gt;Containers&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4350" y="3595" width="80" height="60" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-262" value="Test&lt;div&gt;MsgBus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4700" y="4155" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-263" value="Open&lt;div&gt;Telemetry&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3485" y="3620" width="80" height="80" as="geometry" />
+          <mxGeometry x="3250" y="3720" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-264" value="AWS&lt;div&gt;Cloudwatch&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="2680" y="3440" width="80" height="80" as="geometry" />
+          <mxGeometry x="2677.5" y="3450" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-265" value="Azure&lt;div&gt;Monitor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="2920" y="3550" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-266" value="Hashicorp&lt;div&gt;Boundary&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
-          <mxGeometry x="3890" y="4150" width="90" height="70" as="geometry" />
+          <mxGeometry x="3430" y="4135" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-267" value="password&lt;div&gt;store&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-10;spacingLeft=0;" vertex="1" parent="1">
-          <mxGeometry x="3755" y="4050" width="90" height="70" as="geometry" />
+          <mxGeometry x="3570" y="4060" width="90" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-268" value="&lt;font style=&quot;font-size: 48px;&quot;&gt;Arch Tools&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
           <mxGeometry x="3665" y="3710" width="100" height="40" as="geometry" />
@@ -230,34 +227,34 @@
           <mxGeometry x="4315" y="4800" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-287" value="Docker" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4180" y="4045" width="80" height="80" as="geometry" />
+          <mxGeometry x="4185" y="3930" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-288" value="&lt;div&gt;Hashicorp&lt;/div&gt;&lt;div&gt;Waypoint&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3880" y="3730" width="90" height="90" as="geometry" />
+          <mxGeometry x="3950" y="3760" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-289" value="Hashicorp&lt;div&gt;Nomad&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3140" y="4300" width="90" height="90" as="geometry" />
+          <mxGeometry x="3370" y="4400" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-290" value="Azure&lt;div&gt;Kubernetes&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3210" y="4710" width="90" height="90" as="geometry" />
+          <mxGeometry x="3150" y="4710" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-291" value="Azure&lt;div&gt;Containers&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3410" y="4790" width="90" height="90" as="geometry" />
+          <mxGeometry x="3305" y="4780" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-292" value="AWS&lt;div&gt;Kubernetes&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3090" y="4860" width="90" height="90" as="geometry" />
+          <mxGeometry x="3040" y="4870" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-293" value="AWS&lt;div&gt;Containers&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3310" y="4980" width="90" height="90" as="geometry" />
+          <mxGeometry x="3215" y="4940" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-294" value="Azure&lt;div&gt;Functions&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
-          <mxGeometry x="3040" y="4640" width="90" height="90" as="geometry" />
+          <mxGeometry x="3000" y="4650" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-295" value="AWS&lt;div&gt;Lambdas&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
           <mxGeometry x="2885" y="4790" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-296" value=".NET&lt;div&gt;build&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4100" y="3710" width="90" height="90" as="geometry" />
+          <mxGeometry x="3850" y="3580" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-297" value="Hashicorp&lt;div&gt;Packer&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" vertex="1" parent="1">
           <mxGeometry x="4300" y="4440" width="90" height="90" as="geometry" />
@@ -266,10 +263,10 @@
           <mxGeometry x="3980" y="4760" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-299" value="Docker&lt;div&gt;Compose&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4440" y="4050" width="80" height="80" as="geometry" />
+          <mxGeometry x="4485" y="3930" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-300" value="Docker&lt;div&gt;Swarm&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4690" y="4045" width="80" height="80" as="geometry" />
+          <mxGeometry x="4685" y="3920" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-301" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kubernetes&lt;/div&gt;&lt;div&gt;Helm&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" vertex="1" parent="1">
           <mxGeometry x="4040" y="4950" width="90" height="90" as="geometry" />
@@ -281,19 +278,79 @@
           <mxGeometry x="3565" y="3020" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-306" value="Grafana" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3070" y="3280" width="80" height="80" as="geometry" />
+          <mxGeometry x="3280" y="3530" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-307" value="Prometheus" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="3270" y="3390" width="80" height="80" as="geometry" />
+          <mxGeometry x="3440" y="3450" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-308" value="AWS&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="2580" y="4020" width="95" height="80" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-308" value="&lt;div&gt;AWS&lt;/div&gt;&lt;div&gt;Tenant&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2582.5" y="4320" width="95" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-309" value="Azure&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="2780" y="4020" width="95" height="80" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-309" value="Azure&lt;div&gt;Tenant&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2782.5" y="4270" width="95" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-310" value="&lt;font style=&quot;font-size: 48px;&quot;&gt;Core Tools&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
           <mxGeometry x="3670" y="2850" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-313" value="Mock&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="4140" y="3720" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-314" value="Test&lt;div&gt;Db&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="4210" y="4260" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-316" value="Test&lt;div&gt;Containers&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4390" y="3750" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-317" value="Hashicorp&lt;div&gt;Vagrant&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4590" y="3670" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-318" value="HypyerV&lt;div&gt;Images&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4770" y="3590" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-326" value="Local&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="3165" y="4130" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-329" value="Azure&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="2800" y="4127.5" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-330" value="AWS&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="2600" y="4132.5" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-332" value="AWS&lt;div&gt;ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2585" y="4010" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-333" value="Azure&lt;div&gt;ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2780" y="4010" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-336" value="AWS&lt;div&gt;Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;size=22.5;" vertex="1" parent="1">
+          <mxGeometry x="2585" y="3890" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-337" value="Azure&lt;div&gt;Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="2780" y="3890" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-338" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="qX9qabngvb6qFZ-4m96P-337" target="qX9qabngvb6qFZ-4m96P-337">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-339" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=-15;exitPerimeter=0;entryX=1;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;" edge="1" parent="1" source="qX9qabngvb6qFZ-4m96P-326" target="qX9qabngvb6qFZ-4m96P-326">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-340" value="&lt;div&gt;&lt;div&gt;Power BI&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3470" y="3619" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-343" value="B2C&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
+          <mxGeometry x="3000" y="3780" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-344" value="B2B&lt;div&gt;RBAC&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="3165" y="3880" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-345" value="AWS&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
+          <mxGeometry x="2580" y="3590" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-346" value="AWS&lt;div&gt;IAM&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;direction=west;labelPosition=center;align=center;spacing=0;spacingTop=-20;spacingLeft=5;" vertex="1" parent="1">
+          <mxGeometry x="2582.5" y="3710" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qX9qabngvb6qFZ-4m96P-347" value="Azure&lt;div&gt;SSO&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" vertex="1" parent="1">
+          <mxGeometry x="2770" y="3689" width="90" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
