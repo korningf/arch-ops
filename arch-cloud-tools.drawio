@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="qX9qabngvb6qFZ-4m96P-209" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;fillColor=none;strokeColor=light-dark(#000000,#999900);fontColor=light-dark(#000000,#FFFF00);strokeWidth=3;" parent="1" vertex="1">
-          <mxGeometry x="2520" y="2930" width="2400" height="2400" as="geometry" />
+          <mxGeometry x="2530" y="2910" width="2400" height="2400" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-210" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;fillColor=none;strokeColor=light-dark(#000000,#80FF00);strokeWidth=3;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="3120" y="3480" width="1200" height="1200" as="geometry" />
@@ -169,10 +169,10 @@
         <mxCell id="qX9qabngvb6qFZ-4m96P-259" value="Code&lt;div&gt;asp.net&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3685" y="3525" width="70" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-261" value="Dev&lt;div&gt;&lt;div&gt;Data ETL&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
+        <mxCell id="qX9qabngvb6qFZ-4m96P-261" value="Test&lt;div&gt;&lt;div&gt;Data ETL&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4640" y="4142.5" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-262" value="Dev&lt;div&gt;&lt;br&gt;&lt;div&gt;MsgBus&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
+        <mxCell id="qX9qabngvb6qFZ-4m96P-262" value="Test&lt;div&gt;&lt;div&gt;Msg Bus&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4800" y="4142.5" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-263" value="Open&lt;div&gt;Telemetry&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
@@ -292,10 +292,10 @@
         <mxCell id="qX9qabngvb6qFZ-4m96P-310" value="&lt;font style=&quot;font-size: 48px;&quot;&gt;Core Tools&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
           <mxGeometry x="3670" y="2850" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-313" value="Mock&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
-          <mxGeometry x="4040" y="3470" width="60" height="80" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-313" value="Dev&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="4100" y="3430" width="60" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-314" value="Dev&lt;div&gt;Db&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+        <mxCell id="qX9qabngvb6qFZ-4m96P-314" value="Test&lt;div&gt;Db&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
           <mxGeometry x="4510" y="4127.5" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-316" value="Test&lt;div&gt;Containers&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" parent="1" vertex="1">
@@ -358,10 +358,10 @@
         <mxCell id="ed6syFEXDo3e149slvSL-1" value="Local&lt;div&gt;ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="2940" y="3960" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-5" value="Mock&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="4170" y="3405" width="80" height="60" as="geometry" />
+        <mxCell id="ed6syFEXDo3e149slvSL-5" value="Dev&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4195" y="3380" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-6" value="Mock&lt;div&gt;Msg Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-6" value="Dev&lt;div&gt;Msg Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="4325" y="3310" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-7" value="Nexus&lt;div&gt;Firewall&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" vertex="1" parent="1">
@@ -400,20 +400,38 @@
         <mxCell id="ed6syFEXDo3e149slvSL-35" value="Stage&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3400" y="4610" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-36" value="Test&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-36" value="Integ&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
           <mxGeometry x="3980" y="4740" width="60" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-37" value="Test&lt;div&gt;ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-37" value="Integ&lt;div&gt;ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3960" y="4890" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-38" value="Test&lt;div&gt;&lt;div&gt;Bus&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-38" value="Integ&lt;div&gt;&lt;div&gt;&lt;div&gt;Bus&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3960" y="5030" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-39" value="Test&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-39" value="Integ&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3970" y="4610" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ed6syFEXDo3e149slvSL-40" value="Dev&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="ed6syFEXDo3e149slvSL-40" value="Test&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="4355" y="4127.5" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-41" value="Dev&lt;div&gt;Static&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.sequential_data;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3990" y="3500" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-47" value="[INT]&lt;div&gt;integration&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;environment&lt;/div&gt;&lt;/div&gt;&lt;div&gt;(aka-TST&lt;strike&gt;)&lt;/strike&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="3850" y="5400" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-48" value="[DEV]&lt;div&gt;development&lt;br&gt;&lt;div&gt;environment&lt;/div&gt;&lt;/div&gt;&lt;div&gt;(aka EVT)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="5060" y="4590" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-51" value="[MNT]&amp;nbsp;&lt;div&gt;maintenance&lt;br&gt;&lt;div&gt;environment&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(ex-UAT&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="2360" y="4950" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-54" value="[PRD]&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;production&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;environment&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="2100" y="3450" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6syFEXDo3e149slvSL-60" value="[BOX]&lt;div&gt;buildbox&lt;br&gt;&lt;div&gt;environment&lt;/div&gt;&lt;/div&gt;&lt;div&gt;(aka sandbox)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="4870" y="3130" width="100" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
