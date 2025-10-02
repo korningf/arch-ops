@@ -137,7 +137,7 @@
           <mxGeometry x="3170" y="4070" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-249" value="Azure&lt;div&gt;DevOps&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3775" y="4730" width="80" height="90" as="geometry" />
+          <mxGeometry x="3775" y="4720" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-250" value="Azure&amp;nbsp;&lt;div&gt;Cloud&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.25,0],[0.75,0],[1,0.25],[1,0.75],[0.75,1],[0.25,1],[0,0.75],[0,0.25]];polyline=0;spacingBottom=0;labelPosition=center;align=center;" parent="1" vertex="1">
           <mxGeometry x="2755" y="4430" width="90" height="90" as="geometry" />
@@ -149,13 +149,13 @@
           <mxGeometry x="2595" y="4510" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-253" value="AWS&lt;div&gt;Pipeline&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3590" y="5070" width="95" height="80" as="geometry" />
+          <mxGeometry x="3575" y="5070" width="95" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-254" value="Azure&lt;div&gt;Pipeline&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=west;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3575" y="4730" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-255" value="AWS&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Deploy&lt;/span&gt;&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3785" y="5065" width="80" height="90" as="geometry" />
+          <mxGeometry x="3775" y="5065" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-256" value="Container&lt;div&gt;Regstry&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" parent="1" vertex="1">
           <mxGeometry x="4480" y="4560" width="90" height="90" as="geometry" />
@@ -245,7 +245,7 @@
           <mxGeometry x="3040" y="4870" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-293" value="AWS&lt;div&gt;Containers&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="3215" y="4940" width="90" height="90" as="geometry" />
+          <mxGeometry x="3215" y="4930" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-294" value="Azure&lt;div&gt;Functions&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
           <mxGeometry x="3000" y="4650" width="90" height="90" as="geometry" />
