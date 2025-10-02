@@ -221,10 +221,10 @@
           <mxGeometry x="3450" y="1270" width="1240" height="450" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-285" value="&lt;div&gt;Docker&lt;/div&gt;&lt;div&gt;Compose&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="4185" y="4660" width="90" height="90" as="geometry" />
+          <mxGeometry x="4220" y="4720" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-286" value="&lt;div&gt;Docker&lt;/div&gt;&lt;div&gt;Swarm&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="4315" y="4800" width="90" height="90" as="geometry" />
+          <mxGeometry x="4325" y="4860" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-287" value="Docker" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4370" y="3930" width="80" height="80" as="geometry" />
@@ -260,7 +260,7 @@
           <mxGeometry x="4300" y="4440" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-298" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kubernetes&lt;/div&gt;&lt;div&gt;Cli&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="3980" y="4760" width="90" height="90" as="geometry" />
+          <mxGeometry x="4060" y="4780" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-299" value="Docker&lt;div&gt;Compose&lt;/div&gt;" style="html=1;shape=mxgraph.basic.isocube;isoAngle=15;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4570" y="3910" width="80" height="80" as="geometry" />
@@ -269,7 +269,7 @@
           <mxGeometry x="4800" y="3910" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-301" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kubernetes&lt;/div&gt;&lt;div&gt;Helm&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="4040" y="4950" width="90" height="90" as="geometry" />
+          <mxGeometry x="4165" y="4930" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-303" value="Azure&lt;div&gt;Defender&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3610" y="3150" width="80" height="80" as="geometry" />
