@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0" version="28.2.5">
   <diagram name="Page-1" id="CZLCnK6TREHxsby2yksW">
-    <mxGraphModel dx="7780" dy="5060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1729" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -20,13 +20,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-213" value="Jenkins&lt;div&gt;Factory&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;size=20;" parent="1" vertex="1">
-          <mxGeometry x="4010" y="4400" width="80" height="90" as="geometry" />
+          <mxGeometry x="3775" y="4510" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-214" value="Conf&lt;div&gt;DB&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3920" y="4132.5" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-215" value="+--&lt;div&gt;Git&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3760" y="4197.5" width="80" height="80" as="geometry" />
+          <mxGeometry x="3910" y="3980" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-216" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Azure&amp;nbsp;&lt;/div&gt;&lt;div&gt;AD&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.acute_triangle;dx=0.5;fillColor=none;labelPosition=center;align=center;spacingTop=20;" parent="1" vertex="1">
           <mxGeometry x="3665" y="3775" width="90" height="70" as="geometry" />
@@ -44,10 +44,10 @@
           <mxGeometry x="3760" y="4060" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-221" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Static&lt;div&gt;Conf&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3910" y="4000" width="70" height="80" as="geometry" />
+          <mxGeometry x="3765" y="4190" width="70" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-222" value="Hashicorp&lt;div&gt;Terraform&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3560" y="4380" width="80" height="90" as="geometry" />
+          <mxGeometry x="3570" y="4420" width="80" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-223" value="Operate" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=200;fontStyle=0;fontFamily=Verdana;" parent="1" vertex="1">
           <mxGeometry x="230" y="1700" width="820" height="250" as="geometry" />
@@ -143,7 +143,7 @@
           <mxGeometry x="2765" y="4450" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-251" value="Nexus&lt;div&gt;Repository&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" parent="1" vertex="1">
-          <mxGeometry x="4070" y="4050" width="90" height="90" as="geometry" />
+          <mxGeometry x="4030" y="4190" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-252" value="AWS&lt;div&gt;&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Cloud&lt;/span&gt;&lt;/div&gt;" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.polygon;polyCoords=[[0.25,0],[0.75,0],[1,0.25],[1,0.75],[0.75,1],[0.25,1],[0,0.75],[0,0.25]];polyline=0;labelPosition=center;align=center;" parent="1" vertex="1">
           <mxGeometry x="2580" y="4530" width="90" height="90" as="geometry" />
@@ -164,10 +164,10 @@
           <mxGeometry x="4675" y="4660" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-258" value="TFS&lt;div&gt;Factory&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;direction=south;fillColor=none;size=25;" parent="1" vertex="1">
-          <mxGeometry x="3775" y="4390" width="80" height="90" as="geometry" />
+          <mxGeometry x="3775" y="4350" width="80" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="qX9qabngvb6qFZ-4m96P-259" value="Code&lt;div&gt;asp.net&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3685" y="3525" width="70" height="70" as="geometry" />
+        <mxCell id="qX9qabngvb6qFZ-4m96P-259" value="VS Code&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="3690" y="3530" width="70" height="70" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-261" value="Test&lt;div&gt;&lt;div&gt;Data ETL&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4640" y="4142.5" width="100" height="60" as="geometry" />
@@ -224,10 +224,10 @@
           <mxGeometry x="4370" y="3920" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-288" value="&lt;div&gt;Hashicorp&lt;/div&gt;&lt;div&gt;Waypoint&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="4070" y="3710" width="90" height="90" as="geometry" />
+          <mxGeometry x="3855" y="3720" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-289" value="Hashicorp&lt;div&gt;Nomad&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
-          <mxGeometry x="3335" y="4380" width="90" height="90" as="geometry" />
+          <mxGeometry x="3220" y="4540" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-290" value="Azure&lt;div&gt;Kubernetes&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon;flipV=1;spacingBottom=15;" parent="1" vertex="1">
           <mxGeometry x="3120" y="4700" width="90" height="90" as="geometry" />
@@ -248,7 +248,7 @@
           <mxGeometry x="2885" y="4790" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-296" value=".NET&lt;div&gt;build&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="4265" y="3609" width="90" height="90" as="geometry" />
+          <mxGeometry x="4095" y="3710" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-297" value="Hashicorp&lt;div&gt;Packer&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" parent="1" vertex="1">
           <mxGeometry x="4300" y="4440" width="90" height="90" as="geometry" />
@@ -266,7 +266,7 @@
           <mxGeometry x="4260" y="4895" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-303" value="Azure&lt;div&gt;Defender&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="3465" y="3210" width="80" height="80" as="geometry" />
+          <mxGeometry x="3470" y="3210" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qX9qabngvb6qFZ-4m96P-305" value="AWS&lt;div&gt;SecurityHub&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="3470" y="3050" width="80" height="80" as="geometry" />
@@ -353,7 +353,7 @@
           <mxGeometry x="2940" y="3960" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-5" value="Dev&lt;div&gt;Data ETL&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="4195" y="3380" width="80" height="60" as="geometry" />
+          <mxGeometry x="4210" y="3370" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-6" value="Dev&lt;div&gt;Msg Bus&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="4325" y="3310" width="80" height="60" as="geometry" />
@@ -434,11 +434,6 @@
         <mxCell id="ed6syFEXDo3e149slvSL-54" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;[PRD]&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;production&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;environment&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- PRD backend services&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- PRD external services&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- PRD filtered frontend&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- PRD sharded dataset&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- HA multi-zone&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- HA multi-shard&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- load-balancing&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- auto-scaling&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- split-filtering&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- failover to BCDR&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=center;fontFamily=Courier New;" parent="1" vertex="1">
           <mxGeometry x="2130" y="3610" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oxM5l5CVlpP7sFD61urO-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ed6syFEXDo3e149slvSL-60">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="5000" y="3000" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-60" value="[BOX]&lt;div&gt;buildbox&lt;br&gt;&lt;div&gt;environment&lt;/div&gt;&lt;/div&gt;&lt;div&gt;(aka sandbox)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- test backend sevices&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- test external services&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- test frontend&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- test dataset&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- test containers&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=36;fontStyle=0;verticalAlign=middle;align=left;fontFamily=Courier New;" parent="1" vertex="1">
           <mxGeometry x="4720" y="3080" width="100" height="130" as="geometry" />
         </mxCell>
@@ -477,6 +472,33 @@
         </mxCell>
         <mxCell id="ed6syFEXDo3e149slvSL-89" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="5430" y="2990" width="540" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-8" value="Java&amp;nbsp;&lt;div&gt;Build&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4460" y="3510" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-9" value="Node&lt;div&gt;Build&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4650" y="3430" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-10" value="Visual&lt;div&gt;Studio&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3755" y="3325" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-11" value="C#&lt;div&gt;build&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4280" y="3590" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-15" value="Backstage" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" vertex="1" parent="1">
+          <mxGeometry x="3950" y="4360" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-18" value="SSDT" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3760" y="3145" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-19" value="Shell" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3760" y="2995" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-20" value="TFS&lt;div&gt;Git&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4050" y="3920" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="oxM5l5CVlpP7sFD61urO-21" value="TFS&lt;div&gt;Tracker&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pentagon" vertex="1" parent="1">
+          <mxGeometry x="4205" y="3835" width="90" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
