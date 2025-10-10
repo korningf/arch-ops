@@ -416,6 +416,44 @@ telemetry
 
 
 
+
+# Archetypes
+
+    DK1_WS4_DB3_MW3
+    
+    WS0    stateless webapp
+    WS1    stateless webapp with frontend
+    WS2    stateful webapp with backend
+    WS3    stateful webapp with backend, frontend
+    WS4    stateful webapp with backedn, front, admin dmz
+    WS5    stateful webapp with backedn, front, admin dmz, b2c 
+    
+    DB0    cached db
+    DB1    standalone db
+    DB2    replicated db
+    DB3    clustered db
+    DB4    clustered db with read replica db
+    DB5    managed clustered and replicated db
+
+    MW0    transient queue
+    MW1    persistent queue
+    MW2    HA managed queue
+    MW3    transient pubsub bus
+    MW4    persistent pubsub bus
+    MW5    HA managed pubsub bus
+
+    DK0    transient container
+    DK1    customr container
+    DK2    managed container
+    DK3    transient kubernetes
+    DK4    custom kubernetes
+    DK5    managed kubernetes
+    
+    WF0
+    
+    
+
+
 # Practice
 
 
