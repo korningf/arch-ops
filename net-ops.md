@@ -180,7 +180,7 @@ And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
     1 class B        192.168/16      external-dmz           (external collaborators)  
 
     4 class C        192.0.0/24      internal-nat           (internal DPT staff)
-                     192.2.0/24      developers
+                     192.2.0/24      developer
                      198.51.100/24   integrators
                      203.0.113/24    administrators
 
@@ -227,14 +227,14 @@ The following is an example of what a functional subnetting might look like.
     172.30/16       vpc-31 w4       webapp-4
     172.31/16       vpc-0  wb       web (default VPC)
 
-    192.168/16      DMZ (collaborator DMZ)
-    192.168.0/17    DPT-partner-dmz (surveys, etc)
-    192.168.128/17  DPT-supplier-dmz (deloitte, ect)
+    192.168/16      DMZ (general local public DMZ)
+    192.168.0/17    DPT-partner-dmz (partners, etc)
+    192.168.128/17  DPT-supplier-dmz (suppliers ect)
 
-    192.0.0/24      nat-0 admin (administrators)
-    192.0.2/24      nat-1 sysop (sys-operators)
+    192.0.0/24      nat-0 admin (staff)
+    192.0.2/24      nat-1 sysop (operators)
     198.51.100/24   nat-2 devel (developers)
-    203.0.113/24    nat-3 stats (statisticians)
+    203.0.113/24    nat-3 stats (administrators)
 
     198.18/15       DPT hybrid data
     198.18./16      DPT-private-data (on-premise data)
