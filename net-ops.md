@@ -1,0 +1,404 @@
+
+# subnets
+
+
+
+# Organisation
+
+We want to make use of CIDR to properly segment a department private networks from multi-cloud infrastructure.
+
+This is a complex hybrid-cloud and multi-cloud environment, with an intranet, an extranet, and AWS plus Azure.
+
+
+
+
+# ORG Plan
+
+The private 10/8 CIDR space is massive, and should be more than enough to accommodate GOV private networks.
+
+We reserve the largest segment, the 10/8 class A, for all GOV private networks, aka departmental intranets.
+
+Now we have a number of additional and extended private ranges which we can use for exposing shared extranet.
+
+We can also assign some to cloud providers, namely one for the primary cloud, and one for a secondary cloud.
+
+
+
+# Networks
+
+
+We want to renumber all the GOV networks to avoid collisions and CIDR squatting.
+
+We sort out the private CIDR ranges and assign them to different network types.
+
+
+# GOV.ie
+
+
+We want the entire Gov networks to share the 10/8 class A.
+
+    18 departments (but some are minor)
+
+    place all of them in 10/8
+        
+    Organize them in 16 top-tier departments
+
+    4  branches
+    16 major departments
+    64 minor divisions (DPT is one)
+        
+    Organize those into to 16 major departments
+
+        10/8         <-- all of GOV private-hybrid-cloud    
+        10/9 = 2
+        10/10 = 4
+        10/11 = 8
+        10/12 = 16   <-- split in 16 major departments
+        
+        10/13 = 32    
+        10/14 = 64    
+        10/15 = 128    
+        10/16 = 256  <-- split in 16 minor divisions (DPT is one)
+        
+
+    We leave the carving up of the above organisation for competent authorities.
+    
+    We should end up with a single class-C, CIDR 10.x/16, where (0 <= x <= 255).
+
+    For now, let's just choose one.
+    
+    
+    Let DPT be on 10.10/16
+
+
+
+# CIDR addressing
+
+
+IANA / IETF define the following 3 ranges for private intranet addresses.
+
+There are also a few ranges reserved for expansion, documentation, tests.
+
+All other address ranges are meant for routing public internet addresses.
+
+
+
+    CIDR sizes:
+
+
+    /8      16,777,216          class A
+    /10      4,194,304            1/4
+    /12      1,048,576            1/16
+    /14        262,144            1/64   
+    /16         65,536          class B
+    /18         16,384            1/4
+    /20           4096            1/16
+    /22           1024            1/64
+    /24            256          class C
+    
+
+
+## Base Private CIDR
+
+    10.0.0.0/8        10.0.0.0      -  10.255.255.255    16,777,216     private net
+    172.16.0.0/12     172.16.0.0    -  172.31.255.255    1,048,576      private net
+    192.168.0.0/16    192.168.0.0   -  192.168.255.255   65,536         private net
+
+    
+## Extra Private CIDR
+
+    100.64.0.0/10     100.64.0.0    -  100.127.255.255   4,194,304      private shared NAT
+    198.18.0.0/15     198.18.0.0    -  198.19.255.255    131,072        private subnet test    
+    
+
+## Test Private CIDR
+    
+    192.0.0.0/24      192.0.0.0     -  192.0.0.255       256            private net    
+    192.0.2.0/24      192.0.2.0     -  192.0.2.255       256            test-net-1
+    198.51.100.0/24   198.51.100.0  -  198.51.100.255    256            test-net-2
+    203.0.113.0/24    203.0.113.0   -  203.0.113.255     256            test-net-3
+    
+
+These more or less correspond to the 3 major Cloud VPC CIDR ranges.   
+
+
+## Cloud Private CIDR
+    
+All 3 major cloud providers (Amazon AWS, Microsoft Azure, Google GCP)
+
+support the 3 basic Private CIDR ranges as well as the 2 extra ranges.
+
+    Cloud basic ranges:
+
+        10.0.0.0/8      10.0.0.0    -  10.255.255.255                    
+        172.16.0.0/12   172.16.0.0  -  172.31.255.255             
+        192.168.0.0/16  192.168.0.0 -  192.168.255.255          
+
+    Cloud extra ranges:
+    
+        100.64/16
+        198.18/15
+    
+
+In addition, we can use the unused ISP-Provider private Test network ranges.
+
+
+# CIDR Allocation Strategy
+
+The following is just an example strategy of what might make sense.
+
+
+
+
+# Available CIDR blocs
+
+
+
+We keep 10/8 for the GOV intranet, of which DPT will be on 10.10/16.
+
+That's our on-premise network replacing the 3.x CIDR we are squatting.
+
+Next we reserve 172.x/16 for our Primary Cloud, ie our Amazon AWS VPCs.
+
+We also reserve 100.64/16 for our Secondary Cloud (ie Microsoft Azure).
+
+We keep 192.168 for various external DMZs (census staff, suppliers, etc).
+
+We keep 198.18/15 for a secure hybrid cloud link with other GOV or EU.
+
+And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
+
+
+
+    1  class A       10/8            private-intranet       (on-premise)
+    1  class B       100.64/16       secondary-cloud        (amzaon)
+
+    16 class B       172.16/12       primary-cloud          (azure)
+                     172.16.0/16
+                     172.16.1/16
+                     ...
+                     172.16.31/16
+
+    1 class B        192.168/16      external-dmz           (external collaborators)  
+
+    4 class C        192.0.0/24      internal-nat           (internal DPT staff)
+                     192.2.0/24
+                     198.51.100/24
+                     203.0.113/24   
+
+    2 class B        198.18/15      proprietary-data
+
+
+# Allocated CIDR blocs
+
+
+Going into more detail, we could split 172.16/12 by project (ie application).
+
+The following is an example of what a functional subnetting might look like.
+
+
+    CIDR networks:
+
+    10/8            GOV private networks
+    10/12           GOV major departments (16)
+    10/16           GOV minor departments (16)
+
+    10.10/16        DPT private intranet
+
+    100.64/16       DPT multi-cloud
+    100.64.0/17     DPT azure cloud
+    100.64.128/17   DPT google cloud
+
+    172.16/12       DPT AWS private cloud (custom VPCs)
+    172.16/16       vpc-1  ad       administration
+    172.17/16       vpc-2  hr       human-resources
+    172.18/16       vpc-3  op       operations
+    172.19/16       vpc-3  da       data-science
+    ..
+    172.21/16       vpc-3  it       technology
+    ..
+    172.23/16       vpc-3  id       identity
+    ..
+    172.24/16       vpc-3  ap       access api
+    ..
+    172.25/16       vpc-3  bm       business model
+    ..
+    172.27/16       vpc-28 w1       webapp-1
+    172.28/16       vpc-29 w2       webapp-2          
+    172.29/16       vpc-30 w3       webapp-3
+    172.30/16       vpc-31 w4       webapp-4
+    172.31/16       vpc-0  wb       web (default VPC)
+
+    192.168/16      DMZ (collaborator DMZ)
+    192.168.0/17    DPT-partner-dmz (surveys, etc)
+    192.168.128/17  DPT-supplier-dmz (deloitte, ect)
+
+    192.0.0/24      nat-0 admin (administrators)
+    192.0.2/24      nat-1 sysop (sys-operators)
+    198.51.100/24   nat-2 devel (developers)
+    203.0.113/24    nat-3 stats (statisticians)
+
+    198.18/15       DPT hybrid data
+    198.18./16      DPT-private-data (on-premise data)
+    198.19./16      DPT-shared-data (vpn-link data)
+    
+    
+
+# DPT Private Intranet  (10.10/16)
+
+And finally we can apply the same strategy to our 10/8 DPT private Intranet.
+
+If we're going to migrate from 3/8, we should organise this subnet as well.
+
+It makes sense to separate this by funtional domain, ie DPT directorates.
+
+A big chunk of this will be IT and our various on-premise project spaces.
+
+.
+
+The following is just an example.
+
+
+    10.10.0    ad    administration
+    10.10.16   hr    human-resources
+    10.10.32   op    operations      
+    10.10.48   da    data science  
+    10.10.64       
+    10.10.80   it    technology
+    10.10.96   
+    10.10.112  id    identity
+    10.10.128  
+    10.10.144  ap    access api
+    10.10.160  
+    10.10.176  bm    business model
+    10.10.192  
+    10.10.208  w1    webapp-1
+    10.10.224  w2    webapp-2
+    10.10.224  w3    webapp-3
+    10.10.240  w4    webapp-4
+    
+    
+
+
+# AWS Cloud VPC  (172.0/16 - 172.31/16)
+
+Recall AWS default is VPCs per account (but can ask for more).
+    
+    - ask for and account for 8 - some reserved for future use
+
+    - organize by major functional product lines aka projects. 
+
+
+
+Recall our eu-west-1 AWS Region has 3 AZ Availability Zones (a,b,c)
+
+    - we reserve a 4th zone-d for a dedicated network delegate-group
+
+    - this subnet is for the static part of Elastic IPS, Gateway IPs,
+
+    - for VPC endpoints, Lambda endpoints, dedicated NAT instances, 
+
+    - it can also be used for local zones, internal static IPs, etc
+
+
+
+The next example highlights a strategy for a large DPT project, say pxstat.
+
+It would have 4 environments: DEV, INT, MNT, plus an HA 3-zone production.
+
+Each zone would host part of prod, plus another 2 environments.
+
+
+
+Sample VPC: 
+
+    vpc         172.x/16
+    
+    a               172.x.0/18          zone-a
+      adm           172.x.0/20          (administrative services)
+      dev           172.x.16/20         (development environment)
+      a.prod        172.x.32/19         (production zone-a)
+        a.prod.pub     172.x.32/20
+        a.prod.prv     172.x.48/20
+    
+    b               172.x.64/18         zone-b
+      bld           172.x.64/20         (build factory environment)
+      int            172.x.80/20        (integration environment)
+      b.prod          172.x.96/19       (production zone-b)
+        b.prod.pub     172.x.96/20
+        b.prod.prv     172.x.112/20
+    
+    c               172.x.128/18        zone-c
+      mnt           172.x.128/20        (maintenance uat/stage environment)
+      tmp           172.x.144/20        (ephemeral temp or test environment)
+      c.prod          172.x.160/19      (production zone-c)
+        c.prod.pub      172.x.160/20
+        c.prod.prv      172.x.176/20
+    
+    d               172.x.192/18        zone-d  (dedicated delegate-group)
+      d.adm           172.x.192/21      
+      d.dev           172.x.200/21 
+      d.bld           172.x.208/21 
+      d.itg           172.x.216/21 
+      d.mnt           172.x.224/21 
+      d.tmp           172.x.232/21  
+      d.prd           172.0.240/19 
+            a.prod      172.0.240/22    dedicated zone-a
+            b.prod      172.0.244/22    dedicated zone-b
+            c.prod      172.0.228/22    dedicated zone-c
+            d.prod      172.0.252/22    dedicated default (all zones)
+    
+
+      d.adm           172.x.192/21      adm-pool
+      d.dev           172.x.200/21      dev-pool
+            a.prod      172.0.240/22    prod-pool-a
+      d.bld           172.x.208/21      
+      d.itg           172.x.216/21 
+            b.prod      172.0.244/22    prod pool-b
+      d.mnt           172.x.224/21 
+      d.tmp           172.x.232/21  
+            c.prod      172.0.228/22    prod pool-c
+      d.prd           172.0.240/19 
+            d..pubc      172.0.252/22   all-zone public
+            d.prod       172.0.252/22   all-zone private
+
+
+
+    # DNS sub-domains and AD
+    
+    The Integration of Active Directory, Azure AD, AWS AD, Managed AD, LDAP could use some help.
+
+    We could map subdomains between and *.DPT.aws and *.DPT.ie, *.*.DPT.aws and *.*.DPT.ie, etc.
+
+    _TODO_  figure out the mappings, subnetting, etc.
+
+
+# Appendix
+
+## IP Addressing
+
+    https://en.wikipedia.org/wiki/Reserved_IP_addresses
+
+    https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+
+# Amazon AWS CIDR
+
+    https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html
+    
+    
+## Google GCP CIDR
+
+    https://cloud.google.com/vpc/docs/vpc#valid-ranges
+    https://cloud.google.com/vpc/docs/subnets#valid-ranges
+    https://cloud.google.com/vpc/docs/subnets#additional-ipv4-considerations   
+    
+    
+## Microsoft Azure CIDR
+
+    https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq
+
+
+
+    
+    
