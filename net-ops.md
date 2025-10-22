@@ -278,9 +278,9 @@ The following is just an example.
     
 
 
-# AWS Cloud VPC  (172.0/16 - 172.31/16)
+# Primary Cloud VPC  (172.0/16 - 172.31/16)
 
-Recall AWS default is VPCs per account (but can ask for more).
+Recall there is a limit of VNET/VPC per account (but can ask for more).
     
     - ask for and account for 8 - some reserved for future use
 
@@ -288,8 +288,10 @@ Recall AWS default is VPCs per account (but can ask for more).
 
 
 
-Recall our eu-west-1 AWS Region has 3 AZ Availability Zones (a,b,c)
+Recall our Primary Region has 3 AZ Availability Zones (a,b,c)
 
+    - we should create an additional  non-routable private static zone
+    
     - we reserve a 4th zone-d for a dedicated network delegate-group
 
     - this subnet is for the static part of Elastic IPS, Gateway IPs,
@@ -300,11 +302,11 @@ Recall our eu-west-1 AWS Region has 3 AZ Availability Zones (a,b,c)
 
 
 
-The next example highlights a strategy for a large DPT project, say pxstat.
+The next is an example strategy for a large DPT project, say business model.
 
-It would have 4 environments: DEV, INT, MNT, plus an HA 3-zone production.
+It would have 4 environments: DEV, INT, MNT, plus an PRD 3-zone HA Production.
 
-Each zone would host part of prod, plus another 2 environments.
+Each zone would host part of Prod, plus another 2 miscellaneous environments.
 
 
 
