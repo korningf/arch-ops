@@ -156,15 +156,13 @@ The following is just an example strategy of what might make sense.
 
 We keep 10/8 for the GOV intranet, of which DPT will be on 10.10/16.
 
-That's our on-premise network replacing the 3.x CIDR we are squatting.
+Next we reserve 172.x/16 for our Primary Cloud (ie Microsoft Azure VNETs).
 
-Next we reserve 172.x/16 for our Primary Cloud, ie our Amazon AWS VPCs.
+We also reserve 100.64/16 for our Secondary Cloud (ie Amazon AWS VPCs).
 
-We also reserve 100.64/16 for our Secondary Cloud (ie Microsoft Azure).
+We keep 192.168 for various external DMZs (partners, suppliers, etc).
 
-We keep 192.168 for various external DMZs (census staff, suppliers, etc).
-
-We keep 198.18/15 for a secure hybrid cloud link with other GOV or EU.
+We keep 198.18/15 for hybrid cloud links with other GOV or EU networks.
 
 And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
 
@@ -182,9 +180,9 @@ And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
     1 class B        192.168/16      external-dmz           (external collaborators)  
 
     4 class C        192.0.0/24      internal-nat           (internal DPT staff)
-                     192.2.0/24
-                     198.51.100/24
-                     203.0.113/24   
+                     192.2.0/24      developers
+                     198.51.100/24   integrators
+                     203.0.113/24    administrators
 
     2 class B        198.18/15      proprietary-data
 
@@ -343,25 +341,6 @@ Sample VPC:
       d.mnt           172.x.224/21 
       d.tmp           172.x.232/21  
       d.prd           172.0.240/19 
-            a.prod      172.0.240/22    dedicated zone-a
-            b.prod      172.0.244/22    dedicated zone-b
-            c.prod      172.0.228/22    dedicated zone-c
-            d.prod      172.0.252/22    dedicated default (all zones)
-    
-
-      d.adm           172.x.192/21      adm-pool
-      d.dev           172.x.200/21      dev-pool
-            a.prod      172.0.240/22    prod-pool-a
-      d.bld           172.x.208/21      
-      d.itg           172.x.216/21 
-            b.prod      172.0.244/22    prod pool-b
-      d.mnt           172.x.224/21 
-      d.tmp           172.x.232/21  
-            c.prod      172.0.228/22    prod pool-c
-      d.prd           172.0.240/19 
-            d..pubc      172.0.252/22   all-zone public
-            d.prod       172.0.252/22   all-zone private
-
 
 
     # DNS sub-domains and AD
