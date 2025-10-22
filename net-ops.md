@@ -169,7 +169,7 @@ And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
 
 
     1  class A       10/8            private-intranet       (on-premise)
-    1  class B       100.64/16       secondary-cloud        (amzaon)
+    1  class B       100.64/16       secondary-cloud        (amazon)
 
     16 class B       172.16/12       primary-cloud          (azure)
                      172.16.0/16
@@ -193,6 +193,9 @@ And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
 Going into more detail, we could split 172.16/12 by project (ie application).
 
 The following is an example of what a functional subnetting might look like.
+
+This is purely hypothetical, but one can see a very strong network segmentation.
+
 
 
     CIDR networks:
