@@ -172,7 +172,6 @@ _ignore errors and warnings, some features are currently broken_
 
 _currently broken:_
 
-    standard_dsp_devpc_windowsfeatures
     standard_dsp_devpc_windowsupdate
     standard_dsp_devpc_enable_rbac
     
@@ -280,29 +279,13 @@ This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and
 
 
 
+
 ## 2.  DevPC Tools ([!] mandatory)
 
 The DevTools scripts install a vast panoply of additional developer tools.
 
 Some scripts are broken, so we decompose them, and run some steps by hand.
 
-
-
-
-###  Install Developer Tools _(ignore warnings)_
-
-Start with the base tools for geenral developers and database developers.
-
-```shell
-    choco install standard_dsp_devpc_tools -y
-    choco install standard_dsp_devpc_sqltools -y
-```
-
-###  Restart the system, and re-open an admin shell.
-
-```shell
-    Restart-Computer -Force
-```
 
 ###  Install root ca certs and Nexus repository proxies.
 
@@ -324,6 +307,34 @@ Before going any further, confirm that curl can resolve an https website without
 ```shell
     wsl -d Ubuntu-22.04 curl https://www.google.com
 ```
+
+
+
+###  Install Developer Tools _(ignore warnings)_
+
+Start with the base tools for geenral developers and database developers.
+
+```shell
+    choco install standard_dsp_devpc_tools -y
+    choco install standard_dsp_devpc_sqltools -y
+```
+
+
+###  Install Windows Features _(ignore warnings)_
+
+```shell
+    standard_dsp_devpc_windowsfeatures
+```
+
+
+
+###  Restart the system, and re-open an admin shell.
+
+```shell
+    Restart-Computer -Force
+```
+
+
 
 
 
