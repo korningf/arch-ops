@@ -97,6 +97,9 @@ so that no special chars are passed-back upstream.
 
 *So best to avoid '£' and any non-ascii chars in a windows domain password.*
 
+*Probably best in passphrases as well - Plenty of entropy in ASCII already.*
+
+*And sticking to ASCII will spare you headaches on foreign keyboard settings.*
 
 
 
