@@ -304,11 +304,14 @@ if prompted enter your ubuntu password.
     wsl -d Ubuntu-22.04 sudo mv /tmp/$tempFile.Name /etc/sudoers.d/$WSL_USER
 ```
 
-###  Install root ca certs and Nexus repository proxies.
+
+
+
+###  Install root certs and Nexus repos for WSL distros.
 
 We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
 
-This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and microsoft WSL.
+This includes distros for for debian/ubuntu apt distros, redhat/centos yum, and microsoft WSL.
 
 ```shell
     choco install wsl_dsp_ubuntu2204_root_ca -y
@@ -319,17 +322,7 @@ This includes distros for for debian/ubuntu apt distrros, redhat/centos yum, and
 ```
 
 
-
-
-
-## 2.  DevPC Tools ([!] mandatory)
-
-The DevTools scripts install a vast panoply of additional developer tools.
-
-Some scripts are broken, so we decompose them, and run some steps by hand.
-
-
-###  Install root ca certs and Nexus repository proxies.
+###  Install root ca certs and Nexus repos for Dev Tools.
 
 We use a local Nexus Repository as a supply-chain proxy for common dev package managers.
 
@@ -349,6 +342,17 @@ Before going any further, confirm that curl can resolve an https website without
 ```shell
     wsl -d Ubuntu-22.04 curl https://www.google.com
 ```
+
+
+
+
+
+## 2.  DevPC Tools ([!] mandatory)
+
+The DevTools scripts install a vast panoply of additional developer tools.
+
+Some scripts are broken, so we decompose them, and run some steps by hand.
+
 
 
 
