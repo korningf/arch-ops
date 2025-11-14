@@ -713,7 +713,7 @@ Command-line cli to drive Managed Amazon ECS Containers.
 
 *TODO is there an equivalent for Azure ACI/ACA containers ?*
 
-
+There is no separate aci-ctl, azure containers are amanaged directly in the AZ-cli.
 
 
 ##  18.  Hashicorp Packer  ([-] missing)
