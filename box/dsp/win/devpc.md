@@ -1,7 +1,7 @@
 
 # Dev-Box
 
-*a windows box for Clodu Develeoprs, Integrators, and Operators*
+*a windows box for Cloud Operator, Developers, Integrators, and Developers*
 
 
 
@@ -21,13 +21,19 @@ As much as possible, it relies on the excellent Chocolatey package manager.
 
 
 Modern Cloud and Cluster deployment via IaC uses containerisation.
+
 The process of containerisation often includes cross-compilation.
+
 We need an environment that is powerful enough to cross-compile.
+
 That's what POSIX was designed for (TODO: gcc / glibc toolchain ?)
 
+.
 
 CloudOps and DevOps tools also require many interpreted languages.
+
 Tools like Vagrant, Docker, Puppet, Kubernetes, Terraform, AWS-cli
+
 require tools like perl, python, ruby, go, php, and a POSIX shell.
 
 
@@ -36,6 +42,7 @@ require tools like perl, python, ruby, go, php, and a POSIX shell.
 On Windows the only real full POSIX native environment is Cygwin.
 
 Everything else derives from it. SysGit and Msys derive from it.
+
 GitBash derives in turn from MSys.  Only cygwin has a full stack.
 
 
@@ -43,7 +50,7 @@ GitBash derives in turn from MSys.  Only cygwin has a full stack.
 
 However, some corporate environments disallow a full Cygwin POSIX.
 
-The following assumes this is the case and relies on GitBahs instead.
+The following assumes this is the case and relies on GitBash instead.
 
 
 
@@ -55,10 +62,16 @@ The following assumes this is the case and relies on GitBahs instead.
 
 Ideally get admin privilege on the box in a permanent fashion. 
 
+.
+
 This a vast tools list and they require custom configurations,
+
 some of which will no doubt be done in an adhoc interactive way.
 
+.
+
 Failing this, aquire temporary admin privilege for a day or so,
+
 in order to attempt to configure the entire tool stack at once.
 
 
@@ -115,7 +128,6 @@ Add the following sites to your external firewall whitelist.
 
 
   
-
 
 # Installation
 
@@ -407,7 +419,7 @@ We need a custom install to enable symlinks and a proper TTY terminal.
 
 We use a custom .profile script for the GitBash POSIX environment.
 
-Install the script, entering the GitBash root  ('C:\Program Files\Git')
+Install the script, using the default GitBash root  ('C:\Program Files\Git')
 
 ```shell
     choco install standard_dsp_powershell_profile -y
@@ -438,7 +450,7 @@ _TODO: The Git Config script is currently broken. configure it by hand_
 
 ###  Generate your SSH RSA 4096 keypair (USE a passphrase!)
 
-_TODO: we should really standardise one of: POSIX Pass, KeePass, or Hashicorp Vault_
+_TODO: we should really standardise one of: POSIX Pass, KeePass, or Vault_
 
 Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
 
@@ -453,7 +465,7 @@ Use a passphrase for now (until we integrate KeePass, POSIX pass, or Vault).
 
 _this may already be included in the devtools_
 
-SysInternals are standard MSDN Developer utils from Miscrosoft.
+SysInternals are standard MSDN Developer utils from Microsoft.
 
 ###  Install SysInternals
 
@@ -527,7 +539,7 @@ Azure-Cli is the Azure Cloud command-line.
 
 ##  9.  AWS-cli  ([!] missing from chocoserver!) 
 
-_TODO AWS-cli should be manadtory, It is missing from our chocoserver_
+_TODO AWS-cli should be mandatory, It is missing from our chocoserver_
 
 _TODO we should get the PcEng PcDev team to approve an provide it ASAP_
 
@@ -552,7 +564,7 @@ Cloud Integrators and Developers should also install the following:
 
 ##  10.  Docker Desktop ([!] mandatory)
 
-_TODO This is really complicated - we really should be runniong docker-desktop_
+_TODO This is really complicated - not sure we should be running it within wsl_
 
 Docker-Desktop provides a local Docker runtime as well as the command-line cli.
 
@@ -606,9 +618,9 @@ _TODO_
 
 ##  11.  Kubernetes Minikube  ([?] evaluate)
 
-The default standard devpc dev tools script already install kubernetes-cli (aka kubetl).
+The default standard devpc dev tools script provides a bare kubernetes-cli (aka kubectl).
 
-Minikube-Cluster provides a local Kubernetes cluster as well as the command-line cli.
+Minikube-Cluster provides a local Kubernetes cluster as well as the command-line client.
 
 ###  Install Minikube Cluster (kube-cli + runtime)
 
