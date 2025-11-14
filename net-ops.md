@@ -5,10 +5,11 @@
 
 # Organisation
 
-We want to make use of CIDR to properly segment a department private networks from multi-cloud infrastructure.
+We want to make use of CIDR to properly segment institutional private networks from multi-cloud infrastructure.
 
-This is a complex hybrid-cloud and multi-cloud environment, with an intranet, an extranet, and AWS plus Azure.
+We want to have a very strong segmentation for security, and to make maximum use of allowable private CIDRs.
 
+This is a complex hybrid-cloud and multi-cloud environment, with an intranet, an extranet, and 2 major Clouds.
 
 
 
@@ -70,7 +71,7 @@ We want the entire ORG networks to share the 10/8 class A.
 # CIDR addressing
 
 
-IANA / IETF define the following 3 ranges for private intranet addresses.
+IEEE/IETF/IANA define the following 3 ranges for private intranet addresses.
 
 There are also a few ranges reserved for expansion, documentation, tests.
 
@@ -147,8 +148,7 @@ The following is just an example strategy of what might make sense.
 
 
 
-
-# Available CIDR blocs
+# Reserved CIDR bloc
 
 What makes sense, in terms of a rational institutional allocation strategy, 
 
@@ -158,17 +158,20 @@ is to reserve the very largest block for the institutional intranet or WAN.
 
 Now the largest block is the Reserved Experimental block on 240.0.0.0/4.
 
-However, IEEE IETF IANA sepcifically mention that it is reserved for
+However, IEEE/IETF/IANA specifically mention that this is reserved for
 
-future expansion, and that it may be blocked by providers and even OSes,
+future expansion, and that it may be blocked by providers or even OS'es.
 
 We shall avoid squatting this block for now, there is plenty of room.
 
-.
 
-Let us use the next largest block, the 10.0.0.0/8 for the on-premise WAN.
 
-Let 10.0.0.0/8 be the ORG intranet, which is thenb subdivided by DPT OU.
+# Available CIDR blocs
+
+
+Let us use the next largest block, the 10.0.0.0/8 for the ORG on-premise WAN.
+
+Let 10.0.0.0/8 be the ORG intranet WAN, which is then subdivided by department.
 
 Allocation will vary, for example, let our particular DPT OU be on 10.10/16.
 
