@@ -14,9 +14,9 @@ This is a complex hybrid-cloud and multi-cloud environment, with an intranet, an
 
 # ORG Plan
 
-The private 10/8 CIDR space is massive, and should be more than enough to accommodate GOV private networks.
+The private 10/8 CIDR space is massive, and should be more than enough to accommodate ORG private networks.
 
-We reserve the largest segment, the 10/8 class A, for all GOV private networks, aka departmental intranets.
+We reserve the largest segment, the 10/8 class A, for all ORG private networks, aka departmental intranets.
 
 Now we have a number of additional and extended private ranges which we can use for exposing shared extranet.
 
@@ -27,38 +27,33 @@ We can also assign some to cloud providers, namely one for the primary cloud, an
 # Networks
 
 
-We want to renumber all the GOV networks to avoid collisions and CIDR squatting.
+We want to renumber all our ORG networks to avoid collisions and CIDR squatting.
 
 We sort out the private CIDR ranges and assign them to different network types.
 
 
-# GOV.ie
+# ORG wide
 
 
-We want the entire Gov networks to share the 10/8 class A.
+We want the entire ORG networks to share the 10/8 class A.
 
-    18 departments (but some are minor)
-
-    place all of them in 10/8
-        
-    Organize them in 16 top-tier departments
-
-    4  branches
-    16 major departments
-    64 minor divisions (DPT is one)
+    1  ORG  
+    4  super branches
+    16 major divisions
+    64 minor departments (our DPT OU is one)
         
     Organize those into to 16 major departments
 
-        10/8         <-- all of GOV private-hybrid-cloud    
+        10/8         <-- all of ORG private-hybrid-cloud    
         10/9 = 2
         10/10 = 4
         10/11 = 8
-        10/12 = 16   <-- split in 16 major departments
+        10/12 = 16   <-- split in 16 major divisions
         
         10/13 = 32    
         10/14 = 64    
         10/15 = 128    
-        10/16 = 256  <-- split in 16 minor divisions (DPT is one)
+        10/16 = 256  <-- split in 16 minor department (ours is one)
         
 
     We leave the carving up of the above organisation for competent authorities.
@@ -68,7 +63,7 @@ We want the entire Gov networks to share the 10/8 class A.
     For now, let's just choose one.
     
     
-    Let DPT be on 10.10/16
+    Let our DPT OU department be on 10.10/16
 
 
 
@@ -118,11 +113,14 @@ All other address ranges are meant for routing public internet addresses.
     198.51.100.0/24   198.51.100.0  -  198.51.100.255    256            test-net-2
     203.0.113.0/24    203.0.113.0   -  203.0.113.255     256            test-net-3
     
+## Reserved Experimental CIDR
 
-These more or less correspond to the 3 major Cloud VPC CIDR ranges.   
-
+    240.0.0.0/4       240.0.0.0.0   -  255.255.255.255   268,435,456    experimental-net (reserved)
+    
 
 ## Cloud Private CIDR
+
+These more or less correspond to the 3 major Cloud VPC CIDR ranges.   
     
 All 3 major cloud providers (Amazon AWS, Microsoft Azure, Google GCP)
 
@@ -152,23 +150,46 @@ The following is just an example strategy of what might make sense.
 
 # Available CIDR blocs
 
+What makes sense, in terms of a rational institutional allocation strategy, 
 
+is to reserve the very largest block for the institutional intranet or WAN.
 
-We keep 10/8 for the GOV intranet, of which DPT will be on 10.10/16.
+.
+
+Now the largest block is the Reserved Experimental block on 240.0.0.0/4.
+
+However, IEEE IETF IANA sepcifically mention that it is reserved for
+
+future expansion, and that it may be blocked by providers and even OSes,
+
+We shall avoid squatting this block for now, there is plenty of room.
+
+.
+
+Let us use the next largest block, the 10.0.0.0/8 for the on-premise WAN.
+
+Let 10.0.0.0/8 be the ORG intranet, which is thenb subdivided by DPT OU.
+
+Allocation will vary, for example, let our particular DPT OU be on 10.10/16.
+
+.
 
 Next we reserve 172.x/16 for our Primary Cloud (ie Microsoft Azure VNETs).
 
 We also reserve 100.64/16 for our Secondary Cloud (ie Amazon AWS VPCs).
 
-We keep 192.168 for various external DMZs (partners, suppliers, etc).
+.
 
-We keep 198.18/15 for hybrid cloud links with other GOV or EU networks.
+We keep 192.168 for various external DMZs, Remote VLANS, WIFI WLANs, etc.
+
+We keep 198.18/15 for hybrid cloud links with other OR/ORG or EU networks.
 
 And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
 
 
 
     1  class A       10/8            private-intranet       (on-premise)
+    
     1  class B       100.64/16       secondary-cloud        (amazon)
 
     16 class B       172.16/12       primary-cloud          (azure)
@@ -184,11 +205,12 @@ And finally we can use the 4 small ISP test networks for internal NAT/DMZ.
                      198.51.100/24   integrators
                      203.0.113/24    administrators
 
-    2 class B        198.18/15      proprietary-data
+    2 class B        198.18/15       proprietary-data
+
+    16 class A       240/4           experimental-net       (reserved)
 
 
 # Allocated CIDR blocs
-
 
 Going into more detail, we could split 172.16/12 by project (ie application).
 
@@ -200,9 +222,9 @@ This is purely hypothetical, but one can see a very strong network segmentation.
 
     CIDR networks:
 
-    10/8            GOV private networks
-    10/12           GOV major departments (16)
-    10/16           GOV minor departments (16)
+    10/8            ORG private networks
+    10/12           DIV major divisions (16)
+    10/16           DPT minor departments (16)
 
     10.10/16        DPT private intranet
 
@@ -242,7 +264,8 @@ This is purely hypothetical, but one can see a very strong network segmentation.
     198.18/15       DPT hybrid data
     198.18./16      DPT-private-data (on-premise data)
     198.19./16      DPT-shared-data (vpn-link data)
-    
+
+    240/4           reserved
     
 
 # DPT Private Intranet  (10.10/16)
