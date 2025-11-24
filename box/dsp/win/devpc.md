@@ -448,6 +448,39 @@ _TODO: The Git Config script is currently broken. configure it by hand_
     git config --global user.email  JohnDoe@email.com
 ```
 
+###  Verify your .gitconfig:
+
+Your .gitconfig will be in your user home (`~/.gitconfig` or `%USERPROFILE%\.gitconfig`).
+
+Your configuration should look like the following (with the right user name and email).
+
+Ensure `core.autocrlf=true`, `http.sslbackend=schannel`, and `http.sslverify=true` are set.
+
+
+```ini
+
+[core]
+        longpaths = true
+        autocrlf = true
+
+[filter "lfs"]
+        required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+[user]
+        name = UserName
+        email = UserName@domain.com
+
+[credential "https://vssdmlivetfs"]
+        provider = generic
+[http]
+        sslbackend = schannel
+        sslVerify = true
+```
+
+
+
 ###  Generate your SSH RSA 4096 keypair (USE a passphrase!)
 
 _TODO: we should really standardise one of: POSIX Pass, KeePass, or Vault_
