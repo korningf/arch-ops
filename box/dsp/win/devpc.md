@@ -776,7 +776,7 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
    choco install -y vagrant
 ```
 
-### Nexus Repository for Vgagrant (_TODO_)
+### Nexus Repository for Vagrant (_TODO_)
 
 _TODO_
 
