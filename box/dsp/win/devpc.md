@@ -412,7 +412,7 @@ We need a custom install to enable symlinks and a proper TTY terminal.
 ```shell
    # see https://community.chocolatey.org/packages/git
 
-   choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /NoAutoCrlf /PseudoConsoleSupport'
+   choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /PseudoConsoleSupport'
 ```
 
 ###  Customise Gitbash
