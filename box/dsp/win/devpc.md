@@ -620,7 +620,7 @@ Cloud Integrators and Developers should also install the following:
 
 Bicep is Azure's native cloud DSL, ie the equivalent of AWS CloudFormation Stacks.
 
-###  Install Bicep  ()
+###  Install Bicep (bicept cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/bicep
