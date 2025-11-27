@@ -618,9 +618,14 @@ Cloud Integrators and Developers should also install the following:
 
 ##  10.  Azure Bicep  ([*] provided)
 
-Bicep is Azure's native cloud DSL, ie the equivalent of AWS CloudFormation Stacks.
+Azure Bicep is the Azure native cloud formation Domain Specific Language (DSL).
 
-###  Install Bicep (bicept cli)
+Bicep and ARM templates are the equivalents of AWS CloudFormation and SCM Stacks.
+
+Provided for completeness, It may be needed to do things Terraform struggles with.
+
+
+###  Install Bicep (bicep cli)
 
 ```shell
    # see https://community.chocolatey.org/packages/bicep
