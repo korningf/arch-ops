@@ -576,7 +576,7 @@ Hashicorp Terraform is the leading agnostic cloud infra provisioner.
 ```
 
 
-##  8.  Azure-cli ([+] provided)
+##  8.  Azure-cli ([*] provided)
 
 Azure-Cli is the Azure Cloud command-line.
 
@@ -589,13 +589,14 @@ Azure-Cli is the Azure Cloud command-line.
 ```
 
 
-##  9.  AWS-cli  ([!] missing from chocoserver!) 
+##  9.  AWS-cli  ([*] provided) 
 
 _TODO AWS-cli should be mandatory, It is missing from our chocoserver_
 
 _TODO we should get the PcEng PcDev team to approve an provide it ASAP_
 
 AWS-Cli is the Amazon AWS Cloud command-line.
+
 
 ###  Install AWS-cli (AWS cloud)
 
@@ -768,7 +769,7 @@ Command-line cli to drive Managed Amazon ECS Containers.
 There is no separate aci-ctl, azure containers are amanaged directly in the AZ-cli.
 
 
-##  18.  Hashicorp Packer  ([-] missing)
+##  18.  Hashicorp Packer  ([*] provided)
 
 Hashicorp Packer is the leading agnostic cloud image packager.
 
@@ -785,7 +786,7 @@ Hashicorp Packer is the leading agnostic cloud image packager.
 _TODO_
 
 
-##  19.  Hashicorp Vagrant  ([-] missing)
+##  19.  Hashicorp Vagrant  ([-] optional)
 
 Hashicorp Vagrant is the leading agnostic development machine provisioner.
 
