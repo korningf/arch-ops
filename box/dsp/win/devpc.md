@@ -561,7 +561,7 @@ We will need these stream processors to parse JSON, YAML, XML.
 
 
 
-##  7.  Terraform Cloud-Former ([!] mandatory)
+##  7.  Terraform Cloud-Forger ([!] mandatory)
 
 _this may already be included in the devtools_
 
@@ -608,6 +608,7 @@ AWS-Cli is the Amazon AWS Cloud command-line.
 
 
 
+
 #  B.  Backend Integrators, Developers 
 
 
@@ -615,7 +616,54 @@ Cloud Integrators and Developers should also install the following:
 
 
 
-##  10.  Docker Desktop ([!] mandatory)
+##  10.  Azure Bicep  ([*] provided)
+
+Bicep is Azure's native cloud DSL, ie the equivalent of AWS CloudFormation Stacks.
+
+###  Install Bicep  ()
+
+```shell
+   # see https://community.chocolatey.org/packages/bicep
+
+   choco install -y bicep
+```
+
+
+##  11.  Hashicorp Packer  ([*] provided)
+
+Hashicorp Packer is the leading agnostic cloud image packager.
+
+###  Install Packer (packer cli)
+
+```shell
+   # see https://community.chocolatey.org/packages/packer
+
+   choco install -y packer
+```
+
+### Nexus Repository for Packer (_TODO_)
+
+_TODO_
+
+
+
+##  12.  Hashicorp Vagrant  ([-] optional)
+
+Hashicorp Vagrant is the leading agnostic development machine provisioner.
+
+```shell
+   # see https://community.chocolatey.org/packages/vagrant
+
+   choco install -y vagrant
+```
+
+### Nexus Repository for Vagrant (_TODO_)
+
+_TODO_
+
+
+
+##  13.  Docker Desktop ([!] mandatory)
 
 _TODO This is really complicated - not sure we should be running it within wsl_
 
@@ -669,7 +717,7 @@ _TODO_
 
 
 
-##  11.  Kubernetes Minikube  ([?] evaluate)
+##  14.  Kubernetes Minikube  ([?] evaluate - skip this)
 
 The default standard devpc dev tools script provides a bare kubernetes-cli (aka kubectl).
 
@@ -685,7 +733,7 @@ Minikube-Cluster provides a local Kubernetes cluster as well as the command-line
 
 
 
-##  12.  Kubernetes Helm  ([+] upgrade)
+##  15.  Kubernetes Helm  ([+] upgrade)
 
 Kubernetes Helm (aka Navigator Charts) is a chart composer for Kube.
 
@@ -701,7 +749,7 @@ It simplifies and groups deployment of related services into charts.
 
 
 
-##  13. Kubernetes Operations  ([?] evaluate)
+##  16. Kubernetes Operations  ([?] evaluate )
 
 Kubernetes Operations (Kops) builds Kubernetes clusters from scratch.
 
@@ -717,7 +765,8 @@ This would be used to build a custom cluster from a raw compute cloud.
 
 
 
-##  14.  Azure AKS-CTL   ([+] upgrade)
+
+##  17.  Azure AKS-CTL   ([-] missing - skip this)
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -733,11 +782,11 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  15.  AWS EKS-CTL   ([+] upgrade)
+##  18.  AWS EKS-CTL   ([-] missing - skip this)
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
-###  Install EKS-ctl (eksctl)
+###  Install EKS-ctl  (eksctl)
 
 ```shell
    # see https://community.chocolatey.org/packages/eksctl
@@ -746,9 +795,11 @@ Command-line cli to drive Managed Amazon EKS Clusters.
 ```
 
 
-##  16.  AWS ECS-CTL   ([-] missing)
+##  19.  AWS ECS-CTL   ([-] missing - skip this)
 
 Command-line cli to drive Managed Amazon ECS Containers.
+
+
 
 ###  Install ECS-ctl (ecsctl)
 
@@ -760,48 +811,22 @@ Command-line cli to drive Managed Amazon ECS Containers.
    pip install git+https://github.com/witold-gren/ecsctl.git
 ```
 
+*NOTE: There is no equivalent aci-ctl CLI for Azure.*
+
+*Azure containers are managed directly in the AZ-cli.*
 
 
-##  17.  Azure ACI-CTL  ([?] investigate)
-
-*TODO is there an equivalent for Azure ACI/ACA containers ?*
-
-There is no separate aci-ctl, azure containers are amanaged directly in the AZ-cli.
 
 
-##  18.  Hashicorp Packer  ([*] provided)
-
-Hashicorp Packer is the leading agnostic cloud image packager.
-
-###  Install Packer (packer cli)
-
-```shell
-   # see https://community.chocolatey.org/packages/packer
-
-   choco install -y packer
-```
-
-### Nexus Repository for Packer (_TODO_)
-
-_TODO_
 
 
-##  19.  Hashicorp Vagrant  ([-] optional)
+#  C.  Coders and Developers
 
-Hashicorp Vagrant is the leading agnostic development machine provisioner.
-
-```shell
-   # see https://community.chocolatey.org/packages/vagrant
-
-   choco install -y vagrant
-```
-
-### Nexus Repository for Vagrant (_TODO_)
-
-_TODO_
+In addition Developers and Build-Masters should also install the following.
 
 
-##  20.  Hashicorp Vault  ([?] evaluate)
+
+##  20.  Hashicorp Vault  ([?] evaluate - skip this)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
@@ -823,12 +848,6 @@ the advantage would be a common interface on desktops and servers.
    choco install -y vault
 ```
 
-
-
-
-#  C.  Coders and Developers
-
-In addition Developers and Build-Masters should also install the following.
 
 
 
