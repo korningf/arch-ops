@@ -386,6 +386,25 @@ Start with the base tools for geenral developers and database developers.
 
 
 
+
+
+###  Install VSCode and misc IAC Tools (new)
+
+These new scripts install vscode with a number of plugins.
+
+They also install misc CI tools, and set up CI repos.
+
+
+```shell
+choco install standard_dsp_vscode_bundle -y --force
+choco install ci_dsp_devpc_tools -y --force
+choco install ci_dsp_feeds -y --force
+```
+
+
+
+
+
 ###  Restart the system, and re-open an admin shell.
 
 ```shell
@@ -697,7 +716,7 @@ This would be used to build a custom cluster from a raw compute cloud.
 
 
 
-##  14.  Azure AKS-CTL   ([-] missing)
+##  14.  Azure AKS-CTL   ([+] upgrade)
 
 Command-line cli to drive Managed Azure AKS Clusters.
 
@@ -713,7 +732,7 @@ Command-line cli to drive Managed Azure AKS Clusters.
 ```
 
 
-##  15.  AWS EKS-CTL   ([-] missing)
+##  15.  AWS EKS-CTL   ([+] upgrade)
 
 Command-line cli to drive Managed Amazon EKS Clusters.
 
@@ -781,11 +800,21 @@ Hashicorp Vagrant is the leading agnostic development machine provisioner.
 _TODO_
 
 
-##  20.  Hashicorp Vault  ([-] missing)
+##  20.  Hashicorp Vault  ([?] evaluate)
 
 Hashicorp Vault is the leading agnostic cloud secrets manager.
 
-###  Install Vault (vault cli)
+A local standalone vault could be used as desktop password manager,
+
+replacing KeePass or the GNU POSIX Pass command (aka password-store). 
+
+the advantage would be a common interface on desktops and servers.
+
+ _TODO_ 
+ 
+ to be investigated.
+
+###  Install Vault (vault cli) 
 
 ```shell
    # see https://community.chocolatey.org/packages/vault
@@ -887,7 +916,7 @@ _TODO_ which .NET runtime version are we using?  8.0, 9.0, 10.0 ?
 
 ##  26.  VisualStudio Code ([*] provided)
 
-_this may already be provided with devtools_
+_this is already be provided with a devtools script_
 
 ###  Install VSCode
 
