@@ -75,6 +75,11 @@ echo "component=$component"
 echo "deployment=$deployment"
 echo "environment=$environment"
 
+echo " "
+echo "client_id=$client_id"
+echo "tenant_id=$tenant_id"
+echo "subscription_id=$subscription_id"
+
 
 #export ARM_USE_CLI=true
 #export ARM_USE_AZUREAD=true
@@ -85,7 +90,9 @@ export ARM_USE_AZUREAD=true
 export ARM_TENANT_ID=$tenant_id
 export ARM_SUBSCRIPTION_ID=$subscription_id
 
- 
+#exit 0
+
+
 # logon to azure
 az login
 #az account set -s "6747da70-f3b6-421d-9e93-bda13a7475b2"

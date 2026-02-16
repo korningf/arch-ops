@@ -112,6 +112,13 @@ echo "component=$component"
 echo "deployment=$deployment"
 echo "environment=$environment"
 
+echo " "
+echo "client_id=$client_id"
+echo "tenant_id=$tenant_id"
+echo "subscription_id=$subscription_id"
+
+#exit 0
+
 
 #$env:ARM_USE_CLI = $true
 #$env:ARM_USE_AZUREAD = $true
@@ -133,4 +140,4 @@ az account set -s "$subscription_id"
 #terraform init -backend-config="key=${var.environment}.tfstate"
 #terraform init -backend-config="subscription_id=$env:subscription_id" -backend-config="key=$env:environment.tfstate" 
 
-terraform init -plugin-dir $env:TF_PLUGIN_LOCAL_DIR -var="module_dir=$env:TF_MODULE_LOCAL_DIR" -backend-config="key=$env:environment.tfstate" 
+terraform init -plugin-dir $env:TF_PLUGIN_LOCAL_DIR -var="module_dir=$env:TF_MODULE_LOCAL_DIR" -backend-config="key=$environment.tfstate" 
