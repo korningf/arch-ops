@@ -76,7 +76,7 @@ Function ReadEnv ($Path) {
 
             # Set env variable
             # $env:$key = $value
-            Set-Variable -Name "$key" -Value "$value"
+            Set-Variable -Name $key -Value "$value"-Scope Global
         }
     }
 }
@@ -106,11 +106,11 @@ LoadVars
 #$env:component=iac
 #$env:deployment=avm
 #$env:environment=box
-echo "architecture=$env:architecture"
-echo "backbone=$env:backbone"
-echo "component=$env:component"
-echo "deployment=$env:deployment"
-echo "environment=$env:environment"
+echo "architecture=$architecture"
+echo "backbone=$backbone"
+echo "component=$component"
+echo "deployment=$deployment"
+echo "environment=$environment"
 
 
 #$env:ARM_USE_CLI = $true
@@ -119,14 +119,14 @@ echo "environment=$env:environment"
 #$env:ARM_SUBSCRIPTION_ID = "6747da70-f3b6-421d-9e93-bda13a7475b2"
 $env:ARM_USE_CLI=$true
 $env:ARM_USE_AZUREAD=$true
-$env:ARM_TENANT_ID="$env:tenant_id"
-$env:ARM_SUBSCRIPTION_ID="$env:subscription_id"
+$env:ARM_TENANT_ID="$tenant_id"
+$env:ARM_SUBSCRIPTION_ID="$subscription_id"
 
 
 # logon to azure
 az login
 #az account set -s "6747da70-f3b6-421d-9e93-bda13a7475b2"
-az account set -s "$env:subscription_id"
+az account set -s "$subscription_id"
 
 
 # initialise the backend
