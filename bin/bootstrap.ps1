@@ -10,17 +10,18 @@ $env:MSYS="winsymlinks:nativestrict"
 
 
 # local mirrors for terraform plugins, providers, and modules
-$HOSTNAME=$env:COMPUTERNAME
 #$env:APP_DATA=$(echo $env:APPDATA | sed -e 's/\\/\//g')
-$env:APP_DATA="/work/terraform.d"
+$env:TF_HOME="c:/work/terraform.d"
+setx TF_HOME "c:/work/terraform.d" 
 
-# local terraform provider plugins and modules cache
-$env:TF_PLUGIN_CACHE_DIR="$env:APP_DATA/terraform.d/plugin-cache"
-$env:TF_PLUGIN_LOCAL_DIR="$env:APP_DATA/terraform.d/plugins"
-$env:TF_MODULE_LOCAL_DIR="$env:APP_DATA/terraform.d/modules"
-setx TF_PLUGIN_CACHE_DIR "$env:APP_DATA/terraform.d/plugin-cache"
-setx TF_PLUGIN_LOCAL_DIR "$env:APP_DATA/terraform.d/plugins"
-setx TF_MODULE_LOCAL_DIR "$env:APP_DATA/terraform.d/modules"
+# local provider plugins and modules cache
+$env:TF_PLUGIN_CACHE_DIR="$env:TF_HOME/plugin-cache"
+$env:TF_PLUGIN_LOCAL_DIR="$env:TF_HOME/plugins"
+$env:TF_MODULE_LOCAL_DIR="$env:TF_HOME/modules"
+setx TF_PLUGIN_CACHE_DIR "$env:TF_HOME/plugin-cache"
+setx TF_PLUGIN_LOCAL_DIR "$env:TF_HOME/plugins"
+setx TF_MODULE_LOCAL_DIR "$env:TF_HOME/modules"
+
 
 # determine git repo git_root and relative sub_path from root/data/ 
 $git_root=$(git rev-parse --show-toplevel | sed -e 's/.://')

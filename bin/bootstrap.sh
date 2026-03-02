@@ -11,15 +11,16 @@ setx   MSYS "winsymlinks:nativestrict"
 
 # local mirrors for terraform plugins, providers, and modules
 #export APP_DATA=`echo $APPDATA | sed -e 's/\//\//g'`
-export APP_DATA="/work/terraform.d"
+export TF_HOME="c:/work/terraform.d"
+setx TF_HOME "c:/work/terraform.d" 
 
 # local provider plugins and modules cache
-export TF_PLUGIN_CACHE_DIR="$APP_DATA/terraform.d/plugin-cache"
-export TF_PLUGIN_LOCAL_DIR="$APP_DATA/terraform.d/plugins"
-export TF_MODULE_LOCAL_DIR="$APP_DATA/terraform.d/modules"
-setx TF_PLUGIN_LOCAL_DIR "$APP_DATA/terraform.d/plugins"
-setx TF_PLUGIN_CACHE_DIR "$APP_DATA/terraform.d/plugin-cache"
-setx TF_MODULE_LOCAL_DIR "$APP_DATA/terraform.d/modules"
+export TF_PLUGIN_CACHE_DIR="$TF_HOME/plugin-cache"
+export TF_PLUGIN_LOCAL_DIR="$TF_HOME/plugins"
+export TF_MODULE_LOCAL_DIR="$TF_HOME/modules"
+setx TF_PLUGIN_LOCAL_DIR "$TF_HOME/terraform.d/plugins"
+setx TF_PLUGIN_CACHE_DIR "$TF_HOME/plugin-cache"
+setx TF_MODULE_LOCAL_DIR "$TF_HOME/modules"
 
 
 # determine git repo git_root and relative sub_path from root/data/ 
