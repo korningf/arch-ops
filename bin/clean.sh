@@ -9,7 +9,8 @@ export MSYS="winsymlinks:nativestrict"
 
 
 # local mirrors for terraform plugins, providers, and modules
-export APP_DATA=`echo $APPDATA | tr '\\\' '/'`
+#export APP_DATA=`echo $APPDATA | tr '\\\' '/'`
+export APP_DATA="/work/terraform.d"
 
 # local provider plugins and modules cache
 export TF_PLUGIN_CACHE_DIR="$APP_DATA/terraform.d/plugin-cache"

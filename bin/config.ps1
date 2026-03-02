@@ -9,7 +9,8 @@ $env:MSYS="winsymlinks:nativestrict"
 
 
 # local mirrors for terraform plugins, providers, and modules
-$env:APP_DATA=$(echo $env:APPDATA | sed -e 's/\\/\//g')
+#$env:APP_DATA=$(echo $env:APPDATA | sed -e 's/\\/\//g')
+$env:APP_DATA="/work/terraform.d"
 
 # local provider plugins and modules cache
 $env:TF_PLUGIN_CACHE_DIR="$env:APP_DATA/terraform.d/plugin-cache"

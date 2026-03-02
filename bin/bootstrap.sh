@@ -10,7 +10,8 @@ setx   MSYS "winsymlinks:nativestrict"
 
 
 # local mirrors for terraform plugins, providers, and modules
-export APP_DATA=`echo $APPDATA | sed -e 's/\//\//g'`
+#export APP_DATA=`echo $APPDATA | sed -e 's/\//\//g'`
+export APP_DATA="/work/terraform.d"
 
 # local provider plugins and modules cache
 export TF_PLUGIN_CACHE_DIR="$APP_DATA/terraform.d/plugin-cache"
@@ -33,6 +34,12 @@ sub_path=`echo $dir_path | sed -e 's/.*\/data\//\//g'`
 
 pushd $git_root
 
+
+# create windows share for terraform.d
+[ ! -L $APP_DATA ]                  &&  mkdir -p   $APP_DATA
+#net use T: '\\LOCALHOST\c$\work\terraform.d' /persistent:yes
+
+
 # create lib dirs for  plugins and modules
 [ ! -L $TF_PLUGIN_CACHE_DIR ]       &&    mkdir -p $TF_PLUGIN_CACHE_DIR
 [ ! -L $TF_PLUGIN_LOCAL_DIR ]       &&    mkdir -p $TF_PLUGIN_LOCAL_DIR
@@ -43,6 +50,5 @@ pushd $git_root
 [ ! -L .modules ]                    &&   ln -s   $TF_MODULE_LOCAL_DIR                .modules
 
 
-createLinks
-
 popd
+

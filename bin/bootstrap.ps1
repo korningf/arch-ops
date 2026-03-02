@@ -8,8 +8,11 @@
 $env:MSYS="winsymlinks:nativestrict"
 
 
+
 # local mirrors for terraform plugins, providers, and modules
-$env:APP_DATA=$(echo $env:APPDATA | sed -e 's/\\/\//g')
+$HOSTNAME=$env:COMPUTERNAME
+#$env:APP_DATA=$(echo $env:APPDATA | sed -e 's/\\/\//g')
+$env:APP_DATA="/work/terraform.d"
 
 # local terraform provider plugins and modules cache
 $env:TF_PLUGIN_CACHE_DIR="$env:APP_DATA/terraform.d/plugin-cache"
@@ -56,11 +59,15 @@ Function IsDir ($Path) {
 pushd $git_root *> $null
 
 
-# create lib dirs for  plugins and modules
+# create windows share for terraform.d
+if (-not (IsDir  -Path $env:APP_DATA ))                     { mkdir -p   $env:APP_DATA }
+#net use T: '\\LOCALHOST\c$\work\terraform.d' /persistent:yes
+
+
+# create lib dirs for plugins and modules
 if (-not (IsDir  -Path $env:TF_PLUGIN_CACHE_DIR ))          { mkdir -p   $env:TF_PLUGIN_CACHE_DIR }
 if (-not (IsDir  -Path $env:TF_PLUGIN_LOCAL_DIR ))          { mkdir -s   $env:TF_PLUGIN_LOCAL_DIR }
 if (-not (IsDir  -Path $env:TF_MODULE_LOCAL_DIR ))          { mkdir -p   $env:TF_MODULE_LOCAL_DIR }
-
 
 
 # create symlinks to local plugins and modules
