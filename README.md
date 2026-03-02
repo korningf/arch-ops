@@ -36,6 +36,50 @@ Strategies and patterns for automation of an agile cloud architecture.
 
 
 
+# Symbols
+
+Unicode
+
+    https://altcodeunicode.com/alt-codes-geometric-shape-symbols/
+    https://altcodeunicode.com/alt-codes-for-miscellaneous-symbols/
+
+
+❔ query, question
+💡 info, insight
+⚠️ alert, caution
+⛔ error, failure
+
+✅ check, success
+❌ abort, warning
+
+
+
+� query, question
+✴ info, insight
+⚠ alert, caution
+⛒ error, failure
+
+
+☐ option_button
+▣ option_select
+
+☑ agree, enable
+⮽ abort, cancel
+
+
+
+⦾ radio_button
+⦿ radio_select
+
+
+○ point-1
+⚬ point-2
+• point-3
+◦ point-4
+. point-5
+
+
+
 ════════════════════════════════════════════════════════════════════
 # (c) Francis Korning 2025.
 ════════════════════════════════════════════════════════════════════

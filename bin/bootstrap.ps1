@@ -1,4 +1,4 @@
-# bindlibs.ps1:  bind library dirs for terraform provider plugins and modules
+# bootstrap.ps1:  bind library dirs for terraform provider plugins and modules
 
 
 # current context

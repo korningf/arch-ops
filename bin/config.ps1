@@ -100,13 +100,13 @@ function VariableLinks ($Path) {
 function DataLinks () {
     pushd data *> $null
 
-    Get-Content ../.taxonomy | ForEach-Object {
-        # Skip empty lines or comments
-        #if (-not $_ -or $_ -eq '' -or $_ -match '^\\s*#') { return }
-        $dir = $_.Trim()
-        #echo "taxon: $dir"
-        RootLinks -Path $dir
-    }
+    #Get-Content ../.taxonomy | ForEach-Object {
+    #    # Skip empty lines or comments
+    #    #if (-not $_ -or $_ -eq '' -or $_ -match '^\\s*#') { return }
+    #    $dir = $_.Trim()
+    #    #echo "taxon: $dir"
+    #    RootLinks -Path $dir
+    #}
     
 
     Get-Content ../.runtimes | ForEach-Object {
@@ -114,6 +114,7 @@ function DataLinks () {
         #if (-not $_ -or $_ -eq '' -or $_ -match '^\\s*#') { return }
         $dir = $_.Trim()
         #echo "runtime: $dir"
+        RootLinks -Path $dir
         VariableLinks -Path $dir
     }
     

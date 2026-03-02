@@ -1,4 +1,4 @@
-# bindlibs.sh:  bind library dirs for terraform provider plugins and modules
+# bootstrap.sh:  bind library dirs for terraform provider plugins and modules
 
 
 # current context

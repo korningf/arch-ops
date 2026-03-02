@@ -86,13 +86,14 @@ function variableLinks () {
 function dataLinks () {
     pushd data > /dev/null 2>&1
 
-    for dir in `cat ../.taxonomy`; do 
-        #echo "taxon: $dir"
-        rootLinks $dir
-    done
+    #for dir in `cat ../.taxonomy`; do 
+    #    #echo "taxon: $dir"
+    #    rootLinks $dir
+    #done
 
     for dir in `cat ../.runtimes`; do 
         #echo "runtime: $dir"
+        rootLinks $dir
         variableLinks $dir
     done
 
