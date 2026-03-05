@@ -61,7 +61,7 @@ pushd $git_root *> $null
 
 
 # create windows share for terraform.d
-if (-not (IsDir  -Path $env:APP_DATA ))                     { mkdir -p   $env:APP_DATA }
+if (-not (IsDir  -Path $env:TF_HOME ))                     { mkdir -p   $env:TF_HOME }
 #net use T: '\\LOCALHOST\c$\work\terraform.d' /persistent:yes
 
 
