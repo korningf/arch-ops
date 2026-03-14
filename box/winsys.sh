@@ -14,7 +14,8 @@ winget install -e --id=Chocolatey.Chocolatey
 
 # Microsoft sysinternals
 
-choco install -y --force sysinternals
+mkdir -p c:/syswin/bin
+choco install -y --force sysinternals --params "/InstallDir:c:/syswin/bin"
 setx SYSWIN "c:/syswin"
 
 
@@ -30,13 +31,15 @@ choco install -y --force --pre powershell-core
 
 
 # Cygwin POSIX (complete GNU POSIX environment emulator and toolchain)
+mkdir -p c:/cygwin/bin
 choco install -y --force --pre cygwin  --params="/InstallDir:c:/cygwin /SymlinkType:native"
 setx CYGWIN "c:/cygwin  winsymlinks:native"
 
 
 # GitBash POSIX emulator (MSYS2 variant, itself derived from cygwin)
-choco install -y git.install --force --params '/SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /PseudoConsoleSupport'
-setx MSYS "c:/syswin  winsymlinks:native"
+mkdir -p c:/gitwin/bin
+choco install -y git.install --force --params '/InstallDir:c:/gitwin /SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /PseudoConsoleSupport'
+setx MSYS "c:/gitwin  winsymlinks:native"
 
 
 
