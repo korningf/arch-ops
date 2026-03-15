@@ -1,21 +1,75 @@
+# WinSys - Windows multi-POSIX system
+
+# GNU POSIX is much more than a set of unix-like utilities, 
+# it's an operating system kernal and library module layout, 
+# a gcc/glibc compilation toolchain and system library spec,
+# an os filesystem, stream, signal and shell specification,
+# and finally a set of network and system command utilities.
+
+# All Windows POSIX emulators are all derived from Cygwin,
+# and all use a chroot mapping a virtual root filesystem.
+
+# Typically, though low-level gnu-posix binaries work great,
+# porting more complex systems often break only due to paths,
+# specifically mapping paths like `/usr/bin` or `/var/tmp`.
+
+# WinSys aims to make Windows behave like a real GNU POSIX.
+# WinSys also supports Cygwin and GitBash (Msys) in tandem.
+
+# WinSys has 1 core idea: to maintain POSIX symbolic links,
+# either as NTFS Junctions or Windows MKLINK native symlinks,
+# in order to make both Cygwin and GitBash into a REAL POSIX.
+
+# A 2nd core idea of Winsys is we use Cygwin as a toolchain.
+# Anything that requires native compilation will use Cygwin,
+# as its gcc glibc can cross-compile for both MSys and MingW.
+
+# As cygwin requires expert knowledge, we also use Gitbash.
+# Gitbash, coupled with a real package manager, works great
+# for most purposes.
+
+# Cygwin uses its own package management, apt-cyg or cyg-get.
+# We have ported the Msys pacman package manager fot Gitbash.
+# And finally, we use Chocolatey as sWindows package manager.
+
+# - choco   - packages for windows, gitbash, and cygwin
+# - pacman  - packages for gitbash only
+# - cyg-get - packages for cygwin (or apt-cyg)
+
+
 
 # First install Chocolatey
 
 
+# Note: Chocolatey uses Window-style option switches and paths,
+# Use the backslash '\' file separator for '/InstallDir' paths.
 
-```shell
-Set-ExecutionPolicy Bypass -Scope Process -Force
-winget install -e --id=Chocolatey.Chocolatey    
-```
+
+#```shell
+# this fails: 
+#   choco install ...  --params '/InstallDir:c:/syswin/bin'
+
+# this works:
+#  choco install ...  --params '/InstallDir:c:\syswin\bin'
+#```
+
+
+
+#```shell
+#   Set-ExecutionPolicy Bypass -Scope Process -Force
+#   winget install -e --id=Chocolatey.Chocolatey    
+#```
+
+
 
 
  
-```shell
+#```shell
 
 # Microsoft sysinternals
 
 mkdir -p c:/syswin/bin
-choco install -y --force sysinternals --params "/InstallDir:c:/syswin/bin"
+choco install -y --force sysinternals --params '/InstallDir:c:\syswin\bin'
 setx SYSWIN "c:/syswin"
 
 
@@ -32,13 +86,13 @@ choco install -y --force --pre powershell-core
 
 # Cygwin POSIX (complete GNU POSIX environment emulator and toolchain)
 mkdir -p c:/cygwin/bin
-choco install -y --force --pre cygwin  --params="/InstallDir:c:/cygwin /SymlinkType:native"
+choco install -y --force --pre cygwin  --params='/InstallDir:c:\cygwin /SymlinkType:native' 
 setx CYGWIN "c:/cygwin  winsymlinks:native"
 
 
 # GitBash POSIX emulator (MSYS2 variant, itself derived from cygwin)
 mkdir -p c:/gitwin/bin
-choco install -y git.install --force --params '/InstallDir:c:/gitwin /SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /PseudoConsoleSupport'
+choco install -y git.install --force --params '/InstallDir:c:\gitwin /SChannel /Symlinks /GitAndUnixToolsOnPath /WindowsTerminal /PseudoConsoleSupport'
 setx MSYS "c:/gitwin  winsymlinks:native"
 
 
@@ -77,4 +131,4 @@ choco install -y --force --pre terraform
 
 
 
-```
+#```
