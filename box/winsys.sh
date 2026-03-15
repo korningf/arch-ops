@@ -86,7 +86,7 @@ choco install -y --force --pre powershell-core
 
 # Cygwin POSIX (complete GNU POSIX environment emulator and toolchain)
 mkdir -p c:/cygwin/bin
-choco install -y --force --pre cygwin  --params='/InstallDir:c:\cygwin /SymlinkType:native' 
+choco install -y --force --pre cygwin  --params='/InstallDir:c:\cygwin /SymlinkType:native /LocalPackageDir:c:\users\public\downloads' 
 setx CYGWIN "c:/cygwin  winsymlinks:native"
 
 
