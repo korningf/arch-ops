@@ -79,8 +79,8 @@ choco install -y --force wsl2
 
 
 # Microsoft Powershell-core
-choco install -y --force --pre powershell
-choco install -y --force --pre powershell-core
+choco install -y --force powershell
+choco install -y --force powershell-core
 
 
 
