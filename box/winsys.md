@@ -45,9 +45,10 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
 * Configuration
 
   
-* Configure Git (the SCM part) to use Symlinks
+* Configure Git (the SCM part) to use SChannel Symlinks
 
 ```shell
+   git config --global http.sslBackend schannel
    git config --global core.symlinks true
 ```
 
