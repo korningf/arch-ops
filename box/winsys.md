@@ -64,15 +64,21 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
 
 * Development
 
-* dev ops
-  
+* hypervisors
+
 ```shell
     choco install -y virtualbox
     #choco install -y virtualbox-extensions
     choco install -y virtualbox-guest-additions-guest.install
+```
+
+* dev ops
+  
+```shell
+    choco install -y jq
+    choco install -y yq
 
     choco install -y --force vagrant
-    choco install -y --force packer
     choco install -y --force puppet
 ```
 
@@ -85,6 +91,7 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
     choco install -y docker-compose
 
     #choco install -y kubernetes-cli
+    #choco install -y kubernetes-kompose
     choco install -y kubernetes-helm
     choco install -y minikube    
 ```
@@ -93,11 +100,9 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
 * cloud ops
   
 ```shell
-    choco install -y virtualbox
-    #choco install -y virtualbox-extensions
-    choco install -y virtualbox-guest-additions-guest.install
-
-    choco install -y consul
+    choco install -y --force packer
+    choco install -y --force consul
+    choco install -y --force nomad
     choco install -y --pre terraform
 ```
 
@@ -110,9 +115,9 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
     choco install -y awscli
 ```
 
+
 * dotnet devel
- 
-  
+   
 ```shell
     choco install -y dotnetcore
     choco install -y --force dotnet-8.0-aspnetruntime
@@ -125,6 +130,7 @@ We then integrate multiple POSIX environments and File systems, notably Cygwin a
 
     choco install -y vscode
 ```
+
 
 * java devel
   
