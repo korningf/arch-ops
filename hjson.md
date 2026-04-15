@@ -1,9 +1,15 @@
 
 INTRO
 
-JSON is easy for humans to read and write... in theory. In practice JSON gives us plenty of opportunities to make mistakes without even realizing it.
+JSON is ideal as a neutral pure data or API format, but it is a poor choice for a configuration language.
 
-Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to incorporate it into the JSON spec itself. It's intended to be used like a user interface for humans, to read and edit before passing the JSON data to the machine.
+Configuration management is exploratory abd interactive, comments are needed to explain different options, to toggle inert code. 
+Json does not support comments.
+
+Json insists on quotes for key values, and does not support multi-line values.  Json is also too strict on not allowing trailing comas in maps and lists, which makes it very hard to cut and paste template code.
+
+Hjson extennds JSON to do just that.
+
 
 {
   # TL;DR
